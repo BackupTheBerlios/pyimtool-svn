@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'PyRAF-Aqua' target in the 'PyRAF-Aqua' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

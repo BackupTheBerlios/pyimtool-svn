@@ -6,7 +6,7 @@ Version 1.0a0 (June 24, 2004)
     
 Features
     Implemented 90% of the IIS protocol.
-    Full display support from IRAF/PyRAF
+    Full display support from IRAF and PyRAF
     Full cursor support from IRAF.
     Multiple framebuffer (memory limited).
     Full zoom in/out support.
@@ -19,3 +19,4 @@ Known Limitations
     No support for little endian images through a network.
     Few aesthetic quirks here and there in the GUI.
     No cursor support from PyRAF.
+    No online help.

@@ -64,6 +64,10 @@
 		};
 		1058C7A2FEA54F0111CA2CBB = {
 			children = (
+				C4325E8F06CE859D002E68D5,
+				C4006D2F06CE83AB00707CE2,
+				C4006C6006CE838A00707CE2,
+				C4006B3D06CE837D00707CE2,
 				29B97325FDCFA39411CA2CEA,
 				29B97324FDCFA39411CA2CEA,
 			);
@@ -131,11 +135,15 @@
 		};
 		29B97315FDCFA39411CA2CEA = {
 			children = (
+				C4325EC906CE85FE002E68D5,
 				E24A798F060CFDC300E71E78,
 				E27DD37A0645685000237D46,
 				E2D80597060D41BA00B63C81,
 				29B97316FDCFA39411CA2CEA,
 				C433826606CE6FFA007441AF,
+				C4006D3906CE83C100707CE2,
+				C4006D3B06CE83D700707CE2,
+				C4006D3D06CE83E300707CE2,
 			);
 			isa = PBXGroup;
 			name = "Other Sources";
@@ -295,6 +303,14 @@
 				C433826406CE6F7F007441AF,
 				C433826506CE6F7F007441AF,
 				C433826706CE6FFA007441AF,
+				C4006C5F06CE837D00707CE2,
+				C4006D2E06CE838A00707CE2,
+				C4006D3806CE83AB00707CE2,
+				C4006D3A06CE83C100707CE2,
+				C4006D3C06CE83D700707CE2,
+				C4006D3E06CE83E300707CE2,
+				C4325EC406CE859E002E68D5,
+				C4325F2306CE85FE002E68D5,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +383,120 @@
 //C42
 //C43
 //C44
+		C4006B3D06CE837D00707CE2 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			name = PyObjC;
+			path = /Library/Python/2.3/PyObjC;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4006C5F06CE837D00707CE2 = {
+			fileRef = C4006B3D06CE837D00707CE2;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4006C6006CE838A00707CE2 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			name = numarray;
+			path = /Library/Python/2.3/numarray;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4006D2E06CE838A00707CE2 = {
+			fileRef = C4006C6006CE838A00707CE2;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4006D2F06CE83AB00707CE2 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			name = numdisplay;
+			path = /Library/Python/2.3/numdisplay;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4006D3806CE83AB00707CE2 = {
+			fileRef = C4006D2F06CE83AB00707CE2;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4006D3906CE83C100707CE2 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			name = fitsdiff.py;
+			path = /Library/Python/2.3/fitsdiff.py;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4006D3A06CE83C100707CE2 = {
+			fileRef = C4006D3906CE83C100707CE2;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4006D3B06CE83D700707CE2 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			name = pyfits.py;
+			path = /Library/Python/2.3/pyfits.py;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4006D3C06CE83D700707CE2 = {
+			fileRef = C4006D3B06CE83D700707CE2;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4006D3D06CE83E300707CE2 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			name = readgeis.py;
+			path = /Library/Python/2.3/readgeis.py;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4006D3E06CE83E300707CE2 = {
+			fileRef = C4006D3D06CE83E300707CE2;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4325E8F06CE859D002E68D5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			name = Numeric;
+			path = /Library/Python/2.3/Numeric;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4325EC406CE859E002E68D5 = {
+			fileRef = C4325E8F06CE859D002E68D5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4325EC906CE85FE002E68D5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			path = pyraf;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4325F2306CE85FE002E68D5 = {
+			fileRef = C4325EC906CE85FE002E68D5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		C433826006CE6F7F007441AF = {
 			fileEncoding = 30;
 			isa = PBXFileReference;

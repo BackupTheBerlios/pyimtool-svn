@@ -56,7 +56,6 @@
 //104
 		1058C7A0FEA54F0111CA2CBB = {
 			children = (
-				C4FEB8CE06753F2B0047E1D9,
 				1058C7A1FEA54F0111CA2CBB,
 			);
 			isa = PBXGroup;
@@ -98,6 +97,7 @@
 //194
 		19C28FACFE9D520D11CA2CBB = {
 			children = (
+				C4ED34D606CE7EC400EACB72,
 				8D1107320486CEB800E47090,
 			);
 			isa = PBXGroup;
@@ -127,6 +127,7 @@
 			projectDirPath = "";
 			targets = (
 				8D1107260486CEB800E47090,
+				C4ED34D506CE7EC400EACB72,
 			);
 		};
 		29B97314FDCFA39411CA2CEA = {
@@ -136,6 +137,7 @@
 				29B97317FDCFA39411CA2CEA,
 				29B97323FDCFA39411CA2CEA,
 				19C28FACFE9D520D11CA2CBB,
+				C4ED34D706CE7EC400EACB72,
 			);
 			isa = PBXGroup;
 			name = PyImtool;
@@ -145,6 +147,8 @@
 		};
 		29B97315FDCFA39411CA2CEA = {
 			children = (
+				C4ED379106CE80EB00EACB72,
+				C4ED379206CE80EB00EACB72,
 				E24A798F060CFDC300E71E78,
 				E27DD37A0645685000237D46,
 				E2D80597060D41BA00B63C81,
@@ -293,6 +297,7 @@
 				WRAPPER_EXTENSION = app;
 			};
 			dependencies = (
+				C4ED34D906CE7EFB00EACB72,
 			);
 			isa = PBXNativeTarget;
 			name = PyImtool;
@@ -311,6 +316,7 @@
 		8D1107290486CEB800E47090 = {
 			buildActionMask = 2147483647;
 			files = (
+				C4ED378C06CE805B00EACB72,
 				8D11072A0486CEB800E47090,
 				8D11072B0486CEB800E47090,
 				E24A7990060CFDC300E71E78,
@@ -327,7 +333,6 @@
 				C4ABBCAB066FE62400D0BF0A,
 				C4ABBCAD066FE64300D0BF0A,
 				C475436D066FEC5000D102B0,
-				C4FEB8CF06753F2B0047E1D9,
 				C4553612067A820B0074DD61,
 				C4BBFC19067E7FDC0018A7B5,
 				C4BBFC42067E84400018A7B5,
@@ -864,15 +869,144 @@
 			settings = {
 			};
 		};
-		C4FEB8CE06753F2B0047E1D9 = {
+		C4ED34D206CE7EC400EACB72 = {
+			buildActionMask = 2147483647;
+			files = (
+				C4ED379306CE80EB00EACB72,
+			);
+			isa = PBXResourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ED34D306CE7EC400EACB72 = {
+			buildActionMask = 2147483647;
+			files = (
+				C4ED379406CE80EB00EACB72,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ED34D406CE7EC400EACB72 = {
+			buildActionMask = 2147483647;
+			files = (
+				C4ED379506CE80F900EACB72,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4ED34D506CE7EC400EACB72 = {
+			buildPhases = (
+				C4ED34D206CE7EC400EACB72,
+				C4ED34D306CE7EC400EACB72,
+				C4ED34D406CE7EC400EACB72,
+			);
+			buildRules = (
+			);
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "MagnifiedView-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OPTIMIZATION_CFLAGS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-framework Foundation -framework AppKit";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = MagnifiedView;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+			);
+			isa = PBXNativeTarget;
+			name = MagnifiedView;
+			productName = MagnifiedView;
+			productReference = C4ED34D606CE7EC400EACB72;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>MagnifiedView</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.yourcompany.MagnifiedView</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+</dict>
+</plist>
+";
+			productType = "com.apple.product-type.bundle";
+		};
+		C4ED34D606CE7EC400EACB72 = {
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
 			isa = PBXFileReference;
-			lastKnownFileType = "wrapper.plug-in";
 			path = MagnifiedView.bundle;
+			refType = 3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C4ED34D706CE7EC400EACB72 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.xml;
+			name = "MagnifiedView-Info.plist";
+			path = "/Users/fpierfed/sviluppo/newStyle/pyimtool/PyImtool/MagnifiedView-Info.plist";
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4ED34D806CE7EFB00EACB72 = {
+			containerPortal = 29B97313FDCFA39411CA2CEA;
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = C4ED34D506CE7EC400EACB72;
+			remoteInfo = MagnifiedView;
+		};
+		C4ED34D906CE7EFB00EACB72 = {
+			isa = PBXTargetDependency;
+			target = C4ED34D506CE7EC400EACB72;
+			targetProxy = C4ED34D806CE7EFB00EACB72;
+		};
+		C4ED378C06CE805B00EACB72 = {
+			fileRef = C4ED34D606CE7EC400EACB72;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4ED379106CE80EB00EACB72 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			path = MagnifiedView.h;
 			refType = 4;
 			sourceTree = "<group>";
 		};
-		C4FEB8CF06753F2B0047E1D9 = {
-			fileRef = C4FEB8CE06753F2B0047E1D9;
+		C4ED379206CE80EB00EACB72 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.objc;
+			path = MagnifiedView.m;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4ED379306CE80EB00EACB72 = {
+			fileRef = C4ED379106CE80EB00EACB72;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4ED379406CE80EB00EACB72 = {
+			fileRef = C4ED379206CE80EB00EACB72;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4ED379506CE80F900EACB72 = {
+			fileRef = 1058C7A1FEA54F0111CA2CBB;
 			isa = PBXBuildFile;
 			settings = {
 			};

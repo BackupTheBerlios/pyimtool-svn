@@ -82,7 +82,6 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         self.offset = 0.
         self.scale = 1.
         
-        # self.lutName = 'standard'
         self.colormap = self.initColormaps ()
         return
     
@@ -134,6 +133,11 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             self.lutName = cm.keys ()[0]
         else:
             raise (IOError, 'No available colormap file!')
+        
+        # Notify the AppDelegate instance of the names of the colormaps
+        # we just found AND of the name of the default colormap
+        NSApp ().delegate ().setLuts (lutNames=cm.keys (), 
+                                      defaultLut=self.lutName)
         return (cm)
     
     
@@ -142,6 +146,13 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             cm = self.colormap[self.lutName]
         else:
             cm = self.colormap[sender.title ()]
+            # uncheck all of the previously checked menu items
+            parentMenu = sender.menu ()
+            for item in parentMenu.itemArray ():
+                if (item.state () != NSOffState):
+                    item.setState_ (NSOffState)
+            # update the menu item state
+            sender.setState_ (NSOnState)
         
         glPixelMapfv (GL_PIXEL_MAP_I_TO_R, cm[0])
         glPixelMapfv (GL_PIXEL_MAP_I_TO_G, cm[1])
@@ -151,27 +162,6 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         if (refresh):
             self.setNeedsDisplay_ (True)
         return
-    
-    
-    def initWithFrame_ (self, frame):
-        """
-        Set th epixel format
-        """
-        print ('pixel format')
-        attribs = [
-            NSOpenGLPFANoRecovery,
-            NSOpenGLPFAWindow,
-            NSOpenGLPFAAccelerated,
-            NSOpenGLPFADoubleBuffer,
-            NSOpenGLPFAColorSize, 8,
-            NSOpenGLPFAAlphaSize, 1,
-            NSOpenGLPFADepthSize, 8,
-            NSOpenGLPFAStencilSize, 1,
-            NSOpenGLPFAAccumSize, 0,
-        ]
-        fmt = NSOpenGLPixelFormat.alloc().initWithAttributes_(attribs)
-        self = super(PyOpenGLView, self).initWithFrame_pixelFormat_(frame, fmt)
-        return self
     
     
     def prepareOpenGL (self):

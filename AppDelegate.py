@@ -144,6 +144,10 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         # attach the toolbar to the window
         self.mainWindow.setToolbar_ (self.toolbar)
         
+        # colormap stuff
+        self.lutNames = []
+        self.defaultLut = DEFAULT_LUT
+        
         pool.release ()
         return
     
@@ -159,13 +163,8 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         imageMenu = mainMenu.itemWithTitle_ ('Image').submenu ()
         colormapMenu = imageMenu.itemWithTitle_ ('Colormap').submenu ()
         
-        # scan the colormaps directory
-        lutFiles = glob.glob ('%s/colormaps/*.lut' % (RESOURCES_PATH))
-        
         # Add the colormaps we found
-        for fileName in lutFiles:
-            lutName = os.path.basename (fileName[:-4])
-            
+        for lutName in self.lutNames:
             newItem = NSMenuItem.allocWithZone_ (NSMenu.menuZone ())
             newItem.initWithTitle_action_keyEquivalent_ (lutName, None, '')
             
@@ -174,6 +173,10 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
             
             colormapMenu.addItem_ (newItem)
             newItem.release ()
+        
+        # select self.defaultLut menu item
+        theOne = colormapMenu.itemWithTitle_ (self.defaultLut).setState_ (NSOnState)
+        
         pool.release ()
         return
     
@@ -203,6 +206,17 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
 #             # give the user the possibility to have the new version
 #             # downloaded automatically.
 #             v = VersionChecker ()
+        return
+    
+    
+    def setLuts (self, lutNames, defaultLut=DEFAULT_LUT):
+        """
+        Set the instance variables self.lutNames and self.defaultLut.
+        It is invoked by self.imageView after it is done scanning the 
+        colormaps directory.
+        """
+        self.lutNames = lutNames
+        self.defaultLut = defaultLut
         return
     
     

@@ -82,7 +82,8 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         self.offset = 0.
         self.scale = 1.
         
-        self.colormap = self.initColormaps ()
+        self.colormap = {}
+        self.initColormaps ()
         return
     
     
@@ -99,8 +100,6 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         return
     
     def initColormaps (self):
-        cm = {}
-        
         # scan the colormaps directory for LUTs
         lutFiles = glob.glob ('%s/colormaps/*.lut' % (RESOURCES_PATH))
         
@@ -114,31 +113,31 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
                 print ('Cannot read file %s' % (fileName))
                 continue
             
-            cm[lutName] = [numarray.zeros (shape=(256), type='Float32'), 
+            self.colormap[lutName] = [numarray.zeros (shape=(256), type='Float32'), 
                            numarray.zeros (shape=(256), type='Float32'), 
                            numarray.zeros (shape=(256), type='Float32')]
             
             for i in range (len (lutData)):
                 (r, g, b) = lutData[i].split ()
-                cm[lutName][0][i] = float (r)
-                cm[lutName][1][i] = float (g)
-                cm[lutName][2][i] = float (b)
+                self.colormap[lutName][0][i] = float (r)
+                self.colormap[lutName][1][i] = float (g)
+                self.colormap[lutName][2][i] = float (b)
         
         # set the default LUT name to DEFAULT_LUT. If that is not 
         # present (which is BAD), default to the first key in the
         # self.colormap dict
-        if (cm.has_key (DEFAULT_LUT)):
+        if (self.colormap.has_key (DEFAULT_LUT)):
             self.lutName = DEFAULT_LUT
-        elif (len (cm.keys ())):
-            self.lutName = cm.keys ()[0]
+        elif (len (self.colormap.keys ())):
+            self.lutName = self.colormap.keys ()[0]
         else:
             raise (IOError, 'No available colormap file!')
         
         # Notify the AppDelegate instance of the names of the colormaps
         # we just found AND of the name of the default colormap
-        NSApp ().delegate ().setLuts (lutNames=cm.keys (), 
+        NSApp ().delegate ().setLuts (lutNames=self.colormap.keys (), 
                                       defaultLut=self.lutName)
-        return (cm)
+        return
     
     
     def setColormap (self, sender=None, refresh=True):

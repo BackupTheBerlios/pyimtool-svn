@@ -16,7 +16,7 @@ NibClassBuilder.extractClasses("Preferences")
 
 # class defined in Preferences.nib
 class PrefsController (NibClassBuilder.AutoBaseClass):
-    # the actual base class is WSTConnectionWindowController
+    # the actual base class is WSWindowController
     # The following outlets are added to the class:
     # inetSockets
     # unixSockets
@@ -52,15 +52,10 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         
         # check the preferences and set the check-boxes
         # accordingly.
-        if (PREFS['EnableUNIXSockets']):
-            self.unixSockets.setState_ (NSOnState)
+        if (PREFS['EnableIRAFIntegration']):
+            self.irafIntegration.setState_ (NSOnState)
         else:
-            self.unixSockets.setState_ (NSOffState)
-        
-        if (PREFS['EnableINETSockets']):
-            self.inetSockets.setState_ (NSOnState)
-        else:
-            self.inetSockets.setState_ (NSOffState)
+            self.irafIntegration.setState_ (NSOffState)
         
         self.imageScale.deselectAllCells ()
         if (PREFS['ScaleToFit']):
@@ -81,10 +76,8 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         nthreads = 0
         value = None
         
-        if (sender == self.unixSockets):
-            key = 'EnableUNIXSockets'
-        elif (sender == self.inetSockets):
-            key = 'EnableINETSockets'
+        if (sender == self.irafIntegration):
+            key = 'EnableIRAFIntegration'
         elif (sender == self.imageScale):
             # self.imageScale is a NSMatrix. The first
             # is for "actual_size" behaviour, the second
@@ -108,35 +101,15 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
     
     
     def windowShouldClose_ (self, sender):
-        nthreads = 0
-        
-        # here we want to make sure that at least one 
-        # Data Thread is selected...
-        if (PREFS['EnableUNIXSockets']):
-            nthreads += 1
-        if (PREFS['EnableINETSockets']):
-            nthreads += 1
-        
-        if (nthreads == 0):
-            # display an alert!
-            answer = NSRunAlertPanel ('Data Input Threads', 
-                                      'At least one of the checkboxes for IRAF Integration must be selected!',
-                                      'Ok',
-                                      nil,
-                                      nil)
-            # select the proper tab
-            self.tabView.selectTabViewItemAtIndex_ (1)
-            return (NO)
-        else:
-            # save the preferences on file
-            prefs = NSUserDefaults.standardUserDefaults ()
-            for key in PREFS.keys ():
-                # update the application preferences
-                prefs.setBool_forKey_ (PREFS[key], key)
-            # and acknowledge the fact that, now, we have a 
-            # preferences file!
-            prefs.setBool_forKey_ (True, 'HasPrefsFile')
-            return (YES)
+        # save the preferences on file
+        prefs = NSUserDefaults.standardUserDefaults ()
+        for key in PREFS.keys ():
+            # update the application preferences
+            prefs.setBool_forKey_ (PREFS[key], key)
+        # and acknowledge the fact that, now, we have a 
+        # preferences file!
+        prefs.setBool_forKey_ (True, 'HasPrefsFile')
+        return (True)
     
     
     def windowWillClose_ (self, notification):

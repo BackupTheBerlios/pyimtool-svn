@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PyImtool</key>
+	    <dict>
+	        <key>version</key>
+            <string>1.0a0</string>
+            
+            <key>url</key>
+            <string>http://developer.berlios.de/project/showfiles.php?group_id=1832</string>
+        </dict>
+</dict>
+</plist>

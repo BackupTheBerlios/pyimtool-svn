@@ -6,7 +6,10 @@ class PseudoUTF8Input(object):
     def __init__(self, readlinemethod):
         self._buffer = u''
         self._readline = readlinemethod
-
+    
+    def isatty (self):
+        return (True)
+    
     def read(self, chars=None):
         if chars is None:
             if self._buffer:

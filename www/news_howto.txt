@@ -1,0 +1,12 @@
+1. ssh shell.berlios.de
+2. create fetch-html.sh and make it executable
+3. put the following commands in fetch-html.sh:
+#!/bin/sh
+#
+#       Sample shell script to fetch your project HTML
+#
+/usr/bin/wget -q -O ~/news.tmp 'http://developer.berlios.de/export/projnews.php?group_id=1832&limit=3&flat=0&show_summaries=0'  > /dev/null
+sed 's/<DL COMPACT>//;s/<HR.*>/<br\/>/;s/<div align="center">.*//' news.tmp > /home/groups/pyimtool/htdocs/news.cache
+rm -f ~/news.tmp
+4. crontab -e
+53 * * * * ~/fetch-html.sh

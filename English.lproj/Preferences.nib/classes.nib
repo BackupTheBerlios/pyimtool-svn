@@ -7,7 +7,9 @@
             LANGUAGE = ObjC; 
             OUTLETS = {
                 appDelegate = id; 
+                browseButton = id; 
                 imageScale = id; 
+                irafIntegration = id; 
                 irafRootField = id; 
                 tabView = id; 
                 versionCheck = id; 

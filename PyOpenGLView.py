@@ -256,6 +256,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         # Start off by updating self.frameBuffers
         # HANDLE IT BETTER!!!!!
         self.frameBuffers[self.hotSpareID] = frameBuffer
+        self.images[self.hotSpareID] = True
         
         # update the mapping, if needed
         if (self.mapping.has_key (self.frameNo)):
@@ -289,6 +290,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             self.frameBuffers[self.hotSpareID] = None
         
         self.setFrameSize_ ((frameBuffer.width, frameBuffer.height))
+        
         self.setNeedsDisplay_ (True)
         pool.release ()
         return
@@ -536,6 +538,14 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         return
     
     
+    def setImage_ (self, image):
+        """
+        Call drawRect_ () ro update the visibleRect of the OpenGL view.
+        """
+        self.drawRect_ (self.visibleRect ())
+        return
+    
+    
     def zoomIn (self):
         # Get the currently displayed image/frameBuffer
         imageID = self.mapping[self.frameNo]
@@ -662,9 +672,9 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             imageID = self.mapping[newFrameNo]
             
             if (self.images[imageID]):
-                self.setImage_ (self.images[imageID])
-                self.setNeedsDisplay_ (True)
                 self.frameNo = newFrameNo
+                self.setImage_ (self.images[imageID])
+                # self.setNeedsDisplay_ (True)
         
         # update the state of teh next/prev buttons
         if (newFrameNo == 1):
@@ -691,9 +701,9 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             imageID = self.mapping[newFrameNo]
             
             if (self.images[imageID]):
-                self.setImage_ (self.images[imageID])
-                self.setNeedsDisplay_ (True)
                 self.frameNo = newFrameNo
+                self.setImage_ (self.images[imageID])
+                # self.setNeedsDisplay_ (True)
         
         # update the state of teh next/prev buttons
         if (newFrameNo == 1):

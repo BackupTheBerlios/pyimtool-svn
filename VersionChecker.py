@@ -106,7 +106,11 @@ class VersionChecker (object):
             if (NSOKButton == answer):
                 NSWorkspace.sharedWorkspace ().openURL_ (NSURL.URLWithString_ (downloadURL))
         else:
-            print ('Your copy of %s is up to date (version %s).' % (self.name, self.version))
+            answer = NSRunAlertPanel ('Up to date', 
+                                      'Your copy of %s is up to date (version %s).' % (self.name, self.version), 
+                                      'OK', 
+                                      None, 
+                                      None)
         return
 
 

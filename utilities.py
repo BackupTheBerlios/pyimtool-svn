@@ -155,7 +155,7 @@ fbconfigs = {1: [2, 512, 512],
 # Application-wide preferences
 PREFS = {'ScaleToFit': True, 
          'EnableIRAFIntegration': True,
-         'CheckForNewVersion': True}
+         'CheckForNewVersion': False}
 
 # PyImtool Home Page
 HOME_PAGE = 'http://pyimtool.berlios.de'

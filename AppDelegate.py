@@ -63,6 +63,9 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         self.toolbarLabels = []
         self.toolbar = None
         
+        # make sure that only one pref vindow will be open
+        self.showingPrefsWindow = False
+        
         # read the application preferences
         prefs = NSUserDefaults.standardUserDefaults ()
         
@@ -165,11 +168,23 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
             self.unixDataThread.start ()
         
         # Are we asked to check and see if a new version is out?
-        if (PREFS['CheckForNewVersion']):
-            # Yes. Start a new thread and do the chack. We should 
-            # give the user the possibility to have the new version
-            # downloaded automatically.
-            v = VersionChecker ()
+#         if (PREFS['CheckForNewVersion']):
+#             # Yes. Start a new thread and do the chack. We should 
+#             # give the user the possibility to have the new version
+#             # downloaded automatically.
+#             v = VersionChecker ()
+        return
+    
+    
+    def checkVersion_ (self, sender):
+        """
+        Check the main site (pyimtool.berlios.de) for new versions
+        of the software.
+        """
+        # Start a new thread and do the check. We should 
+        # give the user the possibility to have the new version
+        # downloaded automatically.
+        v = VersionChecker ()
         return
     
     
@@ -315,7 +330,18 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         """
         Shows the Preferences window
         """
-        PrefsController.prefsController ().showWindow_ (self)
+        if (not self.showingPrefsWindow):
+            prefsController = PrefsController.prefsController (self)
+            prefsController.showWindow_ (self)
+            self.showingPrefsWindow = True
+        return
+    
+    
+    def prefsWindowClosed (self):
+        """
+        Update self.showingPrefsWindow
+        """
+        self.showingPrefsWindow = False
         return
     
     
@@ -331,6 +357,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         pool = NSAutoreleasePool.alloc().init()
         
         if (self.statusField.stringValue () != statusText):
+            self.statusField.setStringValue_ ('')
             self.statusField.setStringValue_ (statusText)
         
         if (progressPercent < 0):

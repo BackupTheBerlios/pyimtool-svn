@@ -49,12 +49,13 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         '_workerThread',
         '_windowIsClosing')
     
-    def prefsController (self):
-        return (PrefsController.alloc ().init ())
+    def prefsController (self, appDelegate):
+        return (PrefsController.alloc ().init (appDelegate))
     
     prefsController = classmethod (prefsController)
     
-    def init (self):
+    def init (self, appDelegate):
+        self.appDelegate = appDelegate
         self = self.initWithWindowNibName_ ("Preferences")
         
         super (PrefsController, self).init ()
@@ -134,8 +135,9 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
     
     
     def windowWillClose_ (self, notification):
+        # Tell the AppDelegate that we are closing up shop
+        self.appDelegate.prefsWindowClosed ()
         self.autorelease()
-        
         return
 
 

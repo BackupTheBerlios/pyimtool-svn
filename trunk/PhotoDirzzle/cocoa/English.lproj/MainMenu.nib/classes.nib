@@ -1,0 +1,22 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {alphaValueChanged = id; invertDstImage = id; }; 
+            CLASS = AppDelegate; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                alphaSlider = NSSlider; 
+                alphaValueField = NSTextField; 
+                dstImageView = NSImageView; 
+                mainWindow = NSWindow; 
+                progressIndicator = NSProgressIndicator; 
+                srcImageView = NSImageView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = DstImageView; LANGUAGE = ObjC; SUPERCLASS = NSImageView; }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = SrcImageView; LANGUAGE = ObjC; SUPERCLASS = NSImageView; }
+    ); 
+    IBVersion = 1; 
+}

@@ -29,7 +29,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     def isFlipped (self):
         """
         Nasty trick: needed to make sure that our
-        MyImageView is anchoered to the top left
+        MyImageView is anchored to the top left
         corner of the parent NSScrollView.
         See http://www.omnigroup.com/mailman/archive/macosx-dev/2003-October/036608.html
         """
@@ -49,6 +49,12 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     def resignFirstResponder (self):
         self.window ().setAcceptsMouseMovedEvents_ (False)
         return (True)
+    
+    
+    def resetCursorRects (self):
+        frame = self.convertRect_fromView_ (self.superview ().frame (), self.superview ().superview ())
+        self.addCursorRect_cursor_ (frame, NSCursor.crosshairCursor ())
+        return
     
     
     def display (self, frameBuffer):

@@ -93,14 +93,14 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         
         self.setFrameSize_ ((frameBuffer.width, frameBuffer.height))
         self.setImage_ (self.images[inactive])
+        self.frameBuffer = frameBuffer
+        self.setNeedsDisplay_ (True)
         
         # Remove the old image
         if (self.images[self.activeImage]):
-            self.images[self.activeImage] = None
+            self.images[self.activeImage].autorelease ()
         
-        self.frameBuffer = frameBuffer
         self.activeImage = inactive
-        self.setNeedsDisplay_ (True)
         pool.release ()
         return
     

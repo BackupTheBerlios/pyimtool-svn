@@ -155,7 +155,9 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         for key in PREFS.keys ():
             # update the application preferences
             if (key == 'irafRoot'):
-                prefs.setObject_forKey_ (PREFS[key], key)
+                value = self.irafRootField.stringValue ()
+                PREFS['irafRoot'] = value
+                prefs.setObject_forKey_ (value, key)
             else:
                 prefs.setBool_forKey_ (PREFS[key], key)
         # and acknowledge the fact that, now, we have a 

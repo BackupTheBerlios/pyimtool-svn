@@ -106,7 +106,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 113360125;
+			PBXPerProjectTemplateStateSaveDate = 113443647;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -640,7 +640,7 @@
 				PBXModuleWindowStatusBarHidden = YES;
 				RubberWindowFrame = "37 646 582 340 0 0 1344 986 ";
 			};
-			PBXWorkspaceStateSaveDate = 113360125;
+			PBXWorkspaceStateSaveDate = 113443647;
 		};
 		perUserProjectItems = {
 			C40E58CC06C1C8F900402B40 = C40E58CC06C1C8F900402B40;
@@ -668,6 +668,10 @@
 			C483F94D068CC2E900AC6DA7 = C483F94D068CC2E900AC6DA7;
 			C483F94E068CC2E900AC6DA7 = C483F94E068CC2E900AC6DA7;
 			C48B7D690693957F00BB4B4A = C48B7D690693957F00BB4B4A;
+			C49E9CCA06C3034100D24996 = C49E9CCA06C3034100D24996;
+			C49E9CCB06C3034100D24996 = C49E9CCB06C3034100D24996;
+			C49E9CCC06C3034200D24996 = C49E9CCC06C3034200D24996;
+			C49EA0DC06C303CB00D24996 = C49EA0DC06C303CB00D24996;
 			C4A6CDF606BC634F00F0A4CA = C4A6CDF606BC634F00F0A4CA;
 			C4A6CDF706BC634F00F0A4CA = C4A6CDF706BC634F00F0A4CA;
 			C4A6CDFD06BC66A800F0A4CA = C4A6CDFD06BC66A800F0A4CA;
@@ -745,7 +749,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {488, 12417}}";
 			sepNavSelRange = "{30835, 0}";
-			sepNavVisRect = "{{0, 0}, {488, 2}}";
+			sepNavVisRect = "{{0, 0}, {488, 3}}";
 		};
 	};
 	C430D2F606A91173001DF74D = {
@@ -965,6 +969,46 @@
 		rLoc = 2255;
 		rType = 0;
 		vrLen = 152;
+		vrLoc = 0;
+	};
+	C49E9CCA06C3034100D24996 = {
+		fRef = C42CF24A06A3C13D00105273;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 879";
+		rLen = 0;
+		rLoc = 30835;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C49E9CCB06C3034100D24996 = {
+		fRef = C42CF24A06A3C13D00105273;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 879";
+		rLen = 0;
+		rLoc = 30835;
+		rType = 0;
+		vrLen = 21;
+		vrLoc = 0;
+	};
+	C49E9CCC06C3034200D24996 = {
+		fRef = C42CF24A06A3C13D00105273;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 879";
+		rLen = 0;
+		rLoc = 30835;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C49EA0DC06C303CB00D24996 = {
+		fRef = C42CF24A06A3C13D00105273;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 879";
+		rLen = 0;
+		rLoc = 30835;
+		rType = 0;
+		vrLen = 2;
 		vrLoc = 0;
 	};
 	C4A6CDF606BC634F00F0A4CA = {

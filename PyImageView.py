@@ -18,10 +18,11 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     # The following outlets are added to the class:
     def awakeFromNib (self):
         self.bitmap = NSBitmapImageRep.alloc ()
-        self.image = NSImage.alloc ()
+        self.image = NSImage.alloc ().init ()
         self.frameBuffer = None
         self.infoPanel = None
         self.trackMouse = False
+        self.magnifierActive = False
         self.transformation = NSAffineTransform.transform ()
         return
     
@@ -109,6 +110,9 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         
         if (self.mouse_inRect_ ((x, y), frame) and 
             self.mouse_inRect_ ((x, y), view_rect)):
+            if (not self.magnifierActive):
+                self.infoPanel.enableMagnifier ()
+                self.magnifierActive = True
             
             x /= self.frameBuffer.zoom
             y /= self.frameBuffer.zoom
@@ -158,6 +162,9 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
                 self.infoPanel.setField ('x', '---')
                 self.infoPanel.setField ('y', '---')
                 self.infoPanel.setField ('int', '---')
+                if (self.magnifierActive):
+                    self.infoPanel.disableMagnifier ()
+                    self.magnifierActive = False
             except:
                 pass
             self.sx = None
@@ -186,6 +193,9 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         """
         self.trackMouse = False
         return
+    
+    
+    
 
 
 

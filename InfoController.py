@@ -15,7 +15,6 @@ NibClassBuilder.extractClasses("InfoPanel")
 
 # load the MagnifiedView class
 path = os.path.abspath (os.path.join (PATH, '../Resources/MagnifiedView.bundle'))
-print (path)
 import objc
 objc.loadBundle ('MagnifiedView', globals (), bundle_path=path)
 MagnifiedView = objc.lookUpClass ('MagnifiedView')
@@ -42,14 +41,15 @@ class InfoController (NibClassBuilder.AutoBaseClass):
         '_workerThread',
         '_windowIsClosing')
     
-    def infoController (self, view):
-        return (InfoController.alloc ().init (view))
+    def infoController (self, app, view):
+        return (InfoController.alloc ().init (app, view))
     
     infoController = classmethod (infoController)
     
-    def init (self, view):
+    def init (self, app, view):
         self = self.initWithWindowNibName_ ("InfoPanel")
         self.imageView = view
+        self.appDelegate = app
         
         super (InfoController, self).init ()
         return (self)
@@ -60,6 +60,7 @@ class InfoController (NibClassBuilder.AutoBaseClass):
         
         # start the MagnifiedView
         self.magnifiedView.startWithMagnification_crosshairSize_updateInterval_ (4, 10, 0.05)
+        self.magnifiedView.stop ()
         
         # tell the main window to start tracking the mouse.
         self.imageView.startTrackingMouse (self)
@@ -74,7 +75,7 @@ class InfoController (NibClassBuilder.AutoBaseClass):
     
     def windowWillClose_ (self, notification):
         # tell the main window to stop tracking the mouse.
-        self.imageView.stopTrackingMouse ()
+        self.appDelegate.infoWindowWillClose ()
         self.autorelease ()
         return
     
@@ -102,6 +103,15 @@ class InfoController (NibClassBuilder.AutoBaseClass):
         return
     
      
+    def enableMagnifier (self):
+        self.magnifiedView.start ()
+        return
+    
+    
+    def disableMagnifier (self):
+        self.magnifiedView.stop ()
+        return
+
 
 
 

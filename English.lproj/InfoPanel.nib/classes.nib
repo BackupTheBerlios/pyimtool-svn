@@ -5,6 +5,7 @@
             CLASS = InfoController; 
             LANGUAGE = ObjC; 
             OUTLETS = {
+                appDelegate = id; 
                 imageView = id; 
                 intField = id; 
                 magnifiedView = id; 

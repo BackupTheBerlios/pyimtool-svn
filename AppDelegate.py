@@ -155,10 +155,19 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
             # set the menu item title to "Show..."
             sender.setTitle_ ('Show Info Panel')
         else:
-            self.infoPanel = InfoController.infoController (self.imageView)
+            self.infoPanel = InfoController.infoController (self, self.imageView)
             self.infoPanel.showWindow_ (self)
             # set the menu item title to "Hide..."
             sender.setTitle_ ('Hide Info Panel')
+        return
+    
+    
+    def infoWindowWillClose (self):
+        """
+        Called just before the infoWindow will close. It sets the 
+        correct label for the corresponding menu item.
+        """
+        self.infoPanelMenuItem.setTitle_ ('Show Info Panel')
         return
     
     

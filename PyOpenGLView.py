@@ -149,7 +149,12 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         glClearColor (0.0, 0.0, 0.0, 0.0)
         glClearDepth (1.0)
         
+        # sstart with a fresh id matrix
         glLoadIdentity ()
+        
+        # clear the view
+        glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glFlush ()
         return
     
     
@@ -350,46 +355,27 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         We override this method in order to draw on screen using Quartz
         2D directly.
         """
-        # glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        
         frame = self.mapping[self.frameNo]
         if (not self.frameBuffers[frame] or 
             not self.frameBuffers[frame].raw):
             return
         
-        # set the context coordinates to that of the visibleRect
-#         vRect = self.visibleRect ()
-#         (vTop, vLeft, vWidth, vHeight) = (int (vRect.origin.y), 
-#                                           int (vRect.origin.x), 
-#                                           int (vRect.size.width), 
-#                                           int (vRect.size.height))
-#         glOrtho (vLeft, vLeft+vWidth, 
-#                  vTop+vHeight, vTop, 
-#                  -1, 1)
-        
-        # convert rect to the same coordinates of 
+        zoom = self.frameBuffers[frame].zoom
         
         # set the view port
-        x = int (rect.origin.x)
-        y = int (rect.origin.y)
-        w = int (rect.size.width)
-        h = int (rect.size.height)
-        
-        # Find the coords of the bottom-left corner of 'rect' with 
-        # respect to the center of the view (center = OpenGL coords 
-        # origin).
-        x0 = x + 0
-        y0 = int (y - int (h))
-        
-#         print (vHeight, y)
-#         print (x0, y0)
-#         print (x, y, w, h)
+        x = int (rect.origin.x / zoom)
+        y = int (rect.origin.y / zoom)
+        w = int (rect.size.width / zoom)
+        h = int (rect.size.height / zoom)
+        glViewport (x, y, w, h)
         
         # Extract the image region corresponding to rect
-        raw = self.frameBuffers[frame].buffer[y:y+h,x:x+w].tostring ()
+        endX = int (x + w)
+        endY = int (y + h)
+        raw = self.frameBuffers[frame].buffer[y:endY,x:endX].tostring ()
         
-        glViewport (x, y, w, h)
-        # glRasterPos2i (0, 0)        
+        # set the zoom factor and draw the pixels
+        glPixelZoom (zoom, zoom)
         glDrawPixels (w, 
                       h, 
                       GL_COLOR_INDEX, 

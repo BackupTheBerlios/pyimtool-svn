@@ -106,7 +106,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         frame = self.frame ()
         
         view_rect = self.superview ().frame ()
-        view_rect = self.convertRect_fromView_ (view_rect, self.superview ())
+        view_rect = self.convertRect_fromView_ (view_rect, self.superview ().superview ())
         
         if (self.mouse_inRect_ ((x, y), frame) and 
             self.mouse_inRect_ ((x, y), view_rect)):

@@ -187,4 +187,42 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         PrefsController.prefsController ().showWindow_ (self)
         return
     
+    
+    def updateProgressInfo (self, statusText, progressPercent):
+        """
+        Update both the statusField at the bottom of the window and
+        the progress bar/wheel (progressIndicator).
         
+        progressPercent tells where to draw the progress bar. If it
+        is equal to -1, then the progress bar should be undetermined.
+        If it is equal to 2.0, then we should stop the animation
+        """
+        pool = NSAutoreleasePool.alloc().init()
+        
+        if (self.statusField.stringValue () != statusText):
+            self.statusField.setStringValue_ (statusText)
+        
+        if (progressPercent < 0):
+            if (not self.progressIndicator.isIndeterminate ()):
+                self.progressIndicator.setIndeterminate_ (True)
+            self.progressIndicator.startAnimation_ (self)
+        elif (progressPercent <= 1.0):
+            if (self.progressIndicator.isIndeterminate ()):
+                self.progressIndicator.setIndeterminate_ (False)
+            self.progressIndicator.incrementBy_ (progressPercent)
+        else:
+            if (not self.progressIndicator.isIndeterminate ()):
+                self.progressIndicator.setDoubleValue_ (self.progressIndicator.minValue ())
+                self.progressIndicator.setIndeterminate_ (True)
+            self.progressIndicator.stopAnimation_ (self)
+        self.progressIndicator.setNeedsDisplay_ (True)
+        
+        pool.release ()
+        return
+
+
+
+
+
+
+

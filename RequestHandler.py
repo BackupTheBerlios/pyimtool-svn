@@ -181,6 +181,8 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     
     
     def handleFeedback (self, pkt):
+        self.server.controller.updateProgressInfo ('Erasing current frame...', -1)
+        
         self.frameNo = self.decodeFrameNo (pkt.z & 07777) - 1
         
         # erase the frame buffer
@@ -190,6 +192,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     
     
     def handleLut (self, pkt):
+        self.server.controller.updateProgressInfo ('Choosing current frame...', -1)
         if (pkt.subunit & COMMAND):
             dataType = str (pkt.nbytes / 2) + 'h'
             size = struct.calcsize (dataType)
@@ -234,6 +237,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     
     def handleWCS (self, pkt):
         if (pkt.tid & IIS_READ):
+            self.server.controller.updateProgressInfo ('Writing WCS to client...', -1)
             # Return the WCS for the referenced frame.
             if ((pkt.x & 017777) and (pkt.y & 017777)):
                 # return IIS version number
@@ -275,6 +279,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                         text = rightPad (text, SZ_OLD_WCSBUF)
             pkt.dataout.write (text)
         else:
+            self.server.controller.updateProgressInfo ('Reading WCS from client...', -1)
             # Read the WCS infor from the client
             # frames start from 1, we start from 0
             self.frameNo = self.decodeFrameNo (pkt.z & 07777) - 1
@@ -331,14 +336,25 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             # read the data
             tBytes = 0
             if (fb.width and fb.height):
+                # tell the controller (AppDelegate) to update the 
+                # status info on the main window.
+                totalSize = fb.width * fb.height
+                self.server.controller.updateProgressInfo ('Reading pixel data...', 
+                                                            float (pkt.nbytes) / float (totalSize))
+                
                 if (not self.needsUpdate):
                     del (fb.buffer)
-                    fb.buffer = array.array ('B', ' ' * fb.width * fb.height)
+                    fb.buffer = array.array ('B', ' ' * totalSize)
                     self.needsUpdate = 1
                 start = self.x + self.y * fb.width
                 end = start + pkt.nbytes
                 fb.buffer[start:end] = array.array ('B', pkt.datain.read (pkt.nbytes))
             else: 
+                # tell the controller (AppDelegate) to update the 
+                # status info on the main window.
+                totalSize = fb.width * fb.height
+                self.server.controller.updateProgressInfo ('Reading pixel data...', -1)
+                
                 if (not self.needsUpdate):
                     # init the framebuffer
                     fb.buffer.fromstring (pkt.datain.read (pkt.nbytes))
@@ -366,6 +382,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         done = 0
         
         if (pkt.tid & IIS_READ):
+            self.server.controller.updateProgressInfo ('Writing cursor to client...', -1)
             if (pkt.tid & IMC_SAMPLE):
                 # return the cursor position
                 wcs = int (pkt.z)
@@ -389,6 +406,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 
                 self.returnCursor (pkt.dataout, sx, sy, frame, 1, key, '')
         else:
+            self.server.controller.updateProgressInfo ('Reading cursor from client...', -1)
             # read the cursor position in logical coordinates
             sx = int (pkt.x)
             sy = int (pkt.y)
@@ -417,7 +435,9 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     def handle (self):
         """
         This is where the action starts.
-        """        
+        """
+        self.server.controller.updateProgressInfo ('Connecting to client...', -1)
+        
         # create a packet structure
         packet = IIS ()
         packet.datain = self.rfile
@@ -516,6 +536,8 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             if (n < size):
                 return
         # <--- end of the while (n) loop
+        self.server.controller.updateProgressInfo ('Done.', 2.0)
+        
         if (self.needsUpdate):
             self.server.controller.displayImage ()
         return

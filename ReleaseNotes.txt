@@ -1,0 +1,21 @@
+
+PyImtool (http://pyimtool.berlios.de/)
+
+Version 1.0a0 (June 24, 2004)
+    First "semi public" release.
+    
+Features
+    Implemented 90% of the IIS protocol.
+    Full display support from IRAF/PyRAF
+    Full cursor support from IRAF.
+    Multiple framebuffer (memory limited).
+    Full zoom in/out support.
+
+Known Limitations
+    No support for changing image intensity/contrast.
+    No complete implementation of the IIS protocol.
+    No support for loading data other than going through IRAF/PyRAF.
+    No support for software update checks.
+    No support for little endian images through a network.
+    Few aesthetic quirks here and there in the GUI.
+    No cursor support from PyRAF.

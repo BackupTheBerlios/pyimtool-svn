@@ -264,7 +264,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                     text = wcs + mapping
                     text = rightPad (text, SZ_WCSBUF)
                 else:
-                    if (frame < 0 or not fb or not fb.buffer):
+                    if (frame < 0 or not fb or fb.buffer == None):
                         text = "[NOSUCHFRAME]"
                     else:
                         text = fb.wcs

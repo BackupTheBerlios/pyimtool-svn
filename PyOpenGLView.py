@@ -363,7 +363,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             not self.frameBuffers[frame].raw):
             return
         
-        now = time.time ()
+        # now = time.time ()
         
         zoom = self.frameBuffers[frame].zoom
         
@@ -378,10 +378,6 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         zy = int (rect.origin.y / zoom)
         zw = int (rect.size.width / zoom)
         zh = int (rect.size.height / zoom)
-        
-        # print (zoom)
-        # print (x, y, w, h)
-        # print (zx, zy, zw, zh)
         
         endX = int (zx + zw)
         endY = int (zy + zh)
@@ -401,19 +397,17 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         # this means that if zoom < 1, we extract one pixel every
         # 1/zoom pixels (stride=1/zoom). If zoom >= 1, we extract
         # all the pixels in the affected area (stride=1).
-        t0 = time.time ()
+        # t0 = time.time ()
         if (zoom >= 1):
             raw = self.frameBuffers[frame].buffer[zy:endY,zx:endX].tostring ()
-            # print (self.frameBuffers[frame].buffer[zy:endY,zx:endX].shape)
         else:
             stride = int (1. / zoom)
             raw = self.frameBuffers[frame].buffer[zy:endY:stride,zx:endX:stride].tostring ()
-            # print (self.frameBuffers[frame].buffer[zy:endY:stride,zx:endX:stride].shape)
-        dt = time.time () - t0
-        print ('tostring() took %.02fs' % (dt))
+        # dt = time.time () - t0
+        # print ('tostring() took %.02fs' % (dt))
         
         # draw the pixels
-        t0 = time.time ()
+        # t0 = time.time ()
         if (zoom >= 1):
             glViewport (zx, zy, zw, zh)
             glPixelZoom (zoom, zoom)
@@ -430,11 +424,11 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
                           GL_UNSIGNED_BYTE, 
                           raw)
         glFlush ()
-        dt = time.time () - t0
-        print ('glDrawPixels() took %.02fs' % (dt))
+        # dt = time.time () - t0
+        # print ('glDrawPixels() took %.02fs' % (dt))
         
-        dt = time.time () - now
-        print ('drawRect() took %.02fs' % (dt))
+        # dt = time.time () - now
+        # print ('drawRect() took %.02fs' % (dt))
         return
     
     
@@ -460,13 +454,16 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
                 self.infoPanel.enableMagnifier ()
                 self.magnifierActive = True
             
-            x /= frameBuffer.zoom
-            y /= frameBuffer.zoom
+            # factor the zoom in computing the coordinate
+            zoom = frameBuffer.zoom
+            x /= zoom
+            y /= zoom
             
             try:
                 (self.sx, self.sy) = wcsCoordTransform (frameBuffer.ct, x, y)
             except:
                 print ('PYIMTOOL: *** coord. transform failed ***')
+                print (self.sx, self.sy)
                 self.sx = x + 1
                 self.sy = y + 1
             
@@ -547,16 +544,20 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
     
     def keyDown_ (self, event):
         if (not self.reqHandler):
-            sys.stderr.write ('no self.reqHandler\n')
+            print (1)
             return
         
         if (self.sx != None and self.sy != None):
             mods = event.modifierFlags ()
             if (mods == 256):
+                # remember that the image is flipped vertically
+                imageID = self.mapping[self.frameNo]
+                height = self.frameBuffers[imageID].height
+                
                 key = event.characters ()[0]
                 # update the RequestHandlerClass fields
                 self.reqHandler.x = self.sx
-                self.reqHandler.y = self.sy
+                self.reqHandler.y = height - self.sy
                 self.reqHandler.key = key
                 self.reqHandler.frame = self.frameNo
                 self.reqHandler.gotKey = True
@@ -591,11 +592,15 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         return
     
     
-    def stopTrackingMouse (self):
+    def stopTrackingMouse (self, panel=False):
         """
         Stops treacking the mouse.
+        
+        Remember that we might be in cursor mode 
+        (self.reqHandler != None).
         """
-        self.trackMouse = False
+        if (not self.reqHandler):
+            self.trackMouse = False
         return
     
     

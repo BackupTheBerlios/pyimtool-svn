@@ -216,7 +216,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         if (fbIndex >= n):
             # we need to create a new FrameBuffer object (and 
             # possibly intermediate FrameBuffers as well).
-            for i in range (n, bdIndex + 1):
+            for i in range (n, fbIndex + 1):
                 self.frameBuffers[i] = FrameBuffer ()
         else:
             # The FrameBuffer object we are interested in already 

@@ -562,9 +562,10 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         self.scale = (y - h / 2.) / h * MAX_CONTRAST * 2.
         
         # Modify a copy of the actual color tables
-        i2r = (self.i2r * self.scale) + self.offset
-        i2g = (self.i2g * self.scale) + self.offset
-        i2b = (self.i2b * self.scale) + self.offset
+        cm = self.colormap[self.lutName]
+        i2r = (cm[0] * self.scale) + self.offset
+        i2g = (cm[1] * self.scale) + self.offset
+        i2b = (cm[2] * self.scale) + self.offset
         
         # Install the new color tables
         glPixelMapfv (GL_PIXEL_MAP_I_TO_R, i2r)

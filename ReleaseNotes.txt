@@ -5,8 +5,9 @@ Version 1.0a2 (July 2004)
     Third "semi public" release.
     
 Features
-    Graphics engine uses OpenGL now (major rewrite).
+    Graphics engine now uses OpenGL (major rewrite).
     Support for color stretching (using the mouse).
+    Support for standard LUTs.
 
 Known Limitations
     No complete implementation of the IIS protocol.

@@ -21,6 +21,19 @@ from PyImage import *
 NibClassBuilder.extractClasses ("MainMenu")
 
 class AppDelegate (NibClassBuilder.AutoBaseClass):
+    """
+    This, in a sense, is the main application. It is here that we 
+    setup all the various bits and pieces that make up our app.
+    
+    This class is defined in MainMenu.nib and, therefore is already
+    instantiated (it is like it has been pickled). This is why we do
+    not have a Python constructor method: it would never get called.
+    
+    This class has some instance variables already defined in the NIB
+    file. These are:
+    imageView
+    
+    """
     def init (self):
         """
         Initialization method. Sets instance variables ro defult 
@@ -85,16 +98,6 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         return
     
     
-    def updateImage (self):
-        # if this gets called, that means that 
-        # we should rebuild self.image using 
-        # self.header and self.data
-        self.image = PyImage (self.header, self.data)
-        
-        self.imgView.display (self.image)
-        return
-    
-    
     def displayImage (self):
         """
         This method gets called by the active RequestHandler object
@@ -102,6 +105,10 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         can be confident that the current frame buffer (identified by
         self.curentFrame) is properly setup.
         """
+        
+        sys.stderr.write ('displayImage ()\n')
+        self.imageView.display (self.frameBuffers[self.currentFrame])
+        
         return
     
     
@@ -127,7 +134,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
     
     
     def setCurrentFrame (self, fbIndex):
-        if (fnIndex >= len (self.frameBuffers)):
+        if (fbIndex >= len (self.frameBuffers)):
             raise (IndexError, 'framebuffer index out of range')
         else:
             self.currentFrame = fbIndex
@@ -135,7 +142,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
     
     
     def getFrame (self, fbIndex):
-        if (fnIndex >= len (self.frameBuffers)):
+        if (fbIndex >= len (self.frameBuffers)):
             raise (IndexError, 'framebuffer index out of range')
         else:
             return (self.frameBuffers[fbIndex])

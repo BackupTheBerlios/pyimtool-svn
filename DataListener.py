@@ -76,7 +76,7 @@ class DataListener (threading.Thread):
             # Error handling goes here.
             sys.stderr.write ('PYIMTOOL: error opening the connection.\n')
             for exctn in sys.exc_info():
-                sys.stderr.write (exctn + '\n')
+                print (exctn)
             return
         
         # We have data from the socket connection. Instantiate a 
@@ -88,7 +88,7 @@ class DataListener (threading.Thread):
             # Error handling goes here.
             sys.stderr.write ('PYIMTOOL: error handling the request.')
             for exctn in sys.exc_info ():
-                sys.stderr.write (exctn + '\n')
+                print (exctn)
             return
         return
     

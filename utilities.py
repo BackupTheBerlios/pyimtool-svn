@@ -238,7 +238,7 @@ def deg2sex (deg, sep=':'):
     return (sex)
 
 
-def right_pad (strg, length, ch=' '):
+def rightPad (strg, length, ch=' '):
     """As seen on http://www.halfcooked.com/mt/archives/000640.html"""
     return (strg + ch * (length - len(strg)))
 

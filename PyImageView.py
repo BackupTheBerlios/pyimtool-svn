@@ -9,8 +9,11 @@ from utilities import *
 from PyImage import *
 
 
+NibClassBuilder.extractClasses ("MainMenu")
+
+
 # class defined in MainMenu.nib
-class PyImageView (NSImageView):
+class PyImageView (NibClassBuilder.AutoBaseClass):
     # the actual base class is NSImageView
     # The following outlets are added to the class:
     
@@ -40,7 +43,7 @@ class PyImageView (NSImageView):
         
         try:
             tempBitmap = NSBitmapImageRep.alloc().initWithBitmapDataPlanes_pixelsWide_pixelsHigh_bitsPerSample_samplesPerPixel_hasAlpha_isPlanar_colorSpaceName_bytesPerRow_bitsPerPixel_ (
-                (img.data, None, None, None, None), 
+                (img.buffer, None, None, None, None), 
                 img.width, 
                 img.height,  
                 img.bitsPerSample, 
@@ -48,7 +51,7 @@ class PyImageView (NSImageView):
                 img.hasAlpha, 
                 img.isPlanar, 
                 img.colorSpaceName, 
-                img.bytesPerRow, 
+                img.width, 
                 img.bitsPerSample * img.samplesPerPixel)
         except:
             if (VERBOSE):

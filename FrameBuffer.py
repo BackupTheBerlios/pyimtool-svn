@@ -22,6 +22,12 @@ class FrameBuffer (object):
         self.buffer = None          # used for screen updates
         self.zoom = 1.0             # zoom level
         self.ct = CoordTransf ()
+        
+        self.bitsPerSample = 8
+        self.samplesPerPixel = 1
+        self.hasAlpha = False
+        self.isPlanar = True
+        self.colorSpaceName = NSCalibratedWhiteColorSpace
         return
     
     

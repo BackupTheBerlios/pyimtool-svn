@@ -20,7 +20,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     
     The communication protocol used is IIS (XImtool).
     """
-    def __init__ (self):
+    def __init__ (self, request, clientAddress, server):
         """
         This is the class constructor. It is the Python constructor
         since we are actually instantiating this object ourselves.
@@ -37,6 +37,8 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         self.y1 = -1
         self.sequence = -1
         self.gotKey = None
+        
+        SocketServer.StreamRequestHandler.__init__ (self, request, clientAddress, server)
         return
     
     
@@ -199,7 +201,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 x = struct.unpack (dataType, line)
             except:
                 for exctn in sys.exc_info():
-                    sys.stderr.write (exctn + '\n')
+                    sys.stderr.write (exctn)
             
             if (len (x) < 14):
                 # pad it with zeroes
@@ -434,7 +436,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             except:
                 sys.stderr.write ('PYIMTOOL: error unpacking the data.\n')
                 for exctn in sys.exc_info():
-                    sys.stderr.write (exctn + '\n')
+                    sys.stderr.write (exctn)
             
             # verify checksum
             # DO SOMETHING!
@@ -466,27 +468,32 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             # decide what to do, depending on the
             # value of subunit            
             if (packet.subunit077 == FEEDBACK):
+                print ('feedback')
                 self.handleFeedback (packet)
             elif (packet.subunit077 == LUT):
+                print ('lut')
                 self.handleLut (packet)
                 # read the next packet
                 line = packet.datain.read (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == MEMORY):
+                print ('memory')
                 self.handleMemory (packet)
-                if (self.needsUpdate):
-                    self.server.controller.animateProgressWeel ()
+                # if (self.needsUpdate):
+                #     self.server.controller.animateProgressWeel ()
                 # read the next packet
                 line = packet.datain.read (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == WCS):
+                print ('wcs')
                 self.handleWCS (packet)
                 line = packet.datain.read (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == IMCURSOR):
+                print ('cursor')
                 self.handleImcursor (packet)
                 line = packet.datain.read (size)
                 n = len (line)

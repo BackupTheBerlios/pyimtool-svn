@@ -24,6 +24,7 @@ from utilities import *
 
 # my own classes
 from PrefsController import *
+from VersionChecker import *
 from WindowDelegate import *
 from InfoController import *
 from DataListener import *

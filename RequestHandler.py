@@ -332,20 +332,29 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             
             # read the data
             tBytes = 0
+            rawData = pkt.fromClient (pkt.nbytes)
             if (fb.width and fb.height):
                 # tell the controller (AppDelegate) to update the 
                 # status info on the main window.
                 totalSize = fb.width * fb.height
                 self.server.controller.updateProgressInfo ('Reading pixel data...', 
-                                                            float (pkt.nbytes) / float (totalSize))
+                                                           float (pkt.nbytes) / float (totalSize))
                 
                 if (not self.needsUpdate):
                     del (fb.buffer)
-                    fb.buffer = array.array ('B', ' ' * totalSize)
+                    fb.buffer = numarray.zeros (shape=(fb.height, fb.width), 
+                                                type='UByte')
                     self.needsUpdate = 1
-                start = self.x + self.y * fb.width
-                end = start + pkt.nbytes
-                fb.buffer[start:end] = array.array ('B', pkt.fromClient (pkt.nbytes))
+                startx = self.x
+                endx = startx + fb.width
+                starty = self.y
+                endy = starty + (pkt.nbytes / fb.width)
+                w = endx - startx
+                h = endy - starty
+                                
+                fb.buffer[starty:endy,startx:endx] = numarray.fromstring (rawData, 
+                                                                           shape=(h, w), 
+                                                                           type='UByte')
             else: 
                 # tell the controller (AppDelegate) to update the 
                 # status info on the main window.
@@ -354,11 +363,11 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 
                 if (not self.needsUpdate):
                     # init the framebuffer
-                    fb.buffer.fromstring (pkt.fromClient (pkt.nbytes))
+                    fb.buffer.fromstring (rawData)
                     fb.buffer.reverse ()
                     self.needsUpdate = 1
                 else:
-                    data = array.array ('B', pkt.fromClient (pkt.nbytes))
+                    data = array.array ('B', rawData)
                     data.reverse ()
                     fb.buffer += data
             width = fb.width
@@ -392,13 +401,13 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 self.server.controller.imageView.setReqHandler (self)
                 
                 while (not self.gotKey):
-                    # Wait for the PyImageView instance to wake us up
+                    # Wait for the PyOpenGLView instance to wake us up
                     time.sleep (0.3)
                 
                 # If we are here, it means that
                 # 1. the user pressed a key whilst the cursor was 
-                #    inside PyImageView
-                # 2. PyImageView intercepted the keyDown event and
+                #    inside PyOpenGLView
+                # 2. PyOpenGLView intercepted the keyDown event and
                 #    notified us by setting our self.gotKey to True
                 sx = self.x
                 sy = self.y
@@ -554,7 +563,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             
             # read the next packet
             if (self.verbose):
-                    print ('Next packet (last chance)')
+                print ('Next packet (last chance)')
             line = packet.fromClient (size)
             n = len (line)
             if (n < size):

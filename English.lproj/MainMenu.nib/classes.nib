@@ -15,6 +15,7 @@
         }, 
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {CLASS = PyImageView; LANGUAGE = ObjC; SUPERCLASS = NSImageView; }, 
+        {CLASS = PyOpenGLView; LANGUAGE = ObjC; SUPERCLASS = NSOpenGLView; }, 
         {CLASS = WindowDelegate; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
     ); 
     IBVersion = 1; 

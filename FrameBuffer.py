@@ -26,14 +26,15 @@ class FrameBuffer (object):
     def __init__ (self):
         self.width = None           # wirdth of the framebuffer
         self.height = None          # height of the framebuffer
-        self.imgWidth = None       # wirdth of the image
-        self.imgHeight = None      # height of the image
+        self.imgWidth = None        # wirdth of the image
+        self.imgHeight = None       # height of the image
         self.config = None          # framebuffer config index
                                     # (see fbconfigs dictionary)
         self.wcs = None             # WCS
         self.image = None           # the image data itself
         self.bitmap = None          # the image bitmap
         self.buffer = None          # used for screen updates
+        self.raw = ''               # the raw data from the client
         self.zoom = 1.0             # zoom level
         self.ct = CoordTransf ()
         

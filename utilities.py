@@ -28,7 +28,7 @@ from PyObjCTools import NibClassBuilder, AppHelper
 import threading, time, struct
 import socket, SocketServer, sys
 import os, string
-import array
+import numarray
 import copy
 
 

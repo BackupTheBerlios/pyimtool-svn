@@ -29,7 +29,7 @@ from WindowDelegate import *
 from InfoController import *
 from DataListener import *
 from FrameBuffer import *
-from PyImageView import *
+from PyOpenGLView import *
 
 
 
@@ -206,13 +206,30 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         return (self.toolbarItems[identifier])
     
     
-    def displayImage (self):
+    def displayImage (self, dump=False):
         """
         This method gets called by the active RequestHandler object
         as soon as it is done reading image data. This means that we
         can be confident that the current frame buffer (identified by
         self.curentFrame) is properly setup.
         """
+        if (dump):
+            try:
+                f = file ('/tmp/pyimtool.raw', 'wb')
+                f.write (self.frameBuffers[self.currentFrame].buffer)
+                f.close ()
+            except:
+                pass
+        
+        # Since we are drawing into an OpenGL view, we need to flip the
+        # bitmap vertically
+        self.frameBuffers[self.currentFrame].buffer = \
+            self.frameBuffers[self.currentFrame].buffer[::-1]
+        
+        # create the raw data repository
+        self.frameBuffers[self.currentFrame].raw = \
+            self.frameBuffers[self.currentFrame].buffer.tostring ()
+        
         self.imageView.display (self.frameBuffers[self.currentFrame], 
                                 self.currentFrame)
         return

@@ -1,5 +1,5 @@
 #
-#  PyImageView.py
+#  PyOpenGLView.py
 #  PyImtool
 #
 #  Created by Francesco Pierfederici on Thu Jun 03 2004.
@@ -20,13 +20,16 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 from utilities import *
+from OpenGL import *
+from OpenGL.GL import *
+# from OpenGL.GLU import *
 
 
 NibClassBuilder.extractClasses ("MainMenu")
 
 
 # class defined in MainMenu.nib
-class PyImageView (NibClassBuilder.AutoBaseClass):
+class PyOpenGLView (NibClassBuilder.AutoBaseClass):
     # the actual base class is NSImageView
     # The following outlets are added to the class:
     def awakeFromNib (self):
@@ -77,6 +80,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         self.transformation = NSAffineTransform.transform ()
         return
     
+    
     def free (self):
         pool = NSAutoreleasePool.alloc ().init ()
         for image in self.images.values ():
@@ -85,8 +89,62 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         for frameBuffer in self.frameBuffers.values ():
             if (frameBuffer):
                 del (frameBuffer)
-        super (PyImageView, self).free (self)
+        super (PyOpenGLView, self).free (self)
         pool.release ()
+        return
+    
+    
+    def initWithFrame_(self, frame):
+        """
+        Set th epixel format
+        """
+        print ('pixel format')
+        attribs = [
+            NSOpenGLPFANoRecovery,
+            NSOpenGLPFAWindow,
+            NSOpenGLPFAAccelerated,
+            NSOpenGLPFADoubleBuffer,
+            NSOpenGLPFAColorSize, 8,
+            NSOpenGLPFAAlphaSize, 1,
+            NSOpenGLPFADepthSize, 8,
+            NSOpenGLPFAStencilSize, 1,
+            NSOpenGLPFAAccumSize, 0,
+        ]
+        fmt = NSOpenGLPixelFormat.alloc().initWithAttributes_(attribs)
+        self = super(PyOpenGLView, self).initWithFrame_pixelFormat_(frame, fmt)
+        return self
+    
+    
+    def prepareOpenGL (self):
+        """
+        OpenGL initialization routine
+        """
+        # setup the LUT
+        lutData = file ('/Users/fpierfed/Desktop/heat.lut').readlines ()
+        i2r = []
+        i2g = []
+        i2b = []
+        for line in lutData:
+            (r, g, b) = line.split ()
+            i2r.append (float (r))
+            i2g.append (float (g))
+            i2b.append (float (b))
+        
+        # Setup the OpenGL maps
+        glPixelTransferf (GL_ALPHA_SCALE, 0.0)
+        glPixelTransferf (GL_ALPHA_BIAS,  1.0)
+        glPixelStorei (GL_UNPACK_ALIGNMENT, 1)
+        
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_R, i2r)
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_G, i2g)
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_B, i2b)
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_A, 1)
+        
+        glPixelTransferi (GL_INDEX_SHIFT, 0)
+        glPixelTransferi (GL_INDEX_OFFSET, 0)
+        glPixelTransferi (GL_MAP_COLOR, GL_TRUE)
+        glDisable (GL_DITHER)
+        
         return
     
     
@@ -154,7 +212,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         """
         Build a new image based on the content of frameBuffer.
         
-        Each PyImageView instance keeps a cache of images to display 
+        Each PyOpenGLView instance keeps a cache of images to display 
         (self.images). This cache is implemented as an array whose
         indices are the IDs (0 to N) of the images themselves.
         
@@ -165,7 +223,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         any IRAF framebuffer. That image is the hotSpare and is 
         initialized to None.
         
-        Every time a PyImageView instance is asked to display a new
+        Every time a PyOpenGLView instance is asked to display a new
         image in a non empty IRAF framebuffer, we need to find out the
         ID of the hotSpare and compose the new image there. Then we 
         need to update the mapping to reflect the new image ID 
@@ -176,8 +234,6 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         
         N is the number of active IRAF framebuffers at any given time.
         """
-        import CoreGraphics
-        
         pool = NSAutoreleasePool.alloc().init()
         
         # AppDelegate internally indexes IRAF framebuffers starting 
@@ -195,50 +251,6 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         # Start off by updating self.frameBuffers
         # HANDLE IT BETTER!!!!!
         self.frameBuffers[self.hotSpareID] = frameBuffer
-        
-        # We need to create a Quartz Data Provider
-        size = self.frameBuffers[self.hotSpareID].width * self.frameBuffers[self.hotSpareID].height
-        try:
-            provider = CoreGraphics.CGDataProviderCreateWithData (
-                None, 
-                self.frameBuffers[self.hotSpareID].buffer, 
-                size, 
-                None)
-        except:
-            if (VERBOSE):
-                sys.stderr.write ('Data Provider creation failed.\n')
-            return
-        
-        # Create the CGImage instance
-        try:
-            self.images[self.hotSpareID] = CoreGraphics.CGImageCreate (
-                self.frameBuffers[self.hotSpareID].width, 
-                self.frameBuffers[self.hotSpareID].height,  
-                self.frameBuffers[self.hotSpareID].bitsPerSample, 
-                self.frameBuffers[self.hotSpareID].bitsPerSample * self.frameBuffers[self.hotSpareID].samplesPerPixel, 
-                self.frameBuffers[self.hotSpareID].width, 
-                CoreGraphics.CGColorSpaceCreateCalibratedGray, 
-                CoreGraphics.kCGImageAlphaNone, 
-                provider, 
-                None, 
-                False, 
-                CoreGraphicskCGRenderingIntentDefault)
-        except:
-            if (VERBOSE):
-                sys.stderr.write ('Image creation failed.\n')
-            return
-        
-        provider.autorelease ()
-        
-        self.setFrameSize_ ((self.frameBuffers[self.hotSpareID].width, 
-                             self.frameBuffers[self.hotSpareID].height))
-        
-        # First of all, get a copy of the current Quartz 2D contect
-        context = NSGraphicsContext.currentContext ().graphicsPort ()
-        
-        context.drawImage (self.frame (), self.frameBuffers[self.hotSpareID])
-        
-        self.setNeedsDisplay_ (True)
         
         # update the mapping, if needed
         if (self.mapping.has_key (self.frameNo)):
@@ -271,25 +283,46 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
             self.images[self.hotSpareID] = None
             self.frameBuffers[self.hotSpareID] = None
         
+        self.setFrameSize_ ((frameBuffer.width, frameBuffer.height))
+        self.setNeedsDisplay_ (True)
         pool.release ()
         return
     
     
-    def XXXdrawRect_XXX (self, rect):
+    def drawRect_ (self, rect):
         """
-        Draw the content of the PyImageView instance on screen.
+        Draw the content of the PyOpenGLView instance on screen.
         
         We override this method in order to draw on screen using Quartz
         2D directly.
         """
-        # First of all, get a copy of the current Quartz 2D contect
-        context = NSGraphicsContext.currentContext ().graphicsPort ()
+        frame = self.mapping[self.frameNo]
+        if (not self.frameBuffers[frame] or 
+            not self.frameBuffers[frame].raw):
+            return
         
-        context.saveGState ()
+        # set the context
+        # self.openGLContext ().makeCurrentContext ()
         
+        # draw the image
+        x = int (rect.origin.x)
+        y = int (rect.origin.y)
+        w = int (rect.size.width)
+        h = int (rect.size.height)
+                
+        glViewport (x, y, w, h)
         
+        # Extract the image region corresponding to rect
+        raw = self.frameBuffers[frame].buffer[y:y+h,x:x+w].tostring ()
         
-        context.restoreGState ()
+        glDrawPixels (w, 
+                      h, 
+                      GL_COLOR_INDEX, 
+                      GL_UNSIGNED_BYTE, 
+                      raw)
+        
+        # self.openGLContext ().flushBuffer ()
+        glFlush ()
         return
     
     
@@ -299,7 +332,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         frameBuffer = self.frameBuffers[imageID]
         image = self.images[imageID]
         
-        if (not self.trackMouse or not (frameBuffer and frameBuffer.buffer)):
+        if (not self.trackMouse or not (frameBuffer and frameBuffer.raw)):
             return
         
         (x, y) = self.convertPoint_fromView_ (event.locationInWindow (), None)
@@ -415,7 +448,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
             frameBuffer = self.frameBuffers[imageID]
             image = self.images[imageID]
             
-            if (frameBuffer and frameBuffer.buffer):
+            if (frameBuffer and frameBuffer.raw):
                 # set the name, title and extension fields
                 self.infoPanel.setField ('name', frameBuffer.ct.ref)
                 self.infoPanel.setField ('title', frameBuffer.ct.imTitle)

@@ -74,7 +74,10 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         # do we have a preferences file, already?
         if (prefs.boolForKey_ ('HasPrefsFile')):
             for key in PREFS.keys ():
-                value = prefs.boolForKey_ (key)
+                if (key == 'irafRoot'):
+                    value = prefs.stringForKey_ (key)
+                else:
+                    value = prefs.boolForKey_ (key)
                 PREFS[key] = value
         
         # Create a dict of FrameBuffer instances. These will hold
@@ -197,13 +200,12 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         except:
             pass
         
-        # Start the data listener threads, if appropriate.
-        if (PREFS['EnableIRAFIntegration']):
-            self.inetDataThread = DataListener (sockType='inet', controller=self)
-            self.inetDataThread.start ()
-            
-            self.unixDataThread = DataListener (sockType='unix', controller=self)
-            self.unixDataThread.start ()
+        # Start the data listener threads
+        self.inetDataThread = DataListener (sockType='inet', controller=self)
+        self.inetDataThread.start ()
+        
+        self.unixDataThread = DataListener (sockType='unix', controller=self)
+        self.unixDataThread.start ()
         
         # Are we asked to check and see if a new version is out?
 #         if (PREFS['CheckForNewVersion']):

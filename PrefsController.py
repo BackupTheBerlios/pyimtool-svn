@@ -67,10 +67,10 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         
         # check the preferences and set the check-boxes
         # accordingly.
-        if (PREFS['EnableIRAFIntegration']):
-            self.irafIntegration.setState_ (NSOnState)
+        if (PREFS['irafRoot']):
+            self.irafRootField.setStringValue_ (PREFS['irafRoot'])
         else:
-            self.irafIntegration.setState_ (NSOffState)
+            self.irafRootField.setStringValue_ ('')
         
         self.imageScale.deselectAllCells ()
         if (PREFS['ScaleToFit']):
@@ -96,9 +96,7 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         nthreads = 0
         value = None
         
-        if (sender == self.irafIntegration):
-            key = 'EnableIRAFIntegration'
-        elif (sender == self.imageScale):
+        if (sender == self.imageScale):
             # self.imageScale is a NSMatrix. The first
             # is for "actual_size" behaviour, the second
             # is for "zoom_to_fit"
@@ -118,7 +116,36 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         
         # update our internal preferences dictionary
         PREFS[key] = value
+        return
+    
+    
+    def controlTextDidEndEditing_ (self, notification):
+        try:
+            field = notification.object ()
+            if (field == self.irafRootField):
+                # update our internal preferences dictionary
+                PREFS['irafRoot'] = field.stringValue ()
+        except:
+            pass
+        return
+    
+    
+    
+    def chooseIrafRoot_ (self, sender):
+        panel = NSOpenPanel.openPanel ()
+        panel.setCanChooseFiles_ (False)
+        panel.setCanChooseDirectories_ (True)
         
+        result = panel.runModalForTypes_ (None)
+        if (result == NSOKButton):
+            filesToOpen = panel.filenames ()
+        
+            # Choose the first one
+            dirName = filesToOpen[0]
+            self.irafRootField.setStringValue_ (dirName)
+            
+            # update our internal preferences dictionary
+            PREFS['irafRoot'] = field.stringValue ()
         return
     
     
@@ -127,7 +154,10 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         prefs = NSUserDefaults.standardUserDefaults ()
         for key in PREFS.keys ():
             # update the application preferences
-            prefs.setBool_forKey_ (PREFS[key], key)
+            if (key == 'irafRoot'):
+                prefs.setObject_forKey_ (PREFS[key], key)
+            else:
+                prefs.setBool_forKey_ (PREFS[key], key)
         # and acknowledge the fact that, now, we have a 
         # preferences file!
         prefs.setBool_forKey_ (True, 'HasPrefsFile')

@@ -156,7 +156,7 @@ fbconfigs = {1: [2, 512, 512],
 
 # Application-wide preferences
 PREFS = {'ScaleToFit': True, 
-         'EnableIRAFIntegration': True,
+         'irafRoot': '/iraf/iraf',
          'CheckForNewVersion': False}
 
 # PyImtool Home Page

@@ -156,6 +156,9 @@ PREFS = {'ScaleToFit': True,
          'EnableIRAFIntegration': True,
          'CheckForNewVersion': True}
 
+# PyImtool Home Page
+HOME_PAGE = 'http://pyimtool.berlios.de'
+
 # Toolbar icon labels
 TOOLBAR_LABELS = ('zoomIn', 
                   'zoomOut', 

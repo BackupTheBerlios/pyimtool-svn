@@ -39,8 +39,83 @@ class VersionChecker (object):
     downloaded.
     """
     def __init__ (self):
-        """Constructor"""
-        pass
+        """
+        Constructor
+        
+        Determine the name and version number of the current bundle.
+        Also builds the NSURL object needed to check the update XML
+        data (version.xml).
+        """
+        self.name = os.path.basename (sys.argv[0])
+        self.version = NSBundle.mainBundle ().infoDictionary ()['CFBundleVersion']
+        
+        self.url = NSURL.URLWithString_ (HOME_PAGE + '/version.xml')
+        
+        # Do the actual check
+        self.check ()
+        return
+    
+    
+    def check (self):
+        """
+        Check and see if the internet connection is up and, if so, 
+        fetch the version.xml file. version.xml tells us which one is
+        the latest available version. It is stored on the PyImtool
+        Home Page (HOME_PAGE global variable) as HOME_PAGE/version.xml
+        
+        version.xml has potentially lists latest release number and
+        download URL for several packages. Each package name is the 
+        value of a <key> element of the main <dict>.
+        
+        Each package has a <dict> associated to it with two keys. One
+        is the release number ('version') the other is the download URL
+        ('url').
+        """
+        # Retrieve the version.xml file from the remote site. If the
+        # connection is down (or the file is not there), an exception
+        # is raised and we simply abort the check.
+        try:
+            updateData = NSDictionary.dictionaryWithContentsOfURL_ (self.url)
+        except:
+            updateData = None
+        
+        # If everything went well, let's try and extract the relevant 
+        # information from the XML file. If our package is not listed
+        # or if the 'version' and/or 'url' kers are not valid, we 
+        # simply abort.
+        if (updateData):
+            latestVersion = updateData[self.name]['version']
+            downloadURL = updateData[self.name]['url']
+        else:
+            latestVersion = None
+            downloadURL = None
+            print ('Update check failed.')
+        
+        # Do we have the latest version number and, if so, is it 
+        # different from our version?
+        if (latestVersion and 
+            latestVersion != self.version):
+            answer = NSRunAlertPanel ('A new version is available', 
+                                      'A new version of %s is available (version %s). Would you like to download the new version now?' % (self.name, self.version), 
+                                      'Yes', 
+                                      'No', 
+                                      None)
+            
+            # The user clicked 'Yes': open the downloadURL in the 
+            # default web browser.
+            if (NSOKButton == answer):
+                NSWorkspace.sharedWorkspace ().openURL_ (NSURL.URLWithString_ (downloadURL))
+        else:
+            print ('Your copy of %s is up to date (version %s).' % (self.name, self.version))
+        return
+
+
+
+
+
+
+
+
 
 
 

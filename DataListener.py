@@ -89,19 +89,20 @@ class DataListener (threading.Thread):
             # Error handling goes here.
             sys.stderr.write ('PYIMTOOL: error opening the connection.\n')
             for exctn in sys.exc_info():
-                print (exctn)
+                print (str (exctn))
             return
         
         # We have data from the socket connection. Instantiate a 
         # RequestHandler object to take care of the communications 
         # with the client.
+        self.RequestHandlerClass (request, clientAddress, self)
         try:
-            self.RequestHandlerClass (request, clientAddress, self)
+            pass
         except:
             # Error handling goes here.
             sys.stderr.write ('PYIMTOOL: error handling the request.')
             for exctn in sys.exc_info ():
-                print (exctn)
+                print (str (exctn))
             return
         return
     

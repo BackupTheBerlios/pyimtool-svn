@@ -86,6 +86,7 @@ VERBOSE           = 1
 # GUI constants
 MAX_PROGR         = 100
 MIN_PROGR         = 0
+MAX_CONTRAST      = 5.
 
 
 PATH = os.path.dirname (sys.argv[0])

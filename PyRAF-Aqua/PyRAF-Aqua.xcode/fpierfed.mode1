@@ -204,8 +204,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -270,7 +268,7 @@
 							<real>243</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>93 363 750 570 0 0 1344 986 </string>
+						<string>221 320 750 570 0 0 1344 986 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -307,7 +305,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {484, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>93 363 750 570 0 0 1344 986 </string>
+								<string>221 320 750 570 0 0 1344 986 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -315,6 +313,8 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -327,7 +327,7 @@
 								<key>Frame</key>
 								<string>{{0, 7}, {484, 521}}</string>
 								<key>RubberWindowFrame</key>
-								<string>93 363 750 570 0 0 1344 986 </string>
+								<string>221 320 750 570 0 0 1344 986 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -351,9 +351,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>C4325BA006CE84E5002E68D5</string>
+				<string>C4E87FEF06CECEBE00F9A395</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>C4325BA106CE84E5002E68D5</string>
+				<string>C4E87FF006CECEBE00F9A395</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -381,13 +381,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>C4325E8C06CE8548002E68D5</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C0AD2B3069F1EA900FABCE6</string>
 		<string>/Users/fpierfed/sviluppo/newStyle/pyimtool/PyRAF-Aqua/PyRAF-Aqua.xcode</string>
+		<string>1C0AD2B3069F1EA900FABCE6</string>
 	</array>
 	<key>WindowString</key>
-	<string>93 363 750 570 0 0 1344 986 </string>
+	<string>221 320 750 570 0 0 1344 986 </string>
 	<key>WindowTools</key>
 	<array>
 		<dict>
@@ -769,8 +767,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {493, 167}}</string>
-											<string>{{0, 176}, {493, 267}}</string>
+											<string>{{0, 0}, {491, 167}}</string>
+											<string>{{0, 176}, {491, 267}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -796,7 +794,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {750, 499}}</string>
 								<key>RubberWindowFrame</key>
-								<string>311 259 750 541 0 0 1344 986 </string>
+								<string>109 442 750 541 0 0 1344 986 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXRunSessionModule</string>
@@ -819,18 +817,18 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C0AD2B3069F1EA900FABCE6</string>
-				<string>C4325BA206CE84E5002E68D5</string>
+				<string>C4E87FF106CECEBE00F9A395</string>
 				<string>1CD0528B0623707200166675</string>
-				<string>C4325BA306CE84E5002E68D5</string>
+				<string>C4E87FF206CECEBE00F9A395</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.run</string>
 			<key>WindowString</key>
-			<string>311 259 750 541 0 0 1344 986 </string>
+			<string>109 442 750 541 0 0 1344 986 </string>
 			<key>WindowToolGUID</key>
 			<string>1C0AD2B3069F1EA900FABCE6</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

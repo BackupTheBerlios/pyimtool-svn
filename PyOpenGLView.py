@@ -442,13 +442,13 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
                     print ('ops!')
                     pass
             
-            i = int (x) + int (frameBuffer.imgWidth) * int (y)
+            # i = int (x) + int (frameBuffer.imgWidth) * int (y)
             
             z1 = min (frameBuffer.ct.z1, frameBuffer.ct.z2)
             z2 = max (frameBuffer.ct.z1, frameBuffer.ct.z2)
             
             try:
-                v = wcsPixTransform (frameBuffer.ct, frameBuffer.buffer[i])
+                v = wcsPixTransform (frameBuffer.ct, frameBuffer.buffer[int (x), int (y)])
             except:
                 print ('PYIMTOOL: *** array index out of bounds ***')
                 v = 0

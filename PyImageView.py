@@ -17,8 +17,8 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     # the actual base class is NSImageView
     # The following outlets are added to the class:
     def awakeFromNib (self):
-        self.bitmap = NSBitmapImageRep.alloc ()
-        self.image = NSImage.alloc ().init ()
+        self.images = [None, None]
+        self.activeImage = 0
         self.frameBuffer = None
         self.infoPanel = None
         self.trackMouse = False
@@ -53,7 +53,9 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     
     
     def resetCursorRects (self):
-        frame = self.convertRect_fromView_ (self.superview ().frame (), self.superview ().superview ())
+        clipView = self.superview ()
+        scrollView = self.superview ().superview ()
+        frame = self.convertRect_fromView_ (clipView.frame (), scrollView)
         self.addCursorRect_cursor_ (frame, NSCursor.crosshairCursor ())
         return
     
@@ -61,12 +63,11 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     def display (self, frameBuffer):
         pool = NSAutoreleasePool.alloc().init()
         
-        self.frameBuffer = frameBuffer
-        
-        self.setFrameSize_ ((frameBuffer.width, frameBuffer.height))
+        inactive = int (not self.activeImage)
         
         try:
-            self.bitmap.initWithBitmapDataPlanes_pixelsWide_pixelsHigh_bitsPerSample_samplesPerPixel_hasAlpha_isPlanar_colorSpaceName_bytesPerRow_bitsPerPixel_ (
+            bitmap = NSBitmapImageRep.alloc ()
+            bitmap.initWithBitmapDataPlanes_pixelsWide_pixelsHigh_bitsPerSample_samplesPerPixel_hasAlpha_isPlanar_colorSpaceName_bytesPerRow_bitsPerPixel_ (
                 (frameBuffer.buffer, None, None, None, None), 
                 frameBuffer.width, 
                 frameBuffer.height,  
@@ -76,23 +77,30 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
                 frameBuffer.isPlanar, 
                 frameBuffer.colorSpaceName, 
                 frameBuffer.width, 
-                frameBuffer.bitsPerSample * frameBuffer.samplesPerPixel).retain ()
+                frameBuffer.bitsPerSample * frameBuffer.samplesPerPixel)
         except:
             if (VERBOSE):
                 sys.stderr.write ('Bitmap creation failed.\n')
             return
         
         try:
-            self.image.init ()
-            self.image.addRepresentation_ (self.bitmap)
+            self.images[inactive] = NSImage.alloc ().init ()
+            self.images[inactive].addRepresentation_ (bitmap)
         except:
             if (VERBOSE):
                 sys.stderr.write ('Image creation failed.\n')
             return
         
-        self.setImage_ (self.image)
-        self.setNeedsDisplay_ (True)
+        self.setFrameSize_ ((frameBuffer.width, frameBuffer.height))
+        self.setImage_ (self.images[inactive])
         
+        # Remove the old image
+        if (self.images[self.activeImage]):
+            self.images[self.activeImage] = None
+        
+        self.frameBuffer = frameBuffer
+        self.activeImage = inactive
+        self.setNeedsDisplay_ (True)
         pool.release ()
         return
     
@@ -196,7 +204,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     
     
     def zoomIn (self):
-        if (not self.frameBuffer or not self.image):
+        if (not self.frameBuffer or not self.images[self.activeImage]):
             return
         
         (w0, h0) = (self.frameBuffer.width, self.frameBuffer.height)
@@ -215,7 +223,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     
     
     def zoomOut (self):
-        if (not self.frameBuffer or not self.image):
+        if (not self.frameBuffer or not self.images[self.activeImage]):
             return
         
         (w0, h0) = (self.frameBuffer.width, self.frameBuffer.height)
@@ -234,7 +242,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     
     
     def zoomToFit (self):
-        if (not self.frameBuffer or not self.image):
+        if (not self.frameBuffer or not self.images[self.activeImage]):
             return
         
         # get the min between the clip view dimensions
@@ -271,7 +279,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     
     
     def actualSize (self):
-        if (not self.frameBuffer or not self.image):
+        if (not self.frameBuffer or not self.images[self.activeImage]):
             return
         
         (w0, h0) = (self.frameBuffer.width, self.frameBuffer.height)

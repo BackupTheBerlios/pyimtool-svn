@@ -29,28 +29,28 @@ class DataListener (threading.Thread):
     separately.
     """
     def __init__ (self, name='DataListener', addr=(HOST, PORT), 
-        sock_type='inet', controller=None):
+        sockType='inet', controller=None):
         """
         Constructor, setting initial variable values. Basically, we 
         open sockets and start listening to them.
         """
-        threading.Thread.__init__(self, name=name)
+        threading.Thread.__init__ (self, name=name)
         
         self.stop = False
         self.sleep = 1.0
         
-        self.sock_type = sock_type
-        if (sock_type == 'inet'):
+        self.sockType = sockType
+        if (sockType == 'inet'):
             self.socket = socket.socket (socket.AF_INET, socket.SOCK_STREAM)
-            s_address = (HOST, PORT)
+            sockAddress = (HOST, PORT)
         else:
             self.socket = socket.socket (socket.AF_UNIX, socket.SOCK_STREAM)
-            s_address = UNIX_ADDR
+            sockAddress = UNIX_ADDR
             
         # allow reuse of the socket
         self.socket.setsockopt (socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         # bind the socket and start listening
-        self.socket.bind (s_address)
+        self.socket.bind (sockAddress)
         self.socket.listen (NCONNECTIONS)
         
         # attach a RequestHandler to the server
@@ -61,7 +61,7 @@ class DataListener (threading.Thread):
         return
     
     
-    def handle_request (self):
+    def handleRequest (self):
         """
         Handles incoming connections, one at the time. We simply do an
         accept on the socket/pipe. This means that we block until we 
@@ -71,21 +71,24 @@ class DataListener (threading.Thread):
         control to it.
         """
         try:
-            (request, client_address) = self.socket.accept ()
+            (request, clientAddress) = self.socket.accept ()
         except socket.error:
             # Error handling goes here.
             sys.stderr.write ('PYIMTOOL: error opening the connection.\n')
             for exctn in sys.exc_info():
-                print (exctn)
+                sys.stderr.write (exctn + '\n')
             return
         
+        # We have data from the socket connection. Instantiate a 
+        # RequestHandler object to take care of the communications 
+        # with the client.
         try:
-            self.RequestHandlerClass (request, client_address, self)
+            self.RequestHandlerClass (request, clientAddress, self)
         except:
             # Error handling goes here.
             sys.stderr.write ('PYIMTOOL: error handling the request.')
             for exctn in sys.exc_info ():
-                print (exctn)
+                sys.stderr.write (exctn + '\n')
             return
         return
     
@@ -96,7 +99,7 @@ class DataListener (threading.Thread):
         """
         try:
             while (not self.stop):
-                self.handle_request ()
+                self.handleRequest ()
         finally:
             self.socket.close ()
         return
@@ -108,7 +111,7 @@ class DataListener (threading.Thread):
         connection.
         """
         self.socket.close ()
-        if (self.sock_type == 'unix'):
+        if (self.sockType == 'unix'):
             try:
                 os.remove (UNIX_ADDR)
             except:

@@ -1,9 +1,9 @@
 #
 #  PyImage.py
-#  pyimtool3
+#  PyImtool
 #
 #  Created by Francesco Pierfederici on Thu Jun 03 2004.
-#  Copyright (c) 2004 __MyCompanyName__. All rights reserved.
+#  Copyright (c) 2004 Francesco Pierfederici. All rights reserved.
 #
 
 import string
@@ -28,15 +28,15 @@ class PyImage (object):
         
         if (header):
             for key in header.keys ():
-                method_name = 'set' + string.upper (key[0]) + key[1:]
-                method = getattr (self, method_name)
+                methodName = 'set' + string.upper (key[0]) + key[1:]
+                method = getattr (self, methodName)
                 method (header[key])
                 continue
                 try:
-                    method = getattr (self, method_name)
+                    method = getattr (self, methodName)
                 except:
                     if (VERBOSE):
-                        print ('WARNING: ' + method_name + 
+                        print ('WARNING: ' + methodName + 
                             ' is not a supported method.')
                     continue
                 try:

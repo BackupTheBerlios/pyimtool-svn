@@ -1,9 +1,9 @@
 #
 #  PyImageView.py
-#  pyimtool3
+#  PyImtool
 #
 #  Created by Francesco Pierfederici on Thu Jun 03 2004.
-#  Copyright (c) 2004 __MyCompanyName__. All rights reserved.
+#  Copyright (c) 2004 Francesco Pierfederici. All rights reserved.
 #
 from utilities import *
 from PyImage import *
@@ -35,7 +35,7 @@ class PyImageView (NSImageView):
         pool = NSAutoreleasePool.alloc().init()
         
         if (VERBOSE):
-            print ("Resizing to %dx%d" % (img.width, img.height))
+            sys.stderr.write ("Resizing to %dx%d.\n" % (img.width, img.height))
         self.setFrameSize_ ((img.width, img.height))
         
         try:
@@ -52,7 +52,7 @@ class PyImageView (NSImageView):
                 img.bitsPerSample * img.samplesPerPixel)
         except:
             if (VERBOSE):
-                print ('Bitmap creation failed.')
+                sys.stderr.write ('Bitmap creation failed.\n')
             return (1)
         
         if (self.bitmap):
@@ -62,19 +62,19 @@ class PyImageView (NSImageView):
                 self.bitmap.retain ()
                 tempBitmap.release ()
                 if (VERBOSE):
-                    print ('Rempving old bitmap.')
+                    sys.stderr.write ('Rempving old bitmap.\n')
         else:
             self.bitmap = tempBitmap
             self.bitmap.retain ()
             tempBitmap.release ()
             if (VERBOSE):
-                print ('No previous bitmap.')
+                sys.stderr.write ('No previous bitmap.\n')
         
         try:
             tempImage = NSImage.alloc ().init ()
         except:
             if (VERBOSE):
-                print ('Image creation failed.')
+                sys.stderr.write ('Image creation failed.\n')
             return (2)
         
         if (self.image):
@@ -84,13 +84,13 @@ class PyImageView (NSImageView):
                 self.image.retain ()
                 tempImage.release ()
                 if (VERBOSE):
-                    print ('Rempving old image.')
+                    sys.stderr.write ('Rempving old image.\n')
         else:
             self.image = tempImage
             self.image.retain ()
             tempImage.release ()
             if (VERBOSE):
-                print ('No previous image.')
+                sys.stderr.write ('No previous image.\n')
         
         self.image.addRepresentation_ (self.bitmap)
         

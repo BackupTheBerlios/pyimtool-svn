@@ -1,9 +1,9 @@
 #
 #  CoordTransf.py
-#  pyimtool3
+#  PyImtool
 #
 #  Created by Francesco Pierfederici on Thu Jun 03 2004.
-#  Copyright (c) 2004 __MyCompanyName__. All rights reserved.
+#  Copyright (c) 2004 Francesco Pierfederici. All rights reserved.
 #
 from utilities import *
 
@@ -22,9 +22,9 @@ class CoordTransf (object):
         self.z2 = 1             # max greyscale value
         self.zt = W_UNITARY     # gretscale mapping
         self.format = ''        # WCS output format
-        self.imtitle = ''       # image title from WCS
+        self.imTitle = ''       # image title from WCS
         # physical -> celestial
-        self.regid = None
+        self.regId = None
         self.id = None
         self.ref = ''
         self.region = ''

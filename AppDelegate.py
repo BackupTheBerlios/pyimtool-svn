@@ -25,6 +25,8 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         Initialization method. Sets instance variables ro defult 
         values. It also takes care of initializing the 
         preferences dictionary (PREFS).
+        
+        This is the Cocoa init method, not the Python __init__.
         """
         self.inetDataThread = None
         self.unixDataThread = None
@@ -46,6 +48,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         """
         Here we simply setup the User Interface.
         """
+        # setup the GUIs
         return
         
     
@@ -62,10 +65,10 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         
         # Start the data listener threads, if appropriate.
         if (PREFS['EnableIRAFIntegration']):
-            self.inetDataThread = DataListener (sock_type='inet', controller=self)
+            self.inetDataThread = DataListener (sockType='inet', controller=self)
             self.inetDataThread.start ()
             
-            self.unixDataThread = DataListener (sock_type='unix', controller=self)
+            self.unixDataThread = DataListener (sockType='unix', controller=self)
             self.unixDataThread.start ()
         return
     

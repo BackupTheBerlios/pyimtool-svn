@@ -22,9 +22,10 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     """
     def __init__ (self):
         """
-        This is the class constructor.
+        This is the class constructor. It is the Python constructor
+        since we are actually instantiating this object ourselves.
         """
-        self.needs_update = 0
+        self.needsUpdate = 0
         # these NEED to be set automatically from the client 
         # interaction
         self.width = None
@@ -35,11 +36,11 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         self.y = 0
         self.y1 = -1
         self.sequence = -1
-        self.got_key = None
+        self.gotKey = None
         return
     
     
-    def decode_frameno (self, z):
+    def decodeFrameNo (self, z):
         try:
             z = int (z)
         except:
@@ -53,23 +54,23 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         return (max (1, n + 1))
     
     
-    def wcs_update (self, wcs_text, fb=None):
+    def wcsUpdate (self, wcsText, fb=None):
         """
-        parses the wcs_text and populates the fields 
-        of a coord_tran instance.
-        we start from the coord_tran of the input
+        parses the wcsText and populates the fields 
+        of a CoordTransf instance.
+        we start from the CoordTransf of the input
         frame buffer, if any
         """
         if (fb):
             ct = fb.ct
         else:
-            ct = coord_tran ()
+            ct = CoordTransf ()
         if (not ct.valid):
             ct.zt = W_UNITARY
             
-            # read wcs_text
-            data = string.split (wcs_text, '\n')
-            ct.imtitle = data[0]
+            # read wcsText
+            data = string.split (wcsText, '\n')
+            ct.imTitle = data[0]
             # we are expecting 8 floats and 1 int
             try:
                 (ct.a, ct.b, ct.c, ct.d, 
@@ -85,7 +86,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 ct.z2 = float (ct.z2)
                 ct.zt = int (ct.zt)
             except:
-                ct.imtitle = "[NO WCS]"
+                ct.imTitle = "[NO WCS]"
                 ct.a = 1
                 ct.d = 1
                 ct.b = 0
@@ -110,7 +111,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             else:
                 ct.format = " %7.2f %7.2f %7.0f%c"
             
-            # add_mapping, if we can
+            # add mapping, if we can
             if (len (data) < 4):
                 return (ct)
             
@@ -129,9 +130,9 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 ct.dny = int (ct.dny)
                 ct.ref = string.strip (data[3])
                 # if this works, we also have the real size of the image
-                fb.img_width = ct.dnx + 1   # for some reason, the width is always
+                fb.imgWidth = ct.dnx + 1   # for some reason, the width is always
                                             # 1 pixel smaller...
-                fb.img_height = ct.dny
+                fb.imgHeight = ct.dny
             except:
                 ct.region = 'none'
                 ct.sx = 1.0
@@ -146,7 +147,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         return (ct)
     
     
-    def return_cursor (self, dataout, sx, sy, frame, wcs, key, strval=''):
+    def returnCursor (self, dataout, sx, sy, frame, wcs, key, strval=''):
         """
         writes the cursor position to dataout.
         input:
@@ -169,32 +170,32 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         
         # send the necessary infor to the client
         curval = "%10.3f %10.3f %d %s %s\n" % (sx, sy, wcscode, keystr, strval)
-        dataout.write (right_pad (curval, SZ_IMCURVAL))
+        dataout.write (rightPad (curval, SZ_IMCURVAL))
         return
     
     
-    def handle_feedback (self, pkt):
-        self.frame = self.decode_frameno (pkt.z & 07777) - 1
+    def handleFeedback (self, pkt):
+        self.frame = self.decodeFrameNo (pkt.z & 07777) - 1
         
         # erase the frame buffer
-        fb = self.server.controller.init_frame (self.frame)
-        self.server.controller.current_frame = self.frame
+        fb = self.server.controller.initFrame (self.frame)
+        self.server.controller.currentFrame = self.frame
         return
     
     
-    def handle_lut (self, pkt):
+    def handleLut (self, pkt):
         if (pkt.subunit & COMMAND):
-            data_type = str (pkt.nbytes / 2) + 'h'
-            size = struct.calcsize (data_type)
+            dataType = str (pkt.nbytes / 2) + 'h'
+            size = struct.calcsize (dataType)
             line = pkt.datain.read (pkt.nbytes)
             n = len (line)
             if (n < pkt.nbytes):
                 return
             try:
-                x = struct.unpack (data_type, line)
+                x = struct.unpack (dataType, line)
             except:
                 for exctn in sys.exc_info():
-                    print (exctn)
+                    sys.stderr.write (exctn + '\n')
             
             if (len (x) < 14):
                 # pad it with zeroes
@@ -210,33 +211,33 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             if (len (x) == 14):
                 z = int (x[0])
                 # frames start from 1, we start from 0
-                self.frame = self.decode_frameno (z) - 1
+                self.frame = self.decodeFrameNo (z) - 1
                 
                 if (self.frame > MAX_FRAMES):
-                    print ("PYIMTOOL: attempt to select non existing frame.")
+                    sys.stderr.write ("PYIMTOOL: attempt to select non existing frame.\n")
                     return
                 
                 # init the framebuffer
-                self.server.controller.init_frame (self.frame)
+                self.server.controller.initFrame (self.frame)
                 
                 return
             
-            print ("PYIMTOOL: unable to select a frame.")
+            sys.stderr.write ("PYIMTOOL: unable to select a frame.\n")
             return
         
-        print ("PYIMTOOL: what shall I do?")
+        sys.stderr.write ("PYIMTOOL: what shall I do?\n")
         return
         
     
-    def handle_wcs (self, pkt):
+    def handleWCS (self, pkt):
         if (pkt.tid & IIS_READ):
             # Return the WCS for the referenced frame.
             if ((pkt.x & 017777) and (pkt.y & 017777)):
                 # return IIS version number
                 text = "version=" + str (IIS_VERSION)
-                text = right_pad (text, SZ_OLD_WCSBUF)
+                text = rightPad (text, SZ_OLD_WCSBUF)
             else:
-                frame  = self.decode_frameno (pkt.z & 0177777) - 1
+                frame  = self.decodeFrameNo (pkt.z & 0177777) - 1
                 try:
                     fb = self.server.controller.fb[frame]
                 except:
@@ -246,7 +247,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                     self.frame = frame
                     if (fb and fb.ct.a != None):
                         wcs = "%s\n%f %f %f %f %f %f %f %f %d\n" \
-                            % (fb.ct.imtitle, fb.ct.a, fb.ct.b, fb.ct.c, fb.ct.d,
+                            % (fb.ct.imTitle, fb.ct.a, fb.ct.b, fb.ct.c, fb.ct.d,
                             fb.ct.tx, fb.ct.ty, fb.ct.z1, fb.ct.z2, fb.ct.zt)
                     else:
                         wcs = "[NOSUCHWCS]\n"
@@ -257,7 +258,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                     else:
                         mapping = ""
                     text = wcs + mapping
-                    text = right_pad (text, SZ_WCSBUF)
+                    text = rightPad (text, SZ_WCSBUF)
                 else:
                     if (frame < 0 or not fb or not len (fb.buffer)):
                         text = "[NOSUCHFRAME]"
@@ -266,34 +267,34 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                     
                     # old style or new style?
                     if ((pkt.x & 0777)):
-                        text = right_pad (text, SZ_WCSBUF)
+                        text = rightPad (text, SZ_WCSBUF)
                     else:
-                        text = right_pad (text, SZ_OLD_WCSBUF)
+                        text = rightPad (text, SZ_OLD_WCSBUF)
             pkt.dataout.write (text)
         else:
             # Read the WCS infor from the client
             # frames start from 1, we start from 0
-            self.frame = self.decode_frameno (pkt.z & 07777) - 1
+            self.frame = self.decodeFrameNo (pkt.z & 07777) - 1
             
             try:
                 fb = self.server.controller.fb[self.frame]
             except:
                 # the selected frame does not exist, create it
-                fb = self.server.controller.init_frame (self.frame)
+                fb = self.server.controller.initFrame (self.frame)
             
             # set the width and height of the framebuffer
-            fb_config = (pkt.t & 0777) + 1
+            fbConfig = (pkt.t & 0777) + 1
             try:
-                (nframes, fb.width, fb.height) = fbconfigs [fb_config]
+                (nframes, fb.width, fb.height) = fbconfigs [fbConfig]
             except:
-                print ('PYIMTOOL: *** non existing framebuffer config (' + str (fb_config) + '). ***')
-                print ('PYIMTOOL: *** adding a new framebuffer config (' + str (fb_config) + '). ***')
-                fbconfigs [fb_config] = [1, None, None]
+                sys.stderr.write ('PYIMTOOL: *** non existing framebuffer config (' + str (fbConfig) + '). ***\n')
+                sys.stderr.write ('PYIMTOOL: *** adding a new framebuffer config (' + str (fbConfig) + '). ***\n')
+                fbconfigs [fbConfig] = [1, None, None]
                 fb.width = None
                 fb.height = None
             
             # do we have to deal with the new WCS format? (not used, for now)
-            new_wcs   = (pkt.x & 0777)
+            newWCS   = (pkt.x & 0777)
             
             # read the WCS info
             line = pkt.datain.read (pkt.nbytes)
@@ -302,46 +303,46 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             fb.wcs = line
                         
             fb.ct.format = W_DEFFORMAT
-            fb.ct.imtitle = ''
+            fb.ct.imTitle = ''
             fb.ct.valid = 0
-            fb.ct = self.wcs_update (line, fb)
+            fb.ct = self.wcsUpdate (line, fb)
             
             return
         return
     
     
-    def handle_memory (self, pkt):
+    def handleMemory (self, pkt):
         if (pkt.tid & IIS_READ):
             pass
         else:
             # get the frame number, we start from 0
-            self.frame = self.decode_frameno (pkt.z & 07777) - 1
+            self.frame = self.decodeFrameNo (pkt.z & 07777) - 1
             try:
                 fb = self.server.controller.fb[self.frame]
             except:
                 # the selected frame does not exist, create it
-                fb = self.server.controller.init_frame (self.frame)
+                fb = self.server.controller.initFrame (self.frame)
             
             # decode x and y
             self.x = pkt.x & XYMASK
             self.y = pkt.y & XYMASK
             
             # read the data
-            t_bytes = 0
+            tBytes = 0
             if (fb.width and fb.height):
-                if (not self.needs_update):
+                if (not self.needsUpdate):
                     del (fb.buffer)
                     fb.buffer = array.array ('B', ' ' * fb.width * fb.height)
-                    self.needs_update = 1
+                    self.needsUpdate = 1
                 start = self.x + self.y * fb.width
                 end = start + pkt.nbytes
                 fb.buffer[start:end] = array.array ('B', pkt.datain.read (pkt.nbytes))
             else: 
-                if (not self.needs_update):
+                if (not self.needsUpdate):
                     # init the framebuffer
                     fb.buffer.fromstring (pkt.datain.read (pkt.nbytes))
                     fb.buffer.reverse ()
-                    self.needs_update = 1
+                    self.needsUpdate = 1
                 else:
                     data = array.array ('B', pkt.datain.read (pkt.nbytes))
                     data.reverse ()
@@ -352,37 +353,37 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             if (not width and self.y1 < 0):
                 self.y1 = self.y
                 if (VERBOSE):
-                    print ('PYIMTOOL: saved y coordinate.')
+                    sys.stderr.write ('PYIMTOOL: saved y coordinate.\n')
             elif (not width):
-                delta_y = self.y - self.y1
-                fb.width = int (abs (len (data) / delta_y))
+                deltaY = self.y - self.y1
+                fb.width = int (abs (len (data) / deltaY))
                 # if we added a new fbconfigs entry, let's update
                 # the value for the framebuffer width!
                 if (fbconfigs.has_key (fb.config)):
                     fbconfigs[fb.config][1] = width
                 if (VERBOSE):
-                    print ('PYIMTOOL: delta_x: ' + str (fb.width))
+                    sys.stderr.write ('PYIMTOOL: deltaX: ' + str (fb.width) + '\n')
         return
     
     
-    def handle_imcursor (self, pkt):
+    def handleImcursor (self, pkt):
         done = 0
         
         if (pkt.tid & IIS_READ):
             if (pkt.tid & IMC_SAMPLE):
                 # return the cursor position
                 wcs = int (pkt.z)
-                (sx, sy, key, frame) = self.server.controller.imgView.get_cursor ()
+                (sx, sy, key, frame) = self.server.controller.imgView.getCursor ()
                 frame -= 1
                 
-                self.return_cursor (pkt.dataout, sx, sy, frame, wcs, '0', '')
+                self.returnCursor (pkt.dataout, sx, sy, frame, wcs, '0', '')
             else:
                 # wait until the user presses a key
-                self.server.controller.imgView.req_handler = self
+                self.server.controller.imgView.reqHandler = self
                 while (not done):
-                    if (self.got_key != None):
+                    if (self.gotKey != None):
                         done = 1
-                        self.got_key = None
+                        self.gotKey = None
                     time.sleep (0.2)
                 # <--- end of the while loop
                 sx = self.x
@@ -390,7 +391,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 frame = self.frame
                 key = self.key
                 
-                self.return_cursor (pkt.dataout, sx, sy, frame, 1, key, '')
+                self.returnCursor (pkt.dataout, sx, sy, frame, 1, key, '')
         else:
             # read the cursor position in logical coordinates
             sx = int (pkt.x)
@@ -405,15 +406,15 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                     fb = self.server.controller.fb[self.frame]
                 except:
                     # the selected frame does not exist, create it
-                    fb = self.server.controller.init_frame (self.frame)
-                fb.ct = self.wcs_update (fb.wcs)
+                    fb = self.server.controller.initFrame (self.frame)
+                fb.ct = self.wcsUpdate (fb.wcs)
                 if (fb.ct.valid):
                     if (abs (fb.ct.a) > 0.001):
                         sx = int ((wx - fb.ct.tx) / fb.ct.a)
                     if (abs (fb.ct.d) > 0.001):
                         sy = int ((wy - xt.ty) / fb.ct.d)
-            cursor_x = sx
-            cursor_y = sy
+            cursorX = sx
+            cursorY = sy
         return
     
     
@@ -437,9 +438,9 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             try:
                 bytes = struct.unpack ('8h', line)
             except:
-                print ('PYIMTOOL: error unpacking the data.')
+                sys.stderr.write ('PYIMTOOL: error unpacking the data.\n')
                 for exctn in sys.exc_info():
-                    print (exctn)
+                    sys.stderr.write (exctn + '\n')
             
             # verify checksum
             # DO SOMETHING!
@@ -471,34 +472,34 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             # decide what to do, depending on the
             # value of subunit            
             if (packet.subunit077 == FEEDBACK):
-                self.handle_feedback (packet)
+                self.handleFeedback (packet)
             elif (packet.subunit077 == LUT):
-                self.handle_lut (packet)
+                self.handleLut (packet)
                 # read the next packet
                 line = packet.datain.read (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == MEMORY):
-                self.handle_memory (packet)
-                if (self.needs_update):
+                self.handleMemory (packet)
+                if (self.needsUpdate):
                     self.server.controller.animateProgressWeel ()
-                    # self.update_screen ()
+                    # self.updateScreen ()
                 # read the next packet
                 line = packet.datain.read (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == WCS):
-                self.handle_wcs (packet)
+                self.handleWCS (packet)
                 line = packet.datain.read (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == IMCURSOR):
-                self.handle_imcursor (packet)
+                self.handleImcursor (packet)
                 line = packet.datain.read (size)
                 n = len (line)
                 continue
             else:
-                # print ('no-op')
+                # sys.stderr.write ('no-op\n')
                 pass
             
             if (not (packet.tid & IIS_READ)):
@@ -521,17 +522,17 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             if (n < size):
                 return
         # <--- end of the while (n) loop
-        if (self.needs_update):
-            self.display_image ()
+        if (self.needsUpdate):
+            self.displayImage ()
         return
     
     
-    def update_screen (self):
+    def updateScreen (self):
         self.server.controller.updateProgressBar (10)
         return
     
     
-    def display_image (self, reset=1):
+    def displayImage (self, reset=1):
         # get rid of the progress bar
         # self.server.controller.updateProgressBar (100)
         
@@ -539,7 +540,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             fb = self.server.controller.fb[self.frame]
         except:
             # the selected frame does not exist, create it
-            fb = self.server.controller.init_frame (self.frame)
+            fb = self.server.controller.initFrame (self.frame)
         
         if (not fb.height):
             width = fb.width       

@@ -17,8 +17,8 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     # the actual base class is NSImageView
     # The following outlets are added to the class:
     def awakeFromNib (self):
-        self.bitmap = ''
-        self.image = ''
+        self.bitmap = NSBitmapImageRep.alloc ()
+        self.image = NSImage.alloc ()
         self.frameBuffer = None
         self.infoPanel = None
         self.trackMouse = False
@@ -56,12 +56,10 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         
         self.frameBuffer = frameBuffer
         
-        if (VERBOSE):
-            sys.stderr.write ("Resizing to %dx%d.\n" % (frameBuffer.width, frameBuffer.height))
         self.setFrameSize_ ((frameBuffer.width, frameBuffer.height))
         
         try:
-            tempBitmap = NSBitmapImageRep.alloc().initWithBitmapDataPlanes_pixelsWide_pixelsHigh_bitsPerSample_samplesPerPixel_hasAlpha_isPlanar_colorSpaceName_bytesPerRow_bitsPerPixel_ (
+            self.bitmap.initWithBitmapDataPlanes_pixelsWide_pixelsHigh_bitsPerSample_samplesPerPixel_hasAlpha_isPlanar_colorSpaceName_bytesPerRow_bitsPerPixel_ (
                 (frameBuffer.buffer, None, None, None, None), 
                 frameBuffer.width, 
                 frameBuffer.height,  
@@ -71,50 +69,19 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
                 frameBuffer.isPlanar, 
                 frameBuffer.colorSpaceName, 
                 frameBuffer.width, 
-                frameBuffer.bitsPerSample * frameBuffer.samplesPerPixel)
+                frameBuffer.bitsPerSample * frameBuffer.samplesPerPixel).retain ()
         except:
             if (VERBOSE):
                 sys.stderr.write ('Bitmap creation failed.\n')
             return
         
-        if (self.bitmap):
-            if (self.bitmap != tempBitmap):
-                self.bitmap.release ()
-                self.bitmap = tempBitmap
-                self.bitmap.retain ()
-                tempBitmap.release ()
-                if (VERBOSE):
-                    sys.stderr.write ('Rempving old bitmap.\n')
-        else:
-            self.bitmap = tempBitmap
-            self.bitmap.retain ()
-            tempBitmap.release ()
-            if (VERBOSE):
-                sys.stderr.write ('No previous bitmap.\n')
-        
         try:
-            tempImage = NSImage.alloc ().init ()
+            self.image.init ()
+            self.image.addRepresentation_ (self.bitmap)
         except:
             if (VERBOSE):
                 sys.stderr.write ('Image creation failed.\n')
             return
-        
-        if (self.image):
-            if (self.image != tempImage):
-                self.image.release ()
-                self.image = tempImage
-                self.image.retain ()
-                tempImage.release ()
-                if (VERBOSE):
-                    sys.stderr.write ('Rempving old image.\n')
-        else:
-            self.image = tempImage
-            self.image.retain ()
-            tempImage.release ()
-            if (VERBOSE):
-                sys.stderr.write ('No previous image.\n')
-        
-        self.image.addRepresentation_ (self.bitmap)
         
         self.setImage_ (self.image)
         self.setNeedsDisplay_ (True)

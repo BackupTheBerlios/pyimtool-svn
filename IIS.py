@@ -22,7 +22,7 @@
 from utilities import *
 
 class IIS (object):
-    def __init__ (self):
+    def __init__ (self, verbose=False):
         self.tid = None
         self.subunit = None
         self.subunit077 = None
@@ -31,6 +31,50 @@ class IIS (object):
         self.y = None
         self.z = None
         self.t = None
+        
+        # Communication channels
         self.datain = None
         self.dataout = None
+        
+        # Debug info
+        self.verbose = verbose
+        self.f1 = file ('/tmp/fromClient.dat', 'ab')
+        self.f2 = file ('/tmp/toClient.dat', 'ab')
         return
+    
+    
+    def toClient (self, data):
+        """
+        Write "data" to the client using the active connection.
+        """
+        self.dataout.write (data)
+        self.dataout.flush ()
+        
+        if (self.verbose):
+            # sys.stderr.write ('toClient: %s\n' % (data))
+            self.f2.write (data)
+        return
+    
+    
+    def fromClient (self, nBytes):
+        """
+        Read "nBytes" from the client using the active connection.
+        """
+        data = self.datain.read (nBytes)
+        
+        if (self.verbose):
+            # sys.stderr.write ('fromClient: %s\n' % (data))
+            self.f1.write (data)
+        return (data)
+    
+    
+    def __del__ (self):
+        """Standard desctructor"""
+        if (self.verbose):
+            self.f1.close ()
+            self.f2.close ()
+        return
+
+
+
+

@@ -473,26 +473,22 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         return
     
     
-    def XXXmouseDown_XXX (self, event):
-        (self.x0, self.y0) = self.convertPoint_fromView_ (event.locationInWindow (), None)
-        return
-    
-    
     def mouseDragged_ (self, event):
         """
         Implement color stretching by modifying the LUT
         """
-        MAX_CONTRAST = 5.
-        (x, y) = self.convertPoint_fromView_ (event.locationInWindow (), None)
-        (w, h) = self.frame ().size
+        (x, y) = event.locationInWindow ()
+        
+        (w, h) = self.visibleRect ().size
         self.offset = x / w
         self.scale = (y - h / 2.) / h * MAX_CONTRAST * 2.
         
-        # Modify the actual color tables
+        # Modify a copy of the actual color tables
         i2r = (self.i2r * self.scale) + self.offset
         i2g = (self.i2g * self.scale) + self.offset
         i2b = (self.i2b * self.scale) + self.offset
         
+        # Install the new color tables
         glPixelMapfv (GL_PIXEL_MAP_I_TO_R, i2r)
         glPixelMapfv (GL_PIXEL_MAP_I_TO_G, i2g)
         glPixelMapfv (GL_PIXEL_MAP_I_TO_B, i2b)

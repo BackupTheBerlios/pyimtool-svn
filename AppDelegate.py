@@ -164,6 +164,9 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         colormapMenu = imageMenu.itemWithTitle_ ('Colormap').submenu ()
         
         # Add the colormaps we found
+        if (not self.lutNames):
+            self.imageView.initColormaps ()
+        
         for lutName in self.lutNames:
             newItem = NSMenuItem.allocWithZone_ (NSMenu.menuZone ())
             newItem.initWithTitle_action_keyEquivalent_ (lutName, None, '')

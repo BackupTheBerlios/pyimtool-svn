@@ -1,0 +1,86 @@
+
+
+body {
+	margin:0px;
+	padding:0px;
+	font-family:"Trebuchet MS",arial,helvetica,sans-serif;
+	color:#333;
+	background-color:white;
+	}
+
+h1 {
+	margin:0px 0px 15px 0px;
+	padding:0px;
+	font-size:28px;
+	line-height:28px;
+	font-weight:900;
+	color:#ccc;
+	}
+
+p {
+	font-size: 11pt;
+	margin:0px 0px 16px 0px;
+	padding:10px;
+	text-align: justify;
+	}
+#Content>p {margin:0px;}
+#Content>p+p {text-indent:30px;}
+
+a {
+	color:#09c;
+	font-size:11px;
+	text-decoration:none;
+	font-weight:600;
+	}
+
+a:link {color:#09c;}
+a:visited {color:#07a;}
+a:hover {color:#f55;}
+
+#menuLinks {
+    font-size:12px;
+    }
+
+#Header {
+	padding:1em 0em 0.5em 0em;
+	text-align:center;
+	font-size: 24pt;
+	font-weight: bold;
+	}
+
+#Content {
+	margin:0px 50px 50px 200px;
+	padding:10px;
+	}
+
+#Menu {
+	position:absolute;
+	top:100px;
+	left:20px;
+	padding:10px;
+	border:1px dashed #999;
+	line-height:17px;
+	width:150px;
+	}
+/* Again, "be nice to Opera 5". */
+body>#Menu {width:150px;}
+
+#Copyright {
+	clear:both;
+	position:absolute;
+	right: 0em;
+	left: 0em;
+	bottom: 5%;
+	text-align:center;
+	font-size: 9pt;
+	font-weight:800;
+	color:#999;
+	}
+#copyrightText {
+	position:relative;
+	font-style: italic;
+	}
+
+img {
+    border: 0;
+    }

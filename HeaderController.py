@@ -126,16 +126,9 @@ class HeaderController (NibClassBuilder.AutoBaseClass):
         Invoke IMHEADER to get the header of self.imageName
         Return the new header.
         """
-        TASK = PREFS['irafRoot'] + '/bin.macosx/x_images.e imheader'
-        TEMPLATE = 'imheader.$nargs = 1\nimheader.images = "%s"\n'
-        TEMPLATE += 'imheader.imlist = "*.imh,*.fits,*.pl,*.qp,*.hhh"\n'
-        TEMPLATE += 'imheader.longheader = yes\n'
-        TEMPLATE += 'imheader.userfields = yes\n'
-        TEMPLATE += 'imheader.mode = "ql"\n'
-        TEMPLATE += '# EOF\n'
-        
         if (self.imageName == 'N/A' or 
-            self.imageTitle == 'N/A'):
+            self.imageTitle == 'N/A' or
+            not PREFS['irafIntegration']):
             self.header = EMPTY_HEADER
             return
         
@@ -145,13 +138,14 @@ class HeaderController (NibClassBuilder.AutoBaseClass):
         
         # Create a temporary parameter file
         (fd, name) = tempfile.mkstemp (dir='/tmp', text=True)
-        os.write (fd, TEMPLATE % (self.imageName))
+        os.write (fd, IRAF_PAR['imheader'] % (self.imageName))
         os.close (fd)
         
-        TASK += ' @%s' % (name)
+        task = IRAF_TASK['imheader'] % (PREFS['irafRoot'],
+                                        name)
         
         # Run the external process
-        (childOut, childIn, childErr) = popen2.popen3 (TASK)
+        (childOut, childIn, childErr) = popen2.popen3 (task)
         
         # Wait for the process to terminate and fetch the process 
         # output.

@@ -861,7 +861,11 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
     def setHeaderPanel (self, panel):
         self.headerPanel = panel
         return
-
+    
+    
+    def headerWindowWillClose (self):
+        self.headerPanel = None
+        return
 
 
 

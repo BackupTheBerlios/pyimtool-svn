@@ -3,12 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>PyImtool</key>
-	    <dict>
-	        <key>version</key>
-            <string>1.0a0</string>
-            
-            <key>url</key>
-            <string>http://developer.berlios.de/project/showfiles.php?group_id=1832</string>
-        </dict>
+	<dict>
+		<key>url</key>
+		<string>http://developer.berlios.de/project/showfiles.php?group_id=1832</string>
+		<key>version</key>
+		<string>1.0a1</string>
+	</dict>
 </dict>
 </plist>

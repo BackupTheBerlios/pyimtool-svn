@@ -143,7 +143,12 @@ PREFS = {'ScaleToFit': True,
          'CheckForNewVersion': True}
 
 # Toolbar icon labels
-TOOLBAR_LABELS = ('zoomIn', 'zoomOut', 'zoomToFit', 'actualSize')
+TOOLBAR_LABELS = ('zoomIn', 
+                  'zoomOut', 
+                  'zoomToFit', 
+                  'actualSize', 
+                  'prev', 
+                  'next')
 
 
 # utility routines

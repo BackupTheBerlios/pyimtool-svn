@@ -46,6 +46,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         self.unixDataThread = None
         self.infoPanel = None
         self.toolbarItems = {}
+        self.toolbarLabels = []
         self.toolbar = None
         
         # read the application preferences
@@ -106,6 +107,12 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
             tbi.setImage_ (image)
             
             self.toolbarItems[label] = tbi
+            self.toolbarLabels.append (label)
+        
+        # Add the two extra items we always want: flexible space 
+        # and customize.
+        self.toolbarLabels.append (NSToolbarFlexibleSpaceItemIdentifier)
+        self.toolbarLabels.append (NSToolbarCustomizeToolbarItemIdentifier)
         
         # Now that we have created the necessary toolbar items, we 
         # can create the toolbar itself.
@@ -160,11 +167,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         """
         Create the default toolbar.
         """
-        items = self.toolbarItems.keys ()
-        items.sort ()
-        items.append (NSToolbarFlexibleSpaceItemIdentifier)
-        items.append (NSToolbarCustomizeToolbarItemIdentifier)
-        return (items)
+        return (self.toolbarLabels)
     
     
     def toolbarAllowedItemIdentifiers_ (self, toolbar):

@@ -196,22 +196,105 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     
     
     def zoomIn (self):
-        print ('Zoom In')
+        if (not self.frameBuffer or not self.image):
+            return
+        
+        (w0, h0) = (self.frameBuffer.width, self.frameBuffer.height)
+        
+        # setup the appropriate transformation
+        self.transformation.scaleBy_ (2.0)
+        
+        # update the zoom factor
+        self.frameBuffer.zoom *= 2.0
+        
+        # resize the frame
+        newSize = self.transformation.transformSize_ ((w0, h0))
+        self.setFrameSize_ (newSize)
+        self.setNeedsDisplay_ (True)
         return
     
     
     def zoomOut (self):
-        print ('Zoom Out')
+        if (not self.frameBuffer or not self.image):
+            return
+        
+        (w0, h0) = (self.frameBuffer.width, self.frameBuffer.height)
+        
+        # setup the appropriate transformation
+        self.transformation.scaleBy_ (0.5)
+        
+        # update the zoom factor
+        self.frameBuffer.zoom /= 2.0
+        
+        # resize the frame
+        newSize = self.transformation.transformSize_ ((w0, h0))
+        self.setFrameSize_ (newSize)
+        self.setNeedsDisplay_ (True)
         return
     
     
     def zoomToFit (self):
-        print ('Zoom To Fit')
+        if (not self.frameBuffer or not self.image):
+            return
+        
+        # get the min between the clip view dimensions
+        (w, h) = self.superview ().frame ()[1]
+        (w0, h0) = (self.frameBuffer.width, self.frameBuffer.height)
+        
+        # adjust the size if the scrollers are visible
+        scrollView = self.superview ().superview ()
+        hScroller = scrollView.horizontalScroller ()
+        vScroller = scrollView.verticalScroller ()
+        
+        if (scrollView.hasHorizontalScroller () and h0 > h):
+            h += NSScroller.scrollerWidthForControlSize_ (hScroller.controlSize ())
+        if (scrollView.hasVerticalScroller () and w0 > w):
+            w += NSScroller.scrollerWidthForControlSize_ (vScroller.controlSize ())
+        
+        # update the zoom factor
+        if (w < h):
+            # make sure the image width fits into the clip view
+            self.frameBuffer.zoom = float (w) / float (w0)
+        else:
+            # make sure the image height fits into the clip view
+            self.frameBuffer.zoom = float (h) / float (h0)
+        
+        # setup the appropriate transformation
+        self.transformation = NSAffineTransform.transform ()
+        self.transformation.scaleBy_ (self.frameBuffer.zoom)
+        
+        # resize the frame
+        newSize = self.transformation.transformSize_ ((w0, h0))
+        self.setFrameSize_ (newSize)
+        self.setNeedsDisplay_ (True)
         return
     
     
     def actualSize (self):
-        print ('Actual Size')
+        if (not self.frameBuffer or not self.image):
+            return
+        
+        (w0, h0) = (self.frameBuffer.width, self.frameBuffer.height)
+        
+        # setup the appropriate transformation
+        self.transformation = NSAffineTransform.transform ()
+        
+        # update the zoom factor
+        self.frameBuffer.zoom = 1.0
+        
+        # resize the frame
+        self.setFrameSize_ ((w0, h0))
+        self.setNeedsDisplay_ (True)
+        return
+    
+    
+    def prev (self):
+        print ('Previous Frame')
+        return
+    
+    
+    def next (self):
+        print ('Next Frame')
         return
 
 

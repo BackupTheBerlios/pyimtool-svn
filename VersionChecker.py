@@ -96,7 +96,7 @@ class VersionChecker (object):
         if (latestVersion and 
             latestVersion != self.version):
             answer = NSRunAlertPanel ('A new version is available', 
-                                      'A new version of %s is available (version %s). Would you like to download the new version now?' % (self.name, self.version), 
+                                      'A new version of %s is available (version %s). Would you like to download the new version now?' % (self.name, latestVersion), 
                                       'Yes', 
                                       'No', 
                                       None)

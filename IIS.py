@@ -38,8 +38,9 @@ class IIS (object):
         
         # Debug info
         self.verbose = verbose
-        self.f1 = file ('/tmp/fromClient.dat', 'ab')
-        self.f2 = file ('/tmp/toClient.dat', 'ab')
+        if (self.verbose):
+            self.f1 = file ('/tmp/fromClient.dat', 'ab')
+            self.f2 = file ('/tmp/toClient.dat', 'ab')
         return
     
     

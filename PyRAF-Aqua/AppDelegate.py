@@ -16,11 +16,11 @@ from PseudoUTF8Output import *
 try:
     sys.ps1
 except AttributeError:
-    sys.ps1 = ">>> "
+    sys.ps1 = ""
 try:
     sys.ps2
 except AttributeError:
-    sys.ps2 = "... "
+    sys.ps2 = ""
 
 DEBUG_DELEGATE = 0
 PASSTHROUGH = (
@@ -54,6 +54,13 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         self.textView.setContinuousSpellCheckingEnabled_(False)
         self.textView.setRichText_(False)
         self._executeWithRedirectedIO(self._interp)
+        self._executeWithRedirectedIO(self._executeLine_, 
+            "execfile ('/System/Library/Frameworks/Python.framework/Versions/2.3/bin/pyraf')")
+        self._stdin = PseudoUTF8Input(self._nestedRunLoopReaderUntilEOLchars_)
+        self._executeWithRedirectedIO(self._executeLine_, "import pyraf.pycmdline")
+        self._executeWithRedirectedIO(self._executeLine_, 
+            "_pycmdline = pyraf.pycmdline.PyCmdLine(locals=globals())")
+        self._executeWithRedirectedIO(self._executeLine_, "_pycmdline.start()")
 
     #
     #  NIB loading protocol
@@ -69,14 +76,15 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         self._history = [u'']
         self._historyView = 0
         self._characterIndexForInput = 0
-        self._stdin = PseudoUTF8Input(self._nestedRunLoopReaderUntilEOLchars_)
+        # self._stdin = PseudoUTF8Input(self._nestedRunLoopReaderUntilEOLchars_)
         #self._stdin = PseudoUTF8Input(self.readStdin)
+        self._stdin = sys.stdin
         self._stderr = PseudoUTF8Output(self.writeStderr_)
         self._stdout = PseudoUTF8Output(self.writeStdout_)
         self._isInteracting = False
         self._console = AsyncInteractiveConsole()
         self._interp = self._console.asyncinteract(
-            write=self.writeCode_,
+            write=self.writeCode_, banner=""
         ).next
         self._autoscroll = True
 
@@ -136,7 +144,13 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         self._history = filter(None, self._history)
         self._history.append(u'')
         self._historyView = len(self._history) - 1
-
+    
+    def pyrafExecutedLine_ (self, line):
+        self.addHistoryLine_(line)
+        self._history = filter(None, self._history)
+        self._history.append(u'')
+        self._historyView = len(self._history) - 1
+    
     def _executeLine_(self, line):
         self._interp()(line)
         self._more = self._interp()

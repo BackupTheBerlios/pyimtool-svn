@@ -1,6 +1,6 @@
 
 PyImtool (http://pyimtool.berlios.de/)
-Version 1.0a1
+Version 1.0a2
 
 
 Introduction
@@ -72,6 +72,8 @@ Credits
 by others:
 - Python (http://www.python.org/)
 - PyObjC (http://pyobjc.sourceforge.net/)
+- PyOpenGL (http://pyopengl.sourceforge.net/)
+- numarray (http://sourceforge.net/projects/numpy)
 - Objective-C (http://www.apple.com/)
 - Cocoa (http://www.apple.com/)
 - MagnifiedView (http://www.docdave.com/)

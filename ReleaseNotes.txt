@@ -1,6 +1,20 @@
 
 PyImtool (http://pyimtool.berlios.de/)
 
+Version 1.0a2 (July 2004)
+    Third "semi public" release.
+    
+Features
+    Graphics engine uses OpenGL now (major rewrite).
+    Support for color stretching (using the mouse).
+
+Known Limitations
+    No complete implementation of the IIS protocol.
+    No support for loading data other than going through IRAF/PyRAF.
+    No support for little endian images through a network.
+    No online help.
+
+
 Version 1.0a1 (June 30, 2004)
     Second "semi public" release.
     

@@ -165,6 +165,8 @@
 		};
 		29B97317FDCFA39411CA2CEA = {
 			children = (
+				C47E8AD706894E9D006CCA86,
+				C414DEBD06876C1A004885F3,
 				C4CC90C2068114A00024D517,
 				C4CC90C3068114A00024D517,
 				C4BBFC62067E864F0018A7B5,
@@ -582,6 +584,8 @@
 				C4BBFC63067E864F0018A7B5,
 				C4CC90C4068114A00024D517,
 				C4CC90C5068114A00024D517,
+				C414DEBF06876C1B004885F3,
+				C47E8AF606894E9D006CCA86,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -654,6 +658,30 @@
 //C42
 //C43
 //C44
+		C414DEBD06876C1A004885F3 = {
+			children = (
+				C414DEBE06876C1A004885F3,
+			);
+			isa = PBXVariantGroup;
+			name = Credits.rtf;
+			path = "";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C414DEBE06876C1A004885F3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.rtf;
+			name = English;
+			path = English.lproj/Credits.rtf;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C414DEBF06876C1B004885F3 = {
+			fileRef = C414DEBD06876C1A004885F3;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		C4553611067A820B0074DD61 = {
 			fileEncoding = 4;
 			isa = PBXFileReference;
@@ -678,6 +706,19 @@
 		};
 		C475436D066FEC5000D102B0 = {
 			fileRef = C475436C066FEC5000D102B0;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C47E8AD706894E9D006CCA86 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			path = PyImtoolHelp;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C47E8AF606894E9D006CCA86 = {
+			fileRef = C47E8AD706894E9D006CCA86;
 			isa = PBXBuildFile;
 			settings = {
 			};

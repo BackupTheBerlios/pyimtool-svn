@@ -6,6 +6,10 @@
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>Pyimtool</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>PyImtoolHelp</string>
+	<key>CFBundleHelpBookName</key>
+	<string>PyImtoolHelp</string>
 	<key>CFBundleIconFile</key>
 	<string>PyImtool.icns</string>
 	<key>CFBundleIdentifier</key>

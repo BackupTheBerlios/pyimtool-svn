@@ -22,7 +22,7 @@
 from utilities import *
 from OpenGL import *
 from OpenGL.GL import *
-# from OpenGL.GLU import *
+
 
 
 NibClassBuilder.extractClasses ("MainMenu")
@@ -123,7 +123,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         OpenGL initialization routine
         """
         # setup the LUT
-        lutData = file ('/Users/fpierfed/Desktop/heat.lut').readlines ()
+        lutData = file ('%s/heat.lut' % (RESOURCES_PATH)).readlines ()
         self.i2r = numarray.zeros (shape=(256), type='Float32')
         self.i2g = numarray.zeros (shape=(256), type='Float32')
         self.i2b = numarray.zeros (shape=(256), type='Float32')
@@ -198,10 +198,9 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
     
     
     def resetCursorRects (self):
-        clipView = self.superview ()
-        scrollView = self.superview ().superview ()
-        frame = self.convertRect_fromView_ (clipView.frame (), scrollView)
-        self.addCursorRect_cursor_ (frame, NSCursor.crosshairCursor ())
+        visibleRect = self.convertRect_toView_ (self.superview ().bounds (), 
+                                                self)
+        self.addCursorRect_cursor_ (visibleRect, NSCursor.crosshairCursor ())
         return
     
     def getHotSpareID (self):
@@ -309,28 +308,28 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         Sets the receiver's viewport and coordinate system to reflect
         changes to the visible portion of the view.
         """
-        visibleRect = self.visibleRect ()
+        # There appear to be a bug of some sort in determining the view
+        # visibleRect when the scrollbar is all the way to the top: a
+        # null rectangle is returned in that case. We work around this
+        # by deriving the visibleRect from the superview bounds rect.
+        # visibleRect = self.visibleRect ()
+        visibleRect = self.convertRect_toView_ (self.superview ().bounds (), 
+                                                self)
         superVisibleRect = visibleRect
+        
+        # print (visibleRect)
+        # print (self.superview ().frame ())
+        
+        if (not visibleRect.size.width or
+            not visibleRect.size.height):
+            print ('No valid visibleRect!')
+            return
         
         # Conversion captures any scaling in effect
         superVisibleRect = self.convertRect_toView_ (superVisibleRect, 
                                                     self.superview ())
         
         self.openGLContext ().makeCurrentContext ()
-        
-        # Setup some basic OpenGL stuff
-#         glPixelStorei (GL_UNPACK_ALIGNMENT, 1)
-#         glTexEnvi (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE)
-#         glClearColor (0.0, 0.0, 0.0, 1.0)
-#         glColor4f (1.0, 1.0, 1.0, 1.0)
-#         glEnable (GL_BLEND)
-#         glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
-#         glDisable (GL_TEXTURE_RECTANGLE_EXT)
-#         glEnable (GL_TEXTURE_2D)
-        
-        # Optimization: discard texture pixels that are too transparent
-#         glEnable (GL_ALPHA_TEST)
-#         glAlphaFunc (GL_GREATER, 0.05)
         
         glMatrixMode (GL_PROJECTION)
         glLoadIdentity ()
@@ -345,7 +344,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
                  NSMaxX (visibleRect), 
                  NSMinY(visibleRect),
                  NSMaxY(visibleRect), 
-                 -1.0, 1.0);
+                 -1.0, 1.0)
         
         self.setNeedsDisplay_ (True)
         return
@@ -386,11 +385,11 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         if (endX > maxX):
             endX = maxX - 1
             zw = endX - zx
-            print ('zx out of range')
+            print ('zw out of range')
         if (endY > maxY):
             endY = maxY - 1
             zh = endY - zy
-            print ('zy out of range')
+            print ('zw out of range')
         
         # extract the affected pixels from the image buffer. we 
         # implement zoom by extracting as few pixels as possible.
@@ -524,7 +523,9 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         """
         (x, y) = event.locationInWindow ()
         
-        (w, h) = self.visibleRect ().size
+        visibleRect = self.convertRect_toView_ (self.superview ().bounds (), 
+                                                self)
+        (w, h) = visibleRect.size
         self.offset = x / w
         self.scale = (y - h / 2.) / h * MAX_CONTRAST * 2.
         
@@ -544,7 +545,6 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
     
     def keyDown_ (self, event):
         if (not self.reqHandler):
-            print (1)
             return
         
         if (self.sx != None and self.sy != None):
@@ -605,10 +605,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
     
     
     def setImage_ (self, image):
-        """
-        Call drawRect_ () ro update the visibleRect of the OpenGL view.
-        """
-        self.drawRect_ (self.visibleRect ())
+        self.setNeedsDisplay_ (True)
         return
     
     
@@ -630,7 +627,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         self.transformation.scaleBy_ (2.0)
         newSize = self.transformation.transformSize_ ((w0, h0))
         self.setFrameSize_ (newSize)
-        self.setNeedsDisplay_ (True)
+        # self.setNeedsDisplay_ (True)
         return
     
     
@@ -650,9 +647,10 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         
         # resize the frame
         self.transformation.scaleBy_ (0.5)
+        
         newSize = self.transformation.transformSize_ ((w0, h0))
         self.setFrameSize_ (newSize)
-        self.setNeedsDisplay_ (True)
+        # self.setNeedsDisplay_ (True)
         return
     
     
@@ -692,7 +690,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         self.transformation.scaleBy_ (frameBuffer.zoom)
         newSize = self.transformation.transformSize_ ((w0, h0))
         self.setFrameSize_ (newSize)
-        self.setNeedsDisplay_ (True)
+        # self.setNeedsDisplay_ (True)
         return
     
     
@@ -713,7 +711,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         # resize the frame
         self.transformation = NSAffineTransform.transform ()
         self.setFrameSize_ ((w0, h0))
-        self.setNeedsDisplay_ (True)
+        # self.setNeedsDisplay_ (True)
         return
     
     

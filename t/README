@@ -1,0 +1,98 @@
+
+PyImtool (http://pyimtool.berlios.de/)
+Version 1.0a2
+
+
+Introduction
+    PyImtool is a native Mac OS X IRAF image server. Other examples of
+IRAF image servers include well known applications like SAO DS9 and NOAO
+Ximtool.
+    There are two main differences between PyImtool and its competitors:
+on one hand PyImtool is nowhere near as mature as, say, DS9. On the
+other hand, though, PyImtool does not require an X11 server. To put it
+in another way, PyImtool is a full fledged Cocoa application (and, to
+the best of my knowledge, the only Mac OS X native app in its category).
+    For those not familiar with DS9 and other IRAF image servers, what
+PyImtool does is very simple and very specific. It allows users to
+display astronomical data (e.g. images and spectra) from data reduction
+and analysis packages like IRAF and PyRAF. It supports the IIS protocol
+(also known as Ximtool protocol) for inter-application communications
+both via sockets and via UNIX pipes.
+
+
+Installation
+    Installing PyImtool is just as easy as installing any other Mac OS X
+app: just drag it anywhere you want on your Mac! Standard locations
+include the main /Applications directory or your home directory. Any
+other place is fine too.
+    To uninstall PyImtool, just drag it in the Trash. It is as simple as
+that.
+
+
+Requirements
+    Mac OS X 10.3 (aka Panther) or later. PyImtool might be made to work
+under Mac OS X 10.2. Similarly, it might be possible to port PyImtool to
+GNUStep. There are no plans to support anything other than 10.3 or later
+at the moment.
+
+
+Usage
+    Simply double click on PyImtool. If everything goes well, it will
+start up and display its main window. At this you can start an
+IRAF/PyRAF session (if you haven't already) and try the standard
+
+cl> display dev$pix 1
+
+    command from the IRAF/PyRAF prompt. If you see an image being
+displayed in PyImtool, you are home free. If not... well, there might be
+(gasp!) a bug in the code! In that case, please drop me a line on the
+pyimtool-dev mailing list
+(http://developer.berlios.de/mail/?group_id=1832).
+
+
+Source Code
+    PyImtool comes with the full source code included in the application
+itself (just look under PyImtool.app/Contents/Resources). The latest and
+greatest version of the source code is available via BerliOS.de
+(http://developer.berlios.de/svn/?group_id=1832). In order to check out
+a copy of the code, you need SVN installed on your system
+(http://subversion.tigris.org/). 
+    To build PyImtool from source you need both PyObjC and the Apple
+developer tools. The SVN code includes the XCode project files.
+
+
+Support
+     Support is currently limited to our mailing lists on BerliOS.de
+(http://developer.berlios.de/mail/?group_id=1832).
+
+
+Credits
+     PyImtool is developed by Francesco Pierfederici
+<fpierfed@bberlios.de> but it builds on tools and technologies developed
+by others:
+- Python (http://www.python.org/)
+- PyObjC (http://pyobjc.sourceforge.net/)
+- PyOpenGL (http://pyopengl.sourceforge.net/)
+- numarray (http://sourceforge.net/projects/numpy)
+- Objective-C (http://www.apple.com/)
+- Cocoa (http://www.apple.com/)
+- MagnifiedView (http://www.docdave.com/)
+- BlueRobot CSS sheets (http://www.bluerobot.com/)
+- Crystal Icons (http://www.everaldo.com/)
+    All these products/technologies are copyright of their respective
+owners.
+
+
+Legalese
+    PyImtool is copyright (c) 2004 Francesco Pierfederici. All rights
+reserved. This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published
+by the Free Software Foundation; either version 2 of the License, or (at
+your option) any later version.
+    This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details.
+    You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software Foundation,
+Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.

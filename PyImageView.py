@@ -345,6 +345,7 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     
     def keyDown_ (self, event):
         if (not self.reqHandler):
+            sys.stderr.write ('no self.reqHandler\n')
             return
         
         if (self.sx != None and self.sy != None):
@@ -358,6 +359,8 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
                 self.reqHandler.frame = self.frameNo
                 self.reqHandler.gotKey = True
                 self.reqHandler = None
+        else:
+            sys.stderr.write ('no self.sx and/or no self.sy\n')
         return
     
     

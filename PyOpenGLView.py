@@ -78,6 +78,9 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         self.trackMouse = False
         self.magnifierActive = False
         self.transformation = NSAffineTransform.transform ()
+        
+        self.offset = 0.
+        self.scale = 1.
         return
     
     
@@ -121,23 +124,23 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         """
         # setup the LUT
         lutData = file ('/Users/fpierfed/Desktop/heat.lut').readlines ()
-        i2r = []
-        i2g = []
-        i2b = []
-        for line in lutData:
-            (r, g, b) = line.split ()
-            i2r.append (float (r))
-            i2g.append (float (g))
-            i2b.append (float (b))
+        self.i2r = numarray.zeros (shape=(256), type='Float32')
+        self.i2g = numarray.zeros (shape=(256), type='Float32')
+        self.i2b = numarray.zeros (shape=(256), type='Float32')
+        for i in range (len (lutData)):
+            (r, g, b) = lutData[i].split ()
+            self.i2r[i] = float (r)
+            self.i2g[i] = float (g)
+            self.i2b[i] = float (b)
         
         # Setup the OpenGL maps
         glPixelTransferf (GL_ALPHA_SCALE, 0.0)
         glPixelTransferf (GL_ALPHA_BIAS,  1.0)
         glPixelStorei (GL_UNPACK_ALIGNMENT, 1)
         
-        glPixelMapfv (GL_PIXEL_MAP_I_TO_R, i2r)
-        glPixelMapfv (GL_PIXEL_MAP_I_TO_G, i2g)
-        glPixelMapfv (GL_PIXEL_MAP_I_TO_B, i2b)
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_R, self.i2r)
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_G, self.i2g)
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_B, self.i2b)
         glPixelMapfv (GL_PIXEL_MAP_I_TO_A, 1)
         
         glPixelTransferi (GL_INDEX_SHIFT, 0)
@@ -467,6 +470,34 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
                     pass
             self.sx = None
             self.sy = None
+        return
+    
+    
+    def XXXmouseDown_XXX (self, event):
+        (self.x0, self.y0) = self.convertPoint_fromView_ (event.locationInWindow (), None)
+        return
+    
+    
+    def mouseDragged_ (self, event):
+        """
+        Implement color stretching by modifying the LUT
+        """
+        MAX_CONTRAST = 5.
+        (x, y) = self.convertPoint_fromView_ (event.locationInWindow (), None)
+        (w, h) = self.frame ().size
+        self.offset = x / w
+        self.scale = (y - h / 2.) / h * MAX_CONTRAST * 2.
+        
+        # Modify the actual color tables
+        i2r = (self.i2r * self.scale) + self.offset
+        i2g = (self.i2g * self.scale) + self.offset
+        i2b = (self.i2b * self.scale) + self.offset
+        
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_R, i2r)
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_G, i2g)
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_B, i2b)
+        
+        self.setNeedsDisplay_ (True)
         return
     
     

@@ -63,6 +63,11 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         else:
             self.imageScale.selectCellAtRow_column_ (0, 0)
         
+        if (PREFS['CheckForNewVersion']):
+            self.versionCheck.setState_ (NSOnState)
+        else:
+            self.versionCheck.setState_ (NSOffState)
+        
         return
     
     

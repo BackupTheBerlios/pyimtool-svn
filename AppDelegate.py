@@ -90,6 +90,13 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
             
             self.unixDataThread = DataListener (sockType='unix', controller=self)
             self.unixDataThread.start ()
+        
+        # Are we asked to check and see if a new version is out?
+        if (PREFS['CheckForNewVersion']):
+            # Yes. Start a new thread and do the chack. We should 
+            # give the user the possibility to have the new version
+            # downloaded automatically.
+            v = VersionChecker ()
         return
     
     

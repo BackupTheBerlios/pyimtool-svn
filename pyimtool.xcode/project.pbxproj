@@ -17,6 +17,7 @@
 				C4ABBC9C066FE1B700D0BF0A,
 				C4ABBCA0066FE1CD00D0BF0A,
 				C4ABBCA4066FE22800D0BF0A,
+				C4553611067A820B0074DD61,
 				C4ABBCA6066FE23800D0BF0A,
 				C4ABBCA8066FE24600D0BF0A,
 			);
@@ -320,6 +321,7 @@
 				C4ABBCAD066FE64300D0BF0A,
 				C475436D066FEC5000D102B0,
 				C4FEB8CF06753F2B0047E1D9,
+				C4553612067A820B0074DD61,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,6 +394,20 @@
 //C42
 //C43
 //C44
+		C4553611067A820B0074DD61 = {
+			fileEncoding = 4;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = VersionChecker.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4553612067A820B0074DD61 = {
+			fileRef = C4553611067A820B0074DD61;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		C475436C066FEC5000D102B0 = {
 			fileEncoding = 4;
 			isa = PBXFileReference;

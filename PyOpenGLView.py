@@ -75,6 +75,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         self.sy = None
         
         self.infoPanel = None
+        self.headerPanel = None
         self.trackMouse = False
         self.magnifierActive = False
         self.transformation = NSAffineTransform.transform ()
@@ -328,6 +329,17 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             self.frameBuffers[self.hotSpareID] = None
         
         self.setFrameSize_ ((frameBuffer.width, frameBuffer.height))
+        
+        # Notify the header panel (if any) of the new image being 
+        # displaied.
+        if (self.headerPanel and frameBuffer and frameBuffer.raw):
+            self.headerPanel.setImageName (frameBuffer.ct.ref)
+            self.headerPanel.setImageTitle (frameBuffer.ct.imTitle)
+        
+        # Update the name and title fields in the info panel (id any)
+        if (self.infoPanel and frameBuffer and frameBuffer.raw):
+            self.infoPanel.setField ('name', frameBuffer.ct.ref)
+            self.infoPanel.setField ('title', frameBuffer.ct.imTitle)
         
         self.setNeedsDisplay_ (True)
         pool.release ()
@@ -762,7 +774,18 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             if (self.images[imageID]):
                 self.frameNo = newFrameNo
                 self.setImage_ (self.images[imageID])
-                # self.setNeedsDisplay_ (True)
+                
+                frameBuffer = self.frameBuffers[imageID]
+                # Notify the header panel (if any) of the new image being 
+                # displaied.
+                if (self.headerPanel and frameBuffer and frameBuffer.raw):
+                    self.headerPanel.setImageName (frameBuffer.ct.ref)
+                    self.headerPanel.setImageTitle (frameBuffer.ct.imTitle)
+                
+                # Update the name and title fields in the info panel (id any)
+                if (self.infoPanel and frameBuffer and frameBuffer.raw):
+                    self.infoPanel.setField ('name', frameBuffer.ct.ref)
+                    self.infoPanel.setField ('title', frameBuffer.ct.imTitle)
         
         # update the state of teh next/prev buttons
         if (newFrameNo == 1):
@@ -791,7 +814,18 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             if (self.images[imageID]):
                 self.frameNo = newFrameNo
                 self.setImage_ (self.images[imageID])
-                # self.setNeedsDisplay_ (True)
+                
+                frameBuffer = self.frameBuffers[imageID]
+                # Notify the header panel (if any) of the new image being 
+                # displaied.
+                if (self.headerPanel and frameBuffer and frameBuffer.raw):
+                    self.headerPanel.setImageName (frameBuffer.ct.ref)
+                    self.headerPanel.setImageTitle (frameBuffer.ct.imTitle)
+                
+                # Update the name and title fields in the info panel (id any)
+                if (self.infoPanel and frameBuffer and frameBuffer.raw):
+                    self.infoPanel.setField ('name', frameBuffer.ct.ref)
+                    self.infoPanel.setField ('title', frameBuffer.ct.imTitle)
         
         # update the state of teh next/prev buttons
         if (newFrameNo == 1):
@@ -803,6 +837,34 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         else:
             self.enableNextButton = True
         return
+    
+    
+    def getImageNameTitle (self):
+        """
+        Return the name and title of the currently displaied image. 
+        In case no image is active/displaied, return None, None.
+        """
+        imageID = self.mapping[self.frameNo]
+        frameBuffer = self.frameBuffers[imageID]
+        
+        if (frameBuffer and frameBuffer.raw):
+            # set the name, title and extension fields
+            imageName = frameBuffer.ct.ref
+            imageTitle = frameBuffer.ct.imTitle
+        else:
+            imageName = None
+            imageTitle = None
+        
+        return ((imageName, imageTitle))
+    
+    
+    def setHeaderPanel (self, panel):
+        self.headerPanel = panel
+        return
+
+
+
+
 
 
 

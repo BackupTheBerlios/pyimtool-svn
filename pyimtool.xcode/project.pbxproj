@@ -17,6 +17,7 @@
 				C4ABBCA4066FE22800D0BF0A,
 				C4553611067A820B0074DD61,
 				C4ABBCA6066FE23800D0BF0A,
+				C4A6CDEC06BC60D500F0A4CA,
 				C4ABBCA8066FE24600D0BF0A,
 				C4073347068A5C3700F71A84,
 			);
@@ -178,6 +179,7 @@
 				C4BBFC41067E84400018A7B5,
 				8D1107310486CEB800E47090,
 				089C165CFE840E0CC02AAC07,
+				C4A6CDE006BC60B700F0A4CA,
 				29B97318FDCFA39411CA2CEA,
 				C4ABBC83066FDE7000D0BF0A,
 				C4ABBC86066FDF7600D0BF0A,
@@ -348,6 +350,8 @@
 				C45AB1A106A7647D00AF5196,
 				C45AB76306A7649100AF5196,
 				C4DB262106B2C88C00750891,
+				C4A6CDE206BC60B700F0A4CA,
+				C4A6CDED06BC60D500F0A4CA,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,6 +555,44 @@
 		};
 		C47E8AF606894E9D006CCA86 = {
 			fileRef = C47E8AD706894E9D006CCA86;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4A6CDE006BC60B700F0A4CA = {
+			children = (
+				C4A6CDE106BC60B700F0A4CA,
+			);
+			isa = PBXVariantGroup;
+			name = HeaderPanel.nib;
+			path = "";
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4A6CDE106BC60B700F0A4CA = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.nib;
+			name = English;
+			path = English.lproj/HeaderPanel.nib;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4A6CDE206BC60B700F0A4CA = {
+			fileRef = C4A6CDE006BC60B700F0A4CA;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4A6CDEC06BC60D500F0A4CA = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = HeaderController.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4A6CDED06BC60D500F0A4CA = {
+			fileRef = C4A6CDEC06BC60D500F0A4CA;
 			isa = PBXBuildFile;
 			settings = {
 			};

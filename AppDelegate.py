@@ -27,6 +27,7 @@ from PrefsController import *
 from VersionChecker import *
 from WindowDelegate import *
 from InfoController import *
+from HeaderController import *
 from DataListener import *
 from FrameBuffer import *
 from PyOpenGLView import *
@@ -59,6 +60,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         self.inetDataThread = None
         self.unixDataThread = None
         self.infoPanel = None
+        self.headerPanel = None
         self.toolbarItems = {}
         self.toolbarLabels = []
         self.toolbar = None
@@ -369,7 +371,25 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         Opens a separate window wwith the header information from the
         currently displayed image (if possible).
         """
-        print ('headerWindow')
+        if (sender.title ()[0] == 'H'):
+            # close the info panel
+            self.headerPanel.closeWindow (self)
+            # set the menu item title to "Show..."
+            sender.setTitle_ ('Show Image Header')
+        else:
+            self.headerPanel = HeaderController.headerController (self, self.imageView)
+            self.headerPanel.showWindow_ (self)
+            # set the menu item title to "Hide..."
+            sender.setTitle_ ('Hide Image Header')
+        return
+    
+    
+    def headerWindowWillClose (self):
+        """
+        Called just before the headerWindow will close. It sets the 
+        correct label for the corresponding menu item.
+        """
+        self.headerPanelMenuItem.setTitle_ ('Show Image Header')
         return
     
     

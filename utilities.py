@@ -155,9 +155,19 @@ fbconfigs = {1: [2, 512, 512],
     50: [1, 2048, 2500]}
 
 # Application-wide preferences
-PREFS = {'ScaleToFit': True, 
+PREFS = {'scaleToFit': True, 
          'irafRoot': '/iraf/iraf',
-         'CheckForNewVersion': False}
+         'irafIntegration': True,
+         'checkForNewVersion': False}
+
+# IRAF integration
+IRAF_TASK = {'imheader': '%s/bin.macosx/x_images.e imheader @%s'}
+IRAF_PAR = {'imheader': 'imheader.$nargs = 1\nimheader.images = "%s"\n' + \
+                        'imheader.imlist = "*.imh,*.fits,*.pl,*.qp,*.hhh"\n' + \
+                        'imheader.longheader = yes\n' + \
+                        'imheader.userfields = yes\n' + \
+                        'imheader.mode = "ql"\n' + \
+                        '# EOF\n'}
 
 # PyImtool Home Page
 HOME_PAGE = 'http://pyimtool.berlios.de'

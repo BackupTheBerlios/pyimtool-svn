@@ -1,6 +1,22 @@
 
 PyImtool (http://pyimtool.berlios.de/)
 
+Version 1.0a1 (June 30, 2004)
+    Second "semi public" release.
+    
+Features
+    PyRAF support.
+    Automatic checks for newer versions.
+
+Known Limitations
+    No support for changing image intensity/contrast.
+    No complete implementation of the IIS protocol.
+    No support for loading data other than going through IRAF/PyRAF.
+    No support for little endian images through a network.
+    Few aesthetic quirks here and there in the GUI.
+    No online help.
+
+
 Version 1.0a0 (June 24, 2004)
     First "semi public" release.
     

@@ -145,6 +145,11 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         glPixelTransferi (GL_MAP_COLOR, GL_TRUE)
         glDisable (GL_DITHER)
         
+        # clear color for the view
+        glClearColor (0.0, 0.0, 0.0, 0.0)
+        glClearDepth (1.0)
+        
+        glLoadIdentity ()
         return
     
     
@@ -161,12 +166,12 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
     
     def isFlipped (self):
         """
-        Nasty trick: needed to make sure that our
-        MyImageView is anchored to the top left
-        corner of the parent NSScrollView.
-        See http://www.omnigroup.com/mailman/archive/macosx-dev/2003-October/036608.html
+        Bummer: the OpenGL view apparently needs to be "unflipped"
+        otherwise the ScrollView it is contained in screws up scrolling.
+        Of course, this means that the OpenGL view is anchored to the
+        bottol-left corner of the ScrollView.
         """
-        return (True)
+        return (False)
     
     
     def acceptsFirstResponder (self):
@@ -289,6 +294,53 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         return
     
     
+    def reshape (self):
+        """ 
+        Sets the receiver's viewport and coordinate system to reflect
+        changes to the visible portion of the view.
+        """
+        visibleRect = self.visibleRect ()
+        superVisibleRect = visibleRect
+        
+        # Conversion captures any scaling in effect
+        superVisibleRect = self.convertRect_toView_ (superVisibleRect, 
+                                                    self.superview ())
+        
+        self.openGLContext ().makeCurrentContext ()
+        
+        # Setup some basic OpenGL stuff
+#         glPixelStorei (GL_UNPACK_ALIGNMENT, 1)
+#         glTexEnvi (GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE)
+#         glClearColor (0.0, 0.0, 0.0, 1.0)
+#         glColor4f (1.0, 1.0, 1.0, 1.0)
+#         glEnable (GL_BLEND)
+#         glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+#         glDisable (GL_TEXTURE_RECTANGLE_EXT)
+#         glEnable (GL_TEXTURE_2D)
+        
+        # Optimization: discard texture pixels that are too transparent
+#         glEnable (GL_ALPHA_TEST)
+#         glAlphaFunc (GL_GREATER, 0.05)
+        
+        glMatrixMode (GL_PROJECTION)
+        glLoadIdentity ()
+        glMatrixMode (GL_MODELVIEW)
+        glLoadIdentity ()
+        
+        # reset the viewport to new dimensions
+        glViewport (0, 0, 
+                    int (superVisibleRect.size.width),
+                    int (superVisibleRect.size.height))
+        glOrtho (NSMinX (visibleRect), 
+                 NSMaxX (visibleRect), 
+                 NSMinY(visibleRect),
+                 NSMaxY(visibleRect), 
+                 -1.0, 1.0);
+        
+        self.setNeedsDisplay_ (True)
+        return
+    
+    
     def drawRect_ (self, rect):
         """
         Draw the content of the PyOpenGLView instance on screen.
@@ -296,25 +348,46 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         We override this method in order to draw on screen using Quartz
         2D directly.
         """
+        # glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        
         frame = self.mapping[self.frameNo]
         if (not self.frameBuffers[frame] or 
             not self.frameBuffers[frame].raw):
             return
         
-        # set the context
-        # self.openGLContext ().makeCurrentContext ()
+        # set the context coordinates to that of the visibleRect
+#         vRect = self.visibleRect ()
+#         (vTop, vLeft, vWidth, vHeight) = (int (vRect.origin.y), 
+#                                           int (vRect.origin.x), 
+#                                           int (vRect.size.width), 
+#                                           int (vRect.size.height))
+#         glOrtho (vLeft, vLeft+vWidth, 
+#                  vTop+vHeight, vTop, 
+#                  -1, 1)
         
-        # draw the image
+        # convert rect to the same coordinates of 
+        
+        # set the view port
         x = int (rect.origin.x)
         y = int (rect.origin.y)
         w = int (rect.size.width)
         h = int (rect.size.height)
-                
-        glViewport (x, y, w, h)
+        
+        # Find the coords of the bottom-left corner of 'rect' with 
+        # respect to the center of the view (center = OpenGL coords 
+        # origin).
+        x0 = x + 0
+        y0 = int (y - int (h))
+        
+#         print (vHeight, y)
+#         print (x0, y0)
+#         print (x, y, w, h)
         
         # Extract the image region corresponding to rect
         raw = self.frameBuffers[frame].buffer[y:y+h,x:x+w].tostring ()
         
+        glViewport (x, y, w, h)
+        # glRasterPos2i (0, 0)        
         glDrawPixels (w, 
                       h, 
                       GL_COLOR_INDEX, 

@@ -30,6 +30,9 @@ import minmatch, iraf, irafcompleter
 import wutil
 from irafglobals import pyrafDir
 
+from AppKit import *
+
+
 class CmdConsole(code.InteractiveConsole):
     """Base class for command console.
 
@@ -105,6 +108,10 @@ class CmdConsole(code.InteractiveConsole):
                 # note that this forbids combination of python & CL
                 # code -- e.g. a for loop that runs CL tasks.
                 if not more:
+                    try:
+                        NSApp ().delegate ().pyrafExecutedLine_ (line)
+                    except:
+                        pass
                     line = self.cmd(line)
                 if line or more: more = self.push(line)
             except EOFError:

@@ -39,8 +39,13 @@ import irafnames
 executable = sys.argv[0]
 while os.path.islink(executable):
     executable = os.readlink(executable)
-_pyrafMain = os.path.split(executable)[1] != 'pyraf'
-del executable
+
+executable = os.path.split(executable)[1]
+if (executable == 'PyRAF-Aqua' or executable == 'pyraf'):
+    _pyrafMain = False
+else:
+    _pyrafMain = True
+# del executable
 
 import irafexecute, clcache
 
@@ -78,10 +83,16 @@ else:
     except getopt.error, e:
         print str(e)
         usage()
-    verbose = 0
-    doCmdline = 1
-    _silent = 0
-    _dosplash = 1
+    if (executable == 'PyRAF-Aqua'):
+        verbose = 0
+        doCmdline = 0
+        _silent = 0
+        _dosplash = 0
+    else:
+        verbose = 0
+        doCmdline = 1
+        _silent = 0
+        _dosplash = 1
     if optlist:
         for opt, value in optlist:
             if opt == "-i":

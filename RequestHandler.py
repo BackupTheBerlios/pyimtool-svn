@@ -33,7 +33,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     
     The communication protocol used is IIS (XImtool).
     """
-    def __init__ (self, request, clientAddress, server):
+    def __init__ (self, request, clientAddress, server, verbose=False):
         """
         This is the class constructor. It is the Python constructor
         since we are actually instantiating this object ourselves.
@@ -51,7 +51,18 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         self.sequence = -1
         self.gotKey = False
         
+        self.verbose = verbose
+        if (self.verbose):
+            print ('New connection')
+        
         SocketServer.StreamRequestHandler.__init__ (self, request, clientAddress, server)
+        return
+    
+    
+    def __del__ (self):
+        """Destructor"""
+        if (self.verbose):
+            print ('Closing connection')
         return
     
     
@@ -166,33 +177,6 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         return (ct)
     
     
-    def returnCursor (self, dataout, sx, sy, frame, wcs, key, strval=''):
-        """
-        writes the cursor position to dataout.
-        input:
-            dataout:    the output stream
-            sx:         x coordinate
-            sy:         y coordinate
-            wcs:        nonzero if we want WCS translation
-            frame:      frame buffer index
-            key:        keystroke used as trigger
-            strval:     optional string value
-        """
-        wcscode = (frame + 1) * 100 + wcs
-        if (key == '\32'):
-            curval = "EOF"
-        else:
-            if (key in string.printable and not key in string.whitespace):
-                keystr = key
-            else:
-                keystr = "\\%03o" % (ord (key))
-        
-        # send the necessary infor to the client
-        curval = "%10.3f %10.3f %d %s %s\n" % (sx, sy, wcscode, keystr, strval)
-        dataout.write (rightPad (curval, SZ_IMCURVAL))
-        return
-    
-    
     def handleFeedback (self, pkt):
         self.server.controller.updateProgressInfo ('Erasing current frame...', -1)
         
@@ -209,15 +193,15 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         if (pkt.subunit & COMMAND):
             dataType = str (pkt.nbytes / 2) + 'h'
             size = struct.calcsize (dataType)
-            line = pkt.datain.read (pkt.nbytes)
+            line = pkt.fromClient (pkt.nbytes)
             n = len (line)
             if (n < pkt.nbytes):
                 return
             try:
                 x = struct.unpack (dataType, line)
             except:
-                for exctn in sys.exc_info():
-                    sys.stderr.write (exctn)
+                sys.stderr.write ('Error unpacking the dataType struct.\n')
+                return
             
             if (len (x) < 14):
                 # pad it with zeroes
@@ -280,7 +264,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                     text = wcs + mapping
                     text = rightPad (text, SZ_WCSBUF)
                 else:
-                    if (frame < 0 or not fb or not len (fb.buffer)):
+                    if (frame < 0 or not fb or not fb.buffer):
                         text = "[NOSUCHFRAME]"
                     else:
                         text = fb.wcs
@@ -290,7 +274,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                         text = rightPad (text, SZ_WCSBUF)
                     else:
                         text = rightPad (text, SZ_OLD_WCSBUF)
-            pkt.dataout.write (text)
+            pkt.toClient (text)
         else:
             self.server.controller.updateProgressInfo ('Reading WCS from client...', -1)
             # Read the WCS infor from the client
@@ -318,7 +302,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             newWCS   = (pkt.x & 0777)
             
             # read the WCS info
-            line = pkt.datain.read (pkt.nbytes)
+            line = pkt.fromClient (pkt.nbytes)
             
             # paste it in the frame buffer
             fb.wcs = line
@@ -361,7 +345,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                     self.needsUpdate = 1
                 start = self.x + self.y * fb.width
                 end = start + pkt.nbytes
-                fb.buffer[start:end] = array.array ('B', pkt.datain.read (pkt.nbytes))
+                fb.buffer[start:end] = array.array ('B', pkt.fromClient (pkt.nbytes))
             else: 
                 # tell the controller (AppDelegate) to update the 
                 # status info on the main window.
@@ -370,11 +354,11 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 
                 if (not self.needsUpdate):
                     # init the framebuffer
-                    fb.buffer.fromstring (pkt.datain.read (pkt.nbytes))
+                    fb.buffer.fromstring (pkt.fromClient (pkt.nbytes))
                     fb.buffer.reverse ()
                     self.needsUpdate = 1
                 else:
-                    data = array.array ('B', pkt.datain.read (pkt.nbytes))
+                    data = array.array ('B', pkt.fromClient (pkt.nbytes))
                     data.reverse ()
                     fb.buffer += data
             width = fb.width
@@ -401,7 +385,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 # (sx, sy, key, frame) = self.server.controller.imageView.getCursor ()
                 # frame -= 1
                 # 
-                # self.returnCursor (pkt.dataout, sx, sy, frame, wcs, '0', '')
+                # self.returnCursor (pkt, sx, sy, frame, wcs, '0', '')
                 print ('To be implemented.')
             else:
                 # wait until the user presses a key
@@ -422,7 +406,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 key = self.key
                 
                 # Return the appropriate cursor values to the client
-                self.returnCursor (pkt.dataout, sx, sy, frame, 1, key, '')
+                self.returnCursor (pkt, sx, sy, frame, 1, key, '')
         else:
             self.server.controller.updateProgressInfo ('Reading cursor from client...', -1)
             # read the cursor position in logical coordinates
@@ -464,7 +448,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 
         # decode the header
         size = struct.calcsize ('8h')
-        line = packet.datain.read (size)
+        line = packet.fromClient (size)
         n = len (line)
         if (n < size):
             return
@@ -473,9 +457,8 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             try:
                 bytes = struct.unpack ('8h', line)
             except:
-                sys.stderr.write ('PYIMTOOL: error unpacking the data.\n')
-                for exctn in sys.exc_info():
-                    sys.stderr.write (exctn)
+                sys.stderr.write ('PYIMTOOL: error unpacking incoming data.\n')
+                return
             
             # verify checksum
             # DO SOMETHING!
@@ -507,50 +490,72 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             # decide what to do, depending on the
             # value of subunit            
             if (packet.subunit077 == FEEDBACK):
+                if (self.verbose):
+                    print ('FEEDBACK')
                 self.handleFeedback (packet)
             elif (packet.subunit077 == LUT):
+                if (self.verbose):
+                    print ('LUT')
                 self.handleLut (packet)
+                
                 # read the next packet
-                line = packet.datain.read (size)
+                if (self.verbose):
+                    print ('Next packet')
+                line = packet.fromClient (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == MEMORY):
+                if (self.verbose):
+                    print ('MEMORY')
                 self.handleMemory (packet)
-                # if (self.needsUpdate):
-                #     self.server.controller.animateProgressWeel ()
+                
                 # read the next packet
-                line = packet.datain.read (size)
+                if (self.verbose):
+                    print ('Next packet')
+                line = packet.fromClient (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == WCS):
+                if (self.verbose):
+                    print ('WCS')
                 self.handleWCS (packet)
-                line = packet.datain.read (size)
+                
+                # read the next packet
+                if (self.verbose):
+                    print ('Next packet')
+                line = packet.fromClient (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == IMCURSOR):
+                if (self.verbose):
+                    print ('IMCURSOR')
                 self.handleImcursor (packet)
-                line = packet.datain.read (size)
-                n = len (line)
-                continue
+                
+                return
             else:
-                # no-op
+                if (self.verbose):
+                    print ('NO-OP')
                 pass
             
             if (not (packet.tid & IIS_READ)):
                 # OK, discard the rest of the data
+                if (self.verbose):
+                    print ('Discarding the rest of the data.')
                 nbytes = packet.nbytes
                 while (nbytes > 0):
                     if (nbytes < SZ_FIFOBUF):
                         n = nbytes
                     else:
                         n = SZ_FIFOBUF
-                    m = self.rfile.read (n)
+                    m = packet.fromClient (n)
                     if (m <= 0):
                         break
                     nbytes -= n
             
             # read the next packet
-            line = packet.datain.read (size)
+            if (self.verbose):
+                    print ('Next packet (last chance)')
+            line = packet.fromClient (size)
             n = len (line)
             if (n < size):
                 return
@@ -562,11 +567,12 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         return
     
     
-    def returnCursor (self, dataout, sx, sy, frame, wcs, key, strval=''):
+    def returnCursor (self, packet, sx, sy, frame, wcs, key, strval=''):
         """
-        writes the cursor position to dataout.
-        input:
-            dataout:    the output stream
+        Write the cursor position to the client.
+        
+        Input:
+            packet:     the IIS packet (therefore the output stream)
             sx:         x coordinate
             sy:         y coordinate
             wcs:        nonzero if we want WCS translation
@@ -574,6 +580,8 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             key:        keystroke used as trigger
             strval:     optional string value
         """
+        if (self.verbose):
+            print ('returnCursor: start')
         wcscode = (frame + 1) * 100 + wcs
         if (key == '\32'):
             curval = "EOF"
@@ -585,8 +593,10 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         
         # send the necessary infor to the client
         curval = "%10.3f %10.3f %d %s %s\n" % (sx, sy, wcscode, keystr, strval)
-        dataout.write (rightPad (curval, SZ_IMCURVAL))
-        return ()
+        packet.toClient (rightPad (curval, SZ_IMCURVAL))
+        if (self.verbose):
+            print ('returnCursor: done')
+        return
 
 
 

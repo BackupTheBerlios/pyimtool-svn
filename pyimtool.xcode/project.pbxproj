@@ -166,7 +166,7 @@
 		};
 		29B97317FDCFA39411CA2CEA = {
 			children = (
-				C441AC0006B0992900A7EDBC,
+				C4DB25F206B2C88C00750891,
 				C47E8AD706894E9D006CCA86,
 				C414DEBD06876C1A004885F3,
 				C4CC90C2068114A00024D517,
@@ -347,7 +347,7 @@
 				C42CF24B06A3C13D00105273,
 				C45AB1A106A7647D00AF5196,
 				C45AB76306A7649100AF5196,
-				C441AC0C06B0992900A7EDBC,
+				C4DB262106B2C88C00750891,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,19 +482,6 @@
 		};
 		C42CF24B06A3C13D00105273 = {
 			fileRef = C42CF24A06A3C13D00105273;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		C441AC0006B0992900A7EDBC = {
-			isa = PBXFileReference;
-			lastKnownFileType = folder;
-			path = colormaps;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		C441AC0C06B0992900A7EDBC = {
-			fileRef = C441AC0006B0992900A7EDBC;
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -823,6 +810,19 @@
 		};
 		C4CC90C5068114A00024D517 = {
 			fileRef = C4CC90C3068114A00024D517;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4DB25F206B2C88C00750891 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			path = colormaps;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4DB262106B2C88C00750891 = {
+			fileRef = C4DB25F206B2C88C00750891;
 			isa = PBXBuildFile;
 			settings = {
 			};

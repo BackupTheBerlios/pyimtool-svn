@@ -203,7 +203,8 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         can be confident that the current frame buffer (identified by
         self.curentFrame) is properly setup.
         """
-        self.imageView.display (self.frameBuffers[self.currentFrame])
+        self.imageView.display (self.frameBuffers[self.currentFrame], 
+                                self.currentFrame)
         return
     
     
@@ -323,11 +324,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         pool.release ()
         return
     
-    
-    
-    
-    
-    
+
 
 
 

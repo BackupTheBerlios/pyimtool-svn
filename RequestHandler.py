@@ -36,7 +36,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         self.y = 0
         self.y1 = -1
         self.sequence = -1
-        self.gotKey = None
+        self.gotKey = False
         
         SocketServer.StreamRequestHandler.__init__ (self, request, clientAddress, server)
         return
@@ -379,31 +379,36 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     
     
     def handleImcursor (self, pkt):
-        done = 0
-        
         if (pkt.tid & IIS_READ):
-            self.server.controller.updateProgressInfo ('Writing cursor to client...', -1)
+            self.server.controller.updateProgressInfo ('Cursor mode ON', 2)
+            
             if (pkt.tid & IMC_SAMPLE):
                 # return the cursor position
-                wcs = int (pkt.z)
-                (sx, sy, key, frame) = self.server.controller.imgView.getCursor ()
-                frame -= 1
-                
-                self.returnCursor (pkt.dataout, sx, sy, frame, wcs, '0', '')
+                # wcs = int (pkt.z)
+                # (sx, sy, key, frame) = self.server.controller.imageView.getCursor ()
+                # frame -= 1
+                # 
+                # self.returnCursor (pkt.dataout, sx, sy, frame, wcs, '0', '')
+                print ('To be implemented.')
             else:
                 # wait until the user presses a key
-                self.server.controller.imgView.reqHandler = self
-                while (not done):
-                    if (self.gotKey != None):
-                        done = 1
-                        self.gotKey = None
-                    time.sleep (0.2)
-                # <--- end of the while loop
+                self.server.controller.imageView.setReqHandler (self)
+                
+                while (not self.gotKey):
+                    # Wait for the PyImageView instance to wake us up
+                    time.sleep (0.3)
+                
+                # If we are here, it means that
+                # 1. the user pressed a key whilst the cursor was 
+                #    inside PyImageView
+                # 2. PyImageView intercepted the keyDown event and
+                #    notified us by setting our self.gotKey to True
                 sx = self.x
                 sy = self.y
                 frame = self.frameNo
                 key = self.key
                 
+                # Return the appropriate cursor values to the client
                 self.returnCursor (pkt.dataout, sx, sy, frame, 1, key, '')
         else:
             self.server.controller.updateProgressInfo ('Reading cursor from client...', -1)
@@ -429,6 +434,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                         sy = int ((wy - xt.ty) / fb.ct.d)
             cursorX = sx
             cursorY = sy
+        
         return
     
     
@@ -436,7 +442,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         """
         This is where the action starts.
         """
-        self.server.controller.updateProgressInfo ('Connecting to client...', -1)
+        self.server.controller.updateProgressInfo ('Idle.', 2)
         
         # create a packet structure
         packet = IIS ()
@@ -541,8 +547,33 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         if (self.needsUpdate):
             self.server.controller.displayImage ()
         return
-
-
+    
+    
+    def returnCursor (self, dataout, sx, sy, frame, wcs, key, strval=''):
+        """
+        writes the cursor position to dataout.
+        input:
+            dataout:    the output stream
+            sx:         x coordinate
+            sy:         y coordinate
+            wcs:        nonzero if we want WCS translation
+            frame:      frame buffer index
+            key:        keystroke used as trigger
+            strval:     optional string value
+        """
+        wcscode = (frame + 1) * 100 + wcs
+        if (key == '\32'):
+            curval = "EOF"
+        else:
+            if (key in string.printable and not key in string.whitespace):
+                keystr = key
+            else:
+                keystr = "\\%03o" % (ord (key))
+        
+        # send the necessary infor to the client
+        curval = "%10.3f %10.3f %d %s %s\n" % (sx, sy, wcscode, keystr, strval)
+        dataout.write (rightPad (curval, SZ_IMCURVAL))
+        return ()
 
 
 

@@ -2,6 +2,7 @@
     IBClasses = (
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {
+            ACTIONS = {checkBoxSelected = id; }; 
             CLASS = PrefsController; 
             LANGUAGE = ObjC; 
             OUTLETS = {imageScale = id; irafIntegration = id; tabView = id; versionCheck = id; }; 

@@ -103,6 +103,8 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
             # is for "zoom_to_fit"
             value = sender.selectedRow ()
             key = 'ScaleToFit'
+        elif (sender == self.versionCheck):
+            key = 'CheckForNewVersion'
         else:
             return
         

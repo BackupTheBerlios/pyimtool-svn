@@ -170,6 +170,13 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         # hotSpare.
         self.frameNo = frameID + 1
         
+        # Depending on self.frameNo, we might have to enable/disable
+        # the prev/next button.
+        if (self.frameNo == 1 and self.enablePrevButton):
+            self.enablePrevButton = False
+        elif (self.frameNo > 1 and not self.enablePrevButton):
+            self.enablePrevButton = True
+        
         # Start off by updating self.frameBuffers
         # HANDLE IT BETTER!!!!!
         self.frameBuffers[self.hotSpareID] = frameBuffer
@@ -208,6 +215,8 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         
         # update the mapping, if needed
         if (self.mapping.has_key (self.frameNo)):
+            # We are writing into an existing IRAF framebuffer
+            
             # Remove the old image
             oldID = self.mapping[self.frameNo]
             
@@ -223,6 +232,8 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
             self.mapping[self.frameNo] = self.hotSpareID
             self.hotSpareID = oldID
         else:
+            # We have to create a new IRAF framebuffer
+            
             # update the mapping
             self.mapping[self.frameNo] = self.hotSpareID
             
@@ -499,6 +510,16 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
                 self.setImage_ (self.images[imageID])
                 self.setNeedsDisplay_ (True)
                 self.frameNo = newFrameNo
+        
+        # update the state of teh next/prev buttons
+        if (newFrameNo == 1):
+            self.enablePrevButton = False
+        else:
+            self.enablePrevButton = True
+        if (newFrameNo == len (self.mapping.keys ())):
+            self.enableNextButton = False
+        else:
+            self.enableNextButton = True
         return
     
     
@@ -518,6 +539,16 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
                 self.setImage_ (self.images[imageID])
                 self.setNeedsDisplay_ (True)
                 self.frameNo = newFrameNo
+        
+        # update the state of teh next/prev buttons
+        if (newFrameNo == 1):
+            self.enablePrevButton = False
+        else:
+            self.enablePrevButton = True
+        if (newFrameNo == len (self.mapping.keys ())):
+            self.enableNextButton = False
+        else:
+            self.enableNextButton = True
         return
 
 

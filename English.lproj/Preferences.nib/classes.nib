@@ -5,7 +5,13 @@
             ACTIONS = {checkBoxSelected = id; }; 
             CLASS = PrefsController; 
             LANGUAGE = ObjC; 
-            OUTLETS = {imageScale = id; irafIntegration = id; tabView = id; versionCheck = id; }; 
+            OUTLETS = {
+                appDelegate = id; 
+                imageScale = id; 
+                irafIntegration = id; 
+                tabView = id; 
+                versionCheck = id; 
+            }; 
             SUPERCLASS = NSWindowController; 
         }, 
         {CLASS = "java.lang.Object"; LANGUAGE = Java; }

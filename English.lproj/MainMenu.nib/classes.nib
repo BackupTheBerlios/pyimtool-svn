@@ -1,7 +1,12 @@
 {
     IBClasses = (
         {
-            ACTIONS = {showHeaderWindow = id; showInfoWindow = id; showPrefsWindow = id; }; 
+            ACTIONS = {
+                checkVersion = id; 
+                showHeaderWindow = id; 
+                showInfoWindow = id; 
+                showPrefsWindow = id; 
+            }; 
             CLASS = AppDelegate; 
             LANGUAGE = ObjC; 
             OUTLETS = {

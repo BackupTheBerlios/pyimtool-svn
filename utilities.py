@@ -42,7 +42,7 @@ UID = os.getuid ()
 UNIX_ADDR = '/tmp/.IMT' + str (UID)
 NCONNECTIONS = 5
 
-DEFAULT_LUT = 'standard'
+DEFAULT_LUT = 'grey'
 
 # internal globals
 MEMORY            = 01              # frame buffer i/o

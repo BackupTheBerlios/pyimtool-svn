@@ -1,7 +1,13 @@
 {
     IBClasses = (
-        {CLASS = AppDelegate; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+        {
+            CLASS = AppDelegate; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {imageView = id; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = PyImageView; LANGUAGE = ObjC; SUPERCLASS = NSImageView; }
     ); 
     IBVersion = 1; 
 }

@@ -27,7 +27,8 @@ from objc import *
 from PyObjCTools import NibClassBuilder, AppHelper
 import threading, time, struct, glob
 import socket, SocketServer, sys
-import os, string
+import os, string, popen2
+import tempfile
 import numarray
 import copy
 

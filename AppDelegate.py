@@ -46,6 +46,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         """
         self.inetDataThread = None
         self.unixDataThread = None
+        self.infoPanel = None
         
         # read the application preferences
         prefs = NSUserDefaults.standardUserDefaults ()
@@ -147,8 +148,20 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         """
         Simply opens a new panel with general information about the
         image being displayed (self.currentFrame).
+        
+        If the sender's title is "Hide Info Window" it closes the 
+        panel.
         """
-        InfoController.infoController ().showWindow_ (self)
+        if (sender.title ()[0] == 'H'):
+            # close the info panel
+            self.infoPanel.closeWindow (self)
+            # set the menu item title to "Show..."
+            sender.setTitle_ ('Show Info Panel')
+        else:
+            self.infoPanel = InfoController.infoController (self.imageView)
+            self.infoPanel.showWindow_ (self)
+            # set the menu item title to "Hide..."
+            sender.setTitle_ ('Hide Info Panel')
         return
     
     
@@ -167,4 +180,5 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         """
         PrefsController.prefsController ().showWindow_ (self)
         return
-
+    
+        

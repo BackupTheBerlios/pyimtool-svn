@@ -6,6 +6,7 @@
             LANGUAGE = ObjC; 
             OUTLETS = {
                 ExtField = id; 
+                imageView = id; 
                 intField = id; 
                 nameField = id; 
                 titleField = id; 

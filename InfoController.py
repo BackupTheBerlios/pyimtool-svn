@@ -34,13 +34,14 @@ class InfoController (NibClassBuilder.AutoBaseClass):
         '_workerThread',
         '_windowIsClosing')
     
-    def infoController (self):
-        return (InfoController.alloc ().init ())
+    def infoController (self, view):
+        return (InfoController.alloc ().init (view))
     
     infoController = classmethod (infoController)
     
-    def init (self):
+    def init (self, view):
         self = self.initWithWindowNibName_ ("InfoPanel")
+        self.imageView = view
         
         super (InfoController, self).init ()
         return (self)
@@ -49,18 +50,44 @@ class InfoController (NibClassBuilder.AutoBaseClass):
     def awakeFromNib (self):
         self.retain()
         # tell the main window to start tracking the mouse.
+        self.imageView.startTrackingMouse (self)
         return
     
     
     def windowShouldClose_ (self, sender):
         # tell the main window to stop tracking the mouse.
+        self.imageView.stopTrackingMouse ()
         return (True)
     
     
     def windowWillClose_ (self, notification):
-        self.autorelease()
+        self.autorelease ()
         return
-
+    
+    
+    def closeWindow (self, sender):
+        self.window ().performClose_ (sender)
+        return
+    
+    
+    def setField (self, fieldName, value):
+        if (fieldName == 'title'):
+            self.titleField.setStringValue_ (str (value))
+        elif (fieldName == 'name'):
+            self.nameField.setStringValue_ (str (value))
+        elif (fieldName == 'ext'):
+            self.extField.setStringValue_ (str (value))
+        elif (fieldName == 'x'):
+            self.xField.setStringValue_ (str (value))
+        elif (fieldName == 'y'):
+            self.yField.setStringValue_ (str (value))
+        elif (fieldName == 'int'):
+            self.intField.setStringValue_ (value)
+        else:
+            pass
+        return
+    
+     
 
 
 

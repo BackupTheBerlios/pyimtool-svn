@@ -142,7 +142,7 @@ PREFS = {'ScaleToFit': True,
 
 
 # utility routines
-def wcs_pix_transform (ct, i, format=0):
+def wcsPixTransform (ct, i, format=0):
     """Computes the WCS corrected pixel value given a coordinate 
     transformation and the raw pixel value.
     
@@ -175,7 +175,7 @@ def wcs_pix_transform (ct, i, format=0):
     return (t)
 
 
-def wcs_coord_transform (ct, x, y):
+def wcsCoordTransform (ct, x, y):
     """Computes tha WCS corrected pixel coordinates (RA and Dec
     in degrees) given a coordinate transformation and the screen 
     coordinates (x and y, in pixels).

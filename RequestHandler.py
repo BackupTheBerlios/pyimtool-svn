@@ -468,17 +468,14 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             # decide what to do, depending on the
             # value of subunit            
             if (packet.subunit077 == FEEDBACK):
-                print ('feedback')
                 self.handleFeedback (packet)
             elif (packet.subunit077 == LUT):
-                print ('lut')
                 self.handleLut (packet)
                 # read the next packet
                 line = packet.datain.read (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == MEMORY):
-                print ('memory')
                 self.handleMemory (packet)
                 # if (self.needsUpdate):
                 #     self.server.controller.animateProgressWeel ()
@@ -487,13 +484,11 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 n = len (line)
                 continue
             elif (packet.subunit077 == WCS):
-                print ('wcs')
                 self.handleWCS (packet)
                 line = packet.datain.read (size)
                 n = len (line)
                 continue
             elif (packet.subunit077 == IMCURSOR):
-                print ('cursor')
                 self.handleImcursor (packet)
                 line = packet.datain.read (size)
                 n = len (line)

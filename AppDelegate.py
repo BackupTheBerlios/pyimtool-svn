@@ -100,10 +100,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         can be confident that the current frame buffer (identified by
         self.curentFrame) is properly setup.
         """
-        
-        sys.stderr.write ('displayImage ()\n')
         self.imageView.display (self.frameBuffers[self.currentFrame])
-        
         return
     
     

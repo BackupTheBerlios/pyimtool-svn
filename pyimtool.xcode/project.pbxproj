@@ -74,6 +74,8 @@
 		};
 		1058C7A2FEA54F0111CA2CBB = {
 			children = (
+				C45AB6A106A7649000AF5196,
+				C45AAF3506A7647B00AF5196,
 				C416C562068B651D00F537B0,
 				C4BBFB25067E7FDC0018A7B5,
 				29B97325FDCFA39411CA2CEA,
@@ -164,6 +166,7 @@
 		};
 		29B97317FDCFA39411CA2CEA = {
 			children = (
+				C441AC0006B0992900A7EDBC,
 				C47E8AD706894E9D006CCA86,
 				C414DEBD06876C1A004885F3,
 				C4CC90C2068114A00024D517,
@@ -342,6 +345,9 @@
 				C4073348068A5C3700F71A84,
 				C416C5AA068B651D00F537B0,
 				C42CF24B06A3C13D00105273,
+				C45AB1A106A7647D00AF5196,
+				C45AB76306A7649100AF5196,
+				C441AC0C06B0992900A7EDBC,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +486,19 @@
 			settings = {
 			};
 		};
+		C441AC0006B0992900A7EDBC = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			path = colormaps;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C441AC0C06B0992900A7EDBC = {
+			fileRef = C441AC0006B0992900A7EDBC;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		C4553611067A820B0074DD61 = {
 			fileEncoding = 4;
 			isa = PBXFileReference;
@@ -490,6 +509,34 @@
 		};
 		C4553612067A820B0074DD61 = {
 			fileRef = C4553611067A820B0074DD61;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C45AAF3506A7647B00AF5196 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			name = OpenGL;
+			path = /Library/Python/2.3/OpenGL;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C45AB1A106A7647D00AF5196 = {
+			fileRef = C45AAF3506A7647B00AF5196;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C45AB6A106A7649000AF5196 = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder;
+			name = numarray;
+			path = /Library/Python/2.3/numarray;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C45AB76306A7649100AF5196 = {
+			fileRef = C45AB6A106A7649000AF5196;
 			isa = PBXBuildFile;
 			settings = {
 			};

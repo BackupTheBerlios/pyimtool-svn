@@ -148,6 +148,36 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         return
     
     
+    def applicationWillFinishLaunching_ (self, aNotification):
+        """
+        Update/create menus (at startup) here!
+        """
+        pool = NSAutoreleasePool.alloc ().init ()
+        
+        # find the Image->Colormap submenu
+        mainMenu = NSApp ().mainMenu ()
+        imageMenu = mainMenu.itemWithTitle_ ('Image').submenu ()
+        colormapMenu = imageMenu.itemWithTitle_ ('Colormap').submenu ()
+        
+        # scan the colormaps directory
+        lutFiles = glob.glob ('%s/colormaps/*.lut' % (RESOURCES_PATH))
+        
+        # Add the colormaps we found
+        for fileName in lutFiles:
+            lutName = os.path.basename (fileName[:-4])
+            
+            newItem = NSMenuItem.allocWithZone_ (NSMenu.menuZone ())
+            newItem.initWithTitle_action_keyEquivalent_ (lutName, None, '')
+            
+            newItem.setAction_ ('setColormap')
+            newItem.setTarget_ (self.imageView)
+            
+            colormapMenu.addItem_ (newItem)
+            newItem.release ()
+        pool.release ()
+        return
+    
+    
     def applicationDidFinishLaunching_ (self, aNotification):
         """
         The application is ready. We start the DataListener threads

@@ -25,7 +25,7 @@ from Foundation import *
 from objc import *
 
 from PyObjCTools import NibClassBuilder, AppHelper
-import threading, time, struct
+import threading, time, struct, glob
 import socket, SocketServer, sys
 import os, string
 import numarray
@@ -42,6 +42,7 @@ UID = os.getuid ()
 UNIX_ADDR = '/tmp/.IMT' + str (UID)
 NCONNECTIONS = 5
 
+DEFAULT_LUT = 'standard'
 
 # internal globals
 MEMORY            = 01              # frame buffer i/o

@@ -3,6 +3,7 @@
         {
             ACTIONS = {
                 checkVersion = id; 
+                setColormap = id; 
                 showHeaderWindow = id; 
                 showInfoWindow = id; 
                 showPrefsWindow = id; 

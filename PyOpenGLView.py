@@ -81,6 +81,9 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         
         self.offset = 0.
         self.scale = 1.
+        
+        # self.lutName = 'standard'
+        self.colormap = self.initColormaps ()
         return
     
     
@@ -96,8 +99,61 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         pool.release ()
         return
     
+    def initColormaps (self):
+        cm = {}
+        
+        # scan the colormaps directory for LUTs
+        lutFiles = glob.glob ('%s/colormaps/*.lut' % (RESOURCES_PATH))
+        
+        for fileName in lutFiles:
+            lutName = os.path.basename (fileName[:-4])
+            
+            # setup the LUT arrays
+            try:
+                lutData = file (fileName).readlines ()
+            except:
+                print ('Cannot read file %s' % (fileName))
+                continue
+            
+            cm[lutName] = [numarray.zeros (shape=(256), type='Float32'), 
+                           numarray.zeros (shape=(256), type='Float32'), 
+                           numarray.zeros (shape=(256), type='Float32')]
+            
+            for i in range (len (lutData)):
+                (r, g, b) = lutData[i].split ()
+                cm[lutName][0][i] = float (r)
+                cm[lutName][1][i] = float (g)
+                cm[lutName][2][i] = float (b)
+        
+        # set the default LUT name to DEFAULT_LUT. If that is not 
+        # present (which is BAD), default to the first key in the
+        # self.colormap dict
+        if (cm.has_key (DEFAULT_LUT)):
+            self.lutName = DEFAULT_LUT
+        elif (len (cm.keys ())):
+            self.lutName = cm.keys ()[0]
+        else:
+            raise (IOError, 'No available colormap file!')
+        return (cm)
     
-    def initWithFrame_(self, frame):
+    
+    def setColormap (self, sender=None, refresh=True):
+        if (not sender):
+            cm = self.colormap[self.lutName]
+        else:
+            cm = self.colormap[sender.title ()]
+        
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_R, cm[0])
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_G, cm[1])
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_B, cm[2])
+        glPixelMapfv (GL_PIXEL_MAP_I_TO_A, 1)
+        
+        if (refresh):
+            self.setNeedsDisplay_ (True)
+        return
+    
+    
+    def initWithFrame_ (self, frame):
         """
         Set th epixel format
         """
@@ -122,26 +178,12 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         """
         OpenGL initialization routine
         """
-        # setup the LUT
-        lutData = file ('%s/heat.lut' % (RESOURCES_PATH)).readlines ()
-        self.i2r = numarray.zeros (shape=(256), type='Float32')
-        self.i2g = numarray.zeros (shape=(256), type='Float32')
-        self.i2b = numarray.zeros (shape=(256), type='Float32')
-        for i in range (len (lutData)):
-            (r, g, b) = lutData[i].split ()
-            self.i2r[i] = float (r)
-            self.i2g[i] = float (g)
-            self.i2b[i] = float (b)
-        
         # Setup the OpenGL maps
         glPixelTransferf (GL_ALPHA_SCALE, 0.0)
         glPixelTransferf (GL_ALPHA_BIAS,  1.0)
         glPixelStorei (GL_UNPACK_ALIGNMENT, 1)
         
-        glPixelMapfv (GL_PIXEL_MAP_I_TO_R, self.i2r)
-        glPixelMapfv (GL_PIXEL_MAP_I_TO_G, self.i2g)
-        glPixelMapfv (GL_PIXEL_MAP_I_TO_B, self.i2b)
-        glPixelMapfv (GL_PIXEL_MAP_I_TO_A, 1)
+        self.setColormap (refresh=False)
         
         glPixelTransferi (GL_INDEX_SHIFT, 0)
         glPixelTransferi (GL_INDEX_OFFSET, 0)
@@ -467,7 +509,7 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
                 self.sy = y + 1
             
             # we want x and y to start from (0.5, 0.5)
-            self.sy -= 1
+            # self.sy -= 1
             
             if (self.infoPanel):
                 try:

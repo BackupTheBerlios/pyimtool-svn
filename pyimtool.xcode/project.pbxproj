@@ -75,6 +75,8 @@
 		};
 		1058C7A2FEA54F0111CA2CBB = {
 			children = (
+				C4BBFA1B067E7FDB0018A7B5,
+				C4BBFB25067E7FDC0018A7B5,
 				29B97325FDCFA39411CA2CEA,
 				29B97324FDCFA39411CA2CEA,
 			);
@@ -163,6 +165,11 @@
 		};
 		29B97317FDCFA39411CA2CEA = {
 			children = (
+				C4BBFC62067E864F0018A7B5,
+				C4BBFC3E067E84400018A7B5,
+				C4BBFC3F067E84400018A7B5,
+				C4BBFC40067E84400018A7B5,
+				C4BBFC41067E84400018A7B5,
 				8D1107310486CEB800E47090,
 				089C165CFE840E0CC02AAC07,
 				29B97318FDCFA39411CA2CEA,
@@ -322,6 +329,255 @@
 				C475436D066FEC5000D102B0,
 				C4FEB8CF06753F2B0047E1D9,
 				C4553612067A820B0074DD61,
+				C4BBFB26067E7FDC0018A7B5,
+				C4BBFB27067E7FDC0018A7B5,
+				C4BBFB28067E7FDC0018A7B5,
+				C4BBFB29067E7FDC0018A7B5,
+				C4BBFB2A067E7FDC0018A7B5,
+				C4BBFB2B067E7FDC0018A7B5,
+				C4BBFB2C067E7FDC0018A7B5,
+				C4BBFB2D067E7FDC0018A7B5,
+				C4BBFB2E067E7FDC0018A7B5,
+				C4BBFB2F067E7FDC0018A7B5,
+				C4BBFB30067E7FDC0018A7B5,
+				C4BBFB31067E7FDC0018A7B5,
+				C4BBFB32067E7FDC0018A7B5,
+				C4BBFB33067E7FDC0018A7B5,
+				C4BBFB34067E7FDC0018A7B5,
+				C4BBFB35067E7FDC0018A7B5,
+				C4BBFB36067E7FDC0018A7B5,
+				C4BBFB37067E7FDC0018A7B5,
+				C4BBFB38067E7FDC0018A7B5,
+				C4BBFB39067E7FDC0018A7B5,
+				C4BBFB3A067E7FDC0018A7B5,
+				C4BBFB3B067E7FDC0018A7B5,
+				C4BBFB3C067E7FDC0018A7B5,
+				C4BBFB3D067E7FDC0018A7B5,
+				C4BBFB3E067E7FDC0018A7B5,
+				C4BBFB3F067E7FDC0018A7B5,
+				C4BBFB40067E7FDC0018A7B5,
+				C4BBFB41067E7FDC0018A7B5,
+				C4BBFB42067E7FDC0018A7B5,
+				C4BBFB43067E7FDC0018A7B5,
+				C4BBFB44067E7FDC0018A7B5,
+				C4BBFB45067E7FDC0018A7B5,
+				C4BBFB46067E7FDC0018A7B5,
+				C4BBFB47067E7FDC0018A7B5,
+				C4BBFB48067E7FDC0018A7B5,
+				C4BBFB49067E7FDC0018A7B5,
+				C4BBFB4A067E7FDC0018A7B5,
+				C4BBFB4B067E7FDC0018A7B5,
+				C4BBFB4C067E7FDC0018A7B5,
+				C4BBFB4D067E7FDC0018A7B5,
+				C4BBFB4E067E7FDC0018A7B5,
+				C4BBFB4F067E7FDC0018A7B5,
+				C4BBFB50067E7FDC0018A7B5,
+				C4BBFB51067E7FDC0018A7B5,
+				C4BBFB52067E7FDC0018A7B5,
+				C4BBFB53067E7FDC0018A7B5,
+				C4BBFB54067E7FDC0018A7B5,
+				C4BBFB55067E7FDC0018A7B5,
+				C4BBFB56067E7FDC0018A7B5,
+				C4BBFB57067E7FDC0018A7B5,
+				C4BBFB58067E7FDC0018A7B5,
+				C4BBFB59067E7FDC0018A7B5,
+				C4BBFB5A067E7FDC0018A7B5,
+				C4BBFB5B067E7FDC0018A7B5,
+				C4BBFB5C067E7FDC0018A7B5,
+				C4BBFB5D067E7FDC0018A7B5,
+				C4BBFB5E067E7FDC0018A7B5,
+				C4BBFB5F067E7FDC0018A7B5,
+				C4BBFB60067E7FDC0018A7B5,
+				C4BBFB61067E7FDC0018A7B5,
+				C4BBFB62067E7FDC0018A7B5,
+				C4BBFB63067E7FDC0018A7B5,
+				C4BBFB64067E7FDC0018A7B5,
+				C4BBFB65067E7FDC0018A7B5,
+				C4BBFB66067E7FDC0018A7B5,
+				C4BBFB67067E7FDC0018A7B5,
+				C4BBFB68067E7FDC0018A7B5,
+				C4BBFB69067E7FDC0018A7B5,
+				C4BBFB6A067E7FDC0018A7B5,
+				C4BBFB6B067E7FDC0018A7B5,
+				C4BBFB6C067E7FDC0018A7B5,
+				C4BBFB6D067E7FDC0018A7B5,
+				C4BBFB6E067E7FDC0018A7B5,
+				C4BBFB6F067E7FDC0018A7B5,
+				C4BBFB70067E7FDC0018A7B5,
+				C4BBFB71067E7FDC0018A7B5,
+				C4BBFB72067E7FDC0018A7B5,
+				C4BBFB73067E7FDC0018A7B5,
+				C4BBFB74067E7FDC0018A7B5,
+				C4BBFB75067E7FDC0018A7B5,
+				C4BBFB76067E7FDC0018A7B5,
+				C4BBFB77067E7FDC0018A7B5,
+				C4BBFB78067E7FDC0018A7B5,
+				C4BBFB79067E7FDC0018A7B5,
+				C4BBFB7A067E7FDC0018A7B5,
+				C4BBFB7B067E7FDC0018A7B5,
+				C4BBFB7C067E7FDC0018A7B5,
+				C4BBFB7D067E7FDC0018A7B5,
+				C4BBFB7E067E7FDC0018A7B5,
+				C4BBFB7F067E7FDC0018A7B5,
+				C4BBFB80067E7FDC0018A7B5,
+				C4BBFB81067E7FDC0018A7B5,
+				C4BBFB82067E7FDC0018A7B5,
+				C4BBFB83067E7FDC0018A7B5,
+				C4BBFB84067E7FDC0018A7B5,
+				C4BBFB85067E7FDC0018A7B5,
+				C4BBFB86067E7FDC0018A7B5,
+				C4BBFB87067E7FDC0018A7B5,
+				C4BBFB88067E7FDC0018A7B5,
+				C4BBFB89067E7FDC0018A7B5,
+				C4BBFB8A067E7FDC0018A7B5,
+				C4BBFB8B067E7FDC0018A7B5,
+				C4BBFB8C067E7FDC0018A7B5,
+				C4BBFB8D067E7FDC0018A7B5,
+				C4BBFB8E067E7FDC0018A7B5,
+				C4BBFB8F067E7FDC0018A7B5,
+				C4BBFB90067E7FDC0018A7B5,
+				C4BBFB91067E7FDC0018A7B5,
+				C4BBFB92067E7FDC0018A7B5,
+				C4BBFB93067E7FDC0018A7B5,
+				C4BBFB94067E7FDC0018A7B5,
+				C4BBFB95067E7FDC0018A7B5,
+				C4BBFB96067E7FDC0018A7B5,
+				C4BBFB97067E7FDC0018A7B5,
+				C4BBFB98067E7FDC0018A7B5,
+				C4BBFB99067E7FDC0018A7B5,
+				C4BBFB9A067E7FDC0018A7B5,
+				C4BBFB9B067E7FDC0018A7B5,
+				C4BBFB9C067E7FDC0018A7B5,
+				C4BBFB9D067E7FDC0018A7B5,
+				C4BBFB9E067E7FDC0018A7B5,
+				C4BBFB9F067E7FDC0018A7B5,
+				C4BBFBA0067E7FDC0018A7B5,
+				C4BBFBA1067E7FDC0018A7B5,
+				C4BBFBA2067E7FDC0018A7B5,
+				C4BBFBA3067E7FDC0018A7B5,
+				C4BBFBA4067E7FDC0018A7B5,
+				C4BBFBA5067E7FDC0018A7B5,
+				C4BBFBA6067E7FDC0018A7B5,
+				C4BBFBA7067E7FDC0018A7B5,
+				C4BBFBA8067E7FDC0018A7B5,
+				C4BBFBA9067E7FDC0018A7B5,
+				C4BBFBAA067E7FDC0018A7B5,
+				C4BBFBAB067E7FDC0018A7B5,
+				C4BBFBAC067E7FDC0018A7B5,
+				C4BBFBAD067E7FDC0018A7B5,
+				C4BBFBAE067E7FDC0018A7B5,
+				C4BBFBAF067E7FDC0018A7B5,
+				C4BBFBB0067E7FDC0018A7B5,
+				C4BBFBB1067E7FDC0018A7B5,
+				C4BBFBB2067E7FDC0018A7B5,
+				C4BBFBB3067E7FDC0018A7B5,
+				C4BBFBB4067E7FDC0018A7B5,
+				C4BBFBB5067E7FDC0018A7B5,
+				C4BBFBB6067E7FDC0018A7B5,
+				C4BBFBB7067E7FDC0018A7B5,
+				C4BBFBB8067E7FDC0018A7B5,
+				C4BBFBB9067E7FDC0018A7B5,
+				C4BBFBBA067E7FDC0018A7B5,
+				C4BBFBBB067E7FDC0018A7B5,
+				C4BBFBBC067E7FDC0018A7B5,
+				C4BBFBBD067E7FDC0018A7B5,
+				C4BBFBBE067E7FDC0018A7B5,
+				C4BBFBBF067E7FDC0018A7B5,
+				C4BBFBC0067E7FDC0018A7B5,
+				C4BBFBC1067E7FDC0018A7B5,
+				C4BBFBC2067E7FDC0018A7B5,
+				C4BBFBC3067E7FDC0018A7B5,
+				C4BBFBC4067E7FDC0018A7B5,
+				C4BBFBC5067E7FDC0018A7B5,
+				C4BBFBC6067E7FDC0018A7B5,
+				C4BBFBC7067E7FDC0018A7B5,
+				C4BBFBC8067E7FDC0018A7B5,
+				C4BBFBC9067E7FDC0018A7B5,
+				C4BBFBCA067E7FDC0018A7B5,
+				C4BBFBCB067E7FDC0018A7B5,
+				C4BBFBCC067E7FDC0018A7B5,
+				C4BBFBCD067E7FDC0018A7B5,
+				C4BBFBCE067E7FDC0018A7B5,
+				C4BBFBCF067E7FDC0018A7B5,
+				C4BBFBD0067E7FDC0018A7B5,
+				C4BBFBD1067E7FDC0018A7B5,
+				C4BBFBD2067E7FDC0018A7B5,
+				C4BBFBD3067E7FDC0018A7B5,
+				C4BBFBD4067E7FDC0018A7B5,
+				C4BBFBD5067E7FDC0018A7B5,
+				C4BBFBD6067E7FDC0018A7B5,
+				C4BBFBD7067E7FDC0018A7B5,
+				C4BBFBD8067E7FDC0018A7B5,
+				C4BBFBD9067E7FDC0018A7B5,
+				C4BBFBDA067E7FDC0018A7B5,
+				C4BBFBDB067E7FDC0018A7B5,
+				C4BBFBDC067E7FDC0018A7B5,
+				C4BBFBDD067E7FDC0018A7B5,
+				C4BBFBDE067E7FDC0018A7B5,
+				C4BBFBDF067E7FDC0018A7B5,
+				C4BBFBE0067E7FDC0018A7B5,
+				C4BBFBE1067E7FDC0018A7B5,
+				C4BBFBE2067E7FDC0018A7B5,
+				C4BBFBE3067E7FDC0018A7B5,
+				C4BBFBE4067E7FDC0018A7B5,
+				C4BBFBE5067E7FDC0018A7B5,
+				C4BBFBE6067E7FDC0018A7B5,
+				C4BBFBE7067E7FDC0018A7B5,
+				C4BBFBE8067E7FDC0018A7B5,
+				C4BBFBE9067E7FDC0018A7B5,
+				C4BBFBEA067E7FDC0018A7B5,
+				C4BBFBEB067E7FDC0018A7B5,
+				C4BBFBEC067E7FDC0018A7B5,
+				C4BBFBED067E7FDC0018A7B5,
+				C4BBFBEE067E7FDC0018A7B5,
+				C4BBFBEF067E7FDC0018A7B5,
+				C4BBFBF0067E7FDC0018A7B5,
+				C4BBFBF1067E7FDC0018A7B5,
+				C4BBFBF2067E7FDC0018A7B5,
+				C4BBFBF3067E7FDC0018A7B5,
+				C4BBFBF4067E7FDC0018A7B5,
+				C4BBFBF5067E7FDC0018A7B5,
+				C4BBFBF6067E7FDC0018A7B5,
+				C4BBFBF7067E7FDC0018A7B5,
+				C4BBFBF8067E7FDC0018A7B5,
+				C4BBFBF9067E7FDC0018A7B5,
+				C4BBFBFA067E7FDC0018A7B5,
+				C4BBFBFB067E7FDC0018A7B5,
+				C4BBFBFC067E7FDC0018A7B5,
+				C4BBFBFD067E7FDC0018A7B5,
+				C4BBFBFE067E7FDC0018A7B5,
+				C4BBFBFF067E7FDC0018A7B5,
+				C4BBFC00067E7FDC0018A7B5,
+				C4BBFC01067E7FDC0018A7B5,
+				C4BBFC02067E7FDC0018A7B5,
+				C4BBFC03067E7FDC0018A7B5,
+				C4BBFC04067E7FDC0018A7B5,
+				C4BBFC05067E7FDC0018A7B5,
+				C4BBFC06067E7FDC0018A7B5,
+				C4BBFC07067E7FDC0018A7B5,
+				C4BBFC08067E7FDC0018A7B5,
+				C4BBFC09067E7FDC0018A7B5,
+				C4BBFC0A067E7FDC0018A7B5,
+				C4BBFC0B067E7FDC0018A7B5,
+				C4BBFC0C067E7FDC0018A7B5,
+				C4BBFC0D067E7FDC0018A7B5,
+				C4BBFC0E067E7FDC0018A7B5,
+				C4BBFC0F067E7FDC0018A7B5,
+				C4BBFC10067E7FDC0018A7B5,
+				C4BBFC11067E7FDC0018A7B5,
+				C4BBFC12067E7FDC0018A7B5,
+				C4BBFC13067E7FDC0018A7B5,
+				C4BBFC14067E7FDC0018A7B5,
+				C4BBFC15067E7FDC0018A7B5,
+				C4BBFC16067E7FDC0018A7B5,
+				C4BBFC17067E7FDC0018A7B5,
+				C4BBFC18067E7FDC0018A7B5,
+				C4BBFC19067E7FDC0018A7B5,
+				C4BBFC42067E84400018A7B5,
+				C4BBFC43067E84400018A7B5,
+				C4BBFC44067E84400018A7B5,
+				C4BBFC45067E84400018A7B5,
+				C4BBFC63067E864F0018A7B5,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +862,3814 @@
 		};
 		C4ABBCAD066FE64300D0BF0A = {
 			fileRef = C4ABBCAC066FE64300D0BF0A;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFA1B067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA1C067E7FDB0018A7B5,
+				C4BBFA1D067E7FDB0018A7B5,
+				C4BBFA1E067E7FDB0018A7B5,
+				C4BBFA1F067E7FDB0018A7B5,
+				C4BBFA20067E7FDB0018A7B5,
+				C4BBFA21067E7FDB0018A7B5,
+				C4BBFA22067E7FDB0018A7B5,
+				C4BBFA23067E7FDB0018A7B5,
+				C4BBFA24067E7FDB0018A7B5,
+				C4BBFA25067E7FDB0018A7B5,
+				C4BBFA26067E7FDB0018A7B5,
+				C4BBFA30067E7FDB0018A7B5,
+				C4BBFA54067E7FDB0018A7B5,
+				C4BBFA5E067E7FDB0018A7B5,
+				C4BBFA9A067E7FDB0018A7B5,
+				C4BBFAA4067E7FDB0018A7B5,
+				C4BBFAE7067E7FDB0018A7B5,
+				C4BBFAEF067E7FDB0018A7B5,
+				C4BBFB09067E7FDB0018A7B5,
+				C4BBFB11067E7FDC0018A7B5,
+				C4BBFB1B067E7FDC0018A7B5,
+			);
+			isa = PBXGroup;
+			name = PyObjC;
+			path = /Library/Python/2.3/PyObjC;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4BBFA1C067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _AddressBook.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA1D067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _AppKit.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA1E067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _ExceptionHandling.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA1F067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _Foundation.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA20067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _InterfaceBuilder.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA21067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _machsignals.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA22067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _objc.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA23067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _PreferencePanes.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA24067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _SecurityInterface.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA25067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = _WebKit.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA26067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA27067E7FDB0018A7B5,
+				C4BBFA28067E7FDB0018A7B5,
+				C4BBFA29067E7FDB0018A7B5,
+				C4BBFA2A067E7FDB0018A7B5,
+				C4BBFA2B067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = AddressBook;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA27067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA28067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA29067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = protocols.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA2A067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = protocols.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA2B067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA2C067E7FDB0018A7B5,
+				C4BBFA2D067E7FDB0018A7B5,
+				C4BBFA2E067E7FDB0018A7B5,
+				C4BBFA2F067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA2C067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA2D067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA2E067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_loaded.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA2F067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_loaded.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA30067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA31067E7FDB0018A7B5,
+				C4BBFA32067E7FDB0018A7B5,
+				C4BBFA33067E7FDB0018A7B5,
+				C4BBFA34067E7FDB0018A7B5,
+				C4BBFA35067E7FDB0018A7B5,
+				C4BBFA36067E7FDB0018A7B5,
+				C4BBFA37067E7FDB0018A7B5,
+				C4BBFA38067E7FDB0018A7B5,
+				C4BBFA39067E7FDB0018A7B5,
+				C4BBFA52067E7FDB0018A7B5,
+				C4BBFA53067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = AppKit;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA31067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA32067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA33067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = _AppKitSignatures.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA34067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = _AppKitSignatures.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA35067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = NibClassBuilder.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA36067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = NibClassBuilder.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA37067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = protocols.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA38067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = protocols.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA39067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA3A067E7FDB0018A7B5,
+				C4BBFA3B067E7FDB0018A7B5,
+				C4BBFA3C067E7FDB0018A7B5,
+				C4BBFA3D067E7FDB0018A7B5,
+				C4BBFA3E067E7FDB0018A7B5,
+				C4BBFA3F067E7FDB0018A7B5,
+				C4BBFA40067E7FDB0018A7B5,
+				C4BBFA41067E7FDB0018A7B5,
+				C4BBFA42067E7FDB0018A7B5,
+				C4BBFA43067E7FDB0018A7B5,
+				C4BBFA44067E7FDB0018A7B5,
+				C4BBFA45067E7FDB0018A7B5,
+				C4BBFA46067E7FDB0018A7B5,
+				C4BBFA47067E7FDB0018A7B5,
+				C4BBFA48067E7FDB0018A7B5,
+				C4BBFA49067E7FDB0018A7B5,
+				C4BBFA4A067E7FDB0018A7B5,
+				C4BBFA4B067E7FDB0018A7B5,
+				C4BBFA4C067E7FDB0018A7B5,
+				C4BBFA4D067E7FDB0018A7B5,
+				C4BBFA4E067E7FDB0018A7B5,
+				C4BBFA4F067E7FDB0018A7B5,
+				C4BBFA50067E7FDB0018A7B5,
+				C4BBFA51067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA3A067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA3B067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA3C067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = guitest_graphics.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA3D067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = guitest_graphics.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA3E067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_constants.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA3F067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_constants.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA40067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsbezierpath.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA41067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsbezierpath.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA42067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsbitmapimagerep.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA43067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsbitmapimagerep.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA44067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nscell.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA45067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nscell.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA46067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nscolor.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA47067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nscolor.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA48067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsfont.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA49067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsfont.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA4A067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsopenpanel.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA4B067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsopenpanel.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA4C067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsview.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA4D067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsview.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA4E067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsworkspace.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA4F067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsworkspace.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA50067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_structs.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA51067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_structs.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA52067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsbitmap.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA53067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsbitmap.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA54067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA55067E7FDB0018A7B5,
+				C4BBFA56067E7FDB0018A7B5,
+				C4BBFA57067E7FDB0018A7B5,
+				C4BBFA58067E7FDB0018A7B5,
+				C4BBFA59067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = ExceptionHandling;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA55067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA56067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA57067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = protocols.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA58067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = protocols.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA59067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA5A067E7FDB0018A7B5,
+				C4BBFA5B067E7FDB0018A7B5,
+				C4BBFA5C067E7FDB0018A7B5,
+				C4BBFA5D067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA5A067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA5B067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA5C067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_loaded.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA5D067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_loaded.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA5E067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA5F067E7FDB0018A7B5,
+				C4BBFA60067E7FDB0018A7B5,
+				C4BBFA61067E7FDB0018A7B5,
+				C4BBFA62067E7FDB0018A7B5,
+				C4BBFA63067E7FDB0018A7B5,
+				C4BBFA64067E7FDB0018A7B5,
+				C4BBFA65067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = Foundation;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA5F067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA60067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA61067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = Conversion.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA62067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = Conversion.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA63067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = protocols.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA64067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = protocols.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA65067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA66067E7FDB0018A7B5,
+				C4BBFA67067E7FDB0018A7B5,
+				C4BBFA68067E7FDB0018A7B5,
+				C4BBFA69067E7FDB0018A7B5,
+				C4BBFA6A067E7FDB0018A7B5,
+				C4BBFA6B067E7FDB0018A7B5,
+				C4BBFA6C067E7FDB0018A7B5,
+				C4BBFA6D067E7FDB0018A7B5,
+				C4BBFA6E067E7FDB0018A7B5,
+				C4BBFA6F067E7FDB0018A7B5,
+				C4BBFA70067E7FDB0018A7B5,
+				C4BBFA71067E7FDB0018A7B5,
+				C4BBFA72067E7FDB0018A7B5,
+				C4BBFA73067E7FDB0018A7B5,
+				C4BBFA74067E7FDB0018A7B5,
+				C4BBFA75067E7FDB0018A7B5,
+				C4BBFA76067E7FDB0018A7B5,
+				C4BBFA77067E7FDB0018A7B5,
+				C4BBFA78067E7FDB0018A7B5,
+				C4BBFA79067E7FDB0018A7B5,
+				C4BBFA7A067E7FDB0018A7B5,
+				C4BBFA7B067E7FDB0018A7B5,
+				C4BBFA7C067E7FDB0018A7B5,
+				C4BBFA7D067E7FDB0018A7B5,
+				C4BBFA7E067E7FDB0018A7B5,
+				C4BBFA7F067E7FDB0018A7B5,
+				C4BBFA80067E7FDB0018A7B5,
+				C4BBFA81067E7FDB0018A7B5,
+				C4BBFA82067E7FDB0018A7B5,
+				C4BBFA83067E7FDB0018A7B5,
+				C4BBFA84067E7FDB0018A7B5,
+				C4BBFA85067E7FDB0018A7B5,
+				C4BBFA86067E7FDB0018A7B5,
+				C4BBFA87067E7FDB0018A7B5,
+				C4BBFA88067E7FDB0018A7B5,
+				C4BBFA89067E7FDB0018A7B5,
+				C4BBFA8A067E7FDB0018A7B5,
+				C4BBFA8B067E7FDB0018A7B5,
+				C4BBFA8C067E7FDB0018A7B5,
+				C4BBFA8D067E7FDB0018A7B5,
+				C4BBFA8E067E7FDB0018A7B5,
+				C4BBFA8F067E7FDB0018A7B5,
+				C4BBFA90067E7FDB0018A7B5,
+				C4BBFA91067E7FDB0018A7B5,
+				C4BBFA92067E7FDB0018A7B5,
+				C4BBFA93067E7FDB0018A7B5,
+				C4BBFA94067E7FDB0018A7B5,
+				C4BBFA95067E7FDB0018A7B5,
+				C4BBFA96067E7FDB0018A7B5,
+				C4BBFA97067E7FDB0018A7B5,
+				C4BBFA98067E7FDB0018A7B5,
+				C4BBFA99067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA66067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA67067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA68067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_globals.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA69067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_globals.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA6A067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_keyvalue.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA6B067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_keyvalue.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA6C067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsarray.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA6D067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsarray.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA6E067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsautoreleasepool.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA6F067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsautoreleasepool.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA70067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nscoder.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA71067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nscoder.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA72067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsdata.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA73067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsdata.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA74067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsdecimal.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA75067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsdecimal.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA76067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsdictionary.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA77067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsdictionary.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA78067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsenumerator.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA79067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsenumerator.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA7A067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsexception.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA7B067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsexception.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA7C067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nshost.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA7D067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nshost.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA7E067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nslocalizedstring.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA7F067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nslocalizedstring.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA80067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsmachport.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA81067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsmachport.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA82067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsnumber.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA83067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsnumber.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA84067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsobject.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA85067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsobject.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA86067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsscanner.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA87067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsscanner.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA88067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsset.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA89067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsset.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA8A067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsstring.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA8B067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsstring.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA8C067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsundomanager.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA8D067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsundomanager.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA8E067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_nsuserdefaults.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA8F067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_nsuserdefaults.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA90067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_osxcasts.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA91067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_osxcasts.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA92067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_paths.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA93067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_paths.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA94067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_structs.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA95067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_structs.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA96067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_subclassing.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA97067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_subclassing.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA98067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_threading.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA99067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_threading.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA9A067E7FDB0018A7B5 = {
+			children = (
+				C4BBFA9B067E7FDB0018A7B5,
+				C4BBFA9C067E7FDB0018A7B5,
+				C4BBFA9D067E7FDB0018A7B5,
+				C4BBFA9E067E7FDB0018A7B5,
+				C4BBFA9F067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = InterfaceBuilder;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA9B067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA9C067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA9D067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = protocols.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA9E067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = protocols.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFA9F067E7FDB0018A7B5 = {
+			children = (
+				C4BBFAA0067E7FDB0018A7B5,
+				C4BBFAA1067E7FDB0018A7B5,
+				C4BBFAA2067E7FDB0018A7B5,
+				C4BBFAA3067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA0067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA1067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA2067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_loaded.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA3067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_loaded.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA4067E7FDB0018A7B5 = {
+			children = (
+				C4BBFAA5067E7FDB0018A7B5,
+				C4BBFAA6067E7FDB0018A7B5,
+				C4BBFAA7067E7FDB0018A7B5,
+				C4BBFAA8067E7FDB0018A7B5,
+				C4BBFAA9067E7FDB0018A7B5,
+				C4BBFAAA067E7FDB0018A7B5,
+				C4BBFAAB067E7FDB0018A7B5,
+				C4BBFAAC067E7FDB0018A7B5,
+				C4BBFAAD067E7FDB0018A7B5,
+				C4BBFAAE067E7FDB0018A7B5,
+				C4BBFAAF067E7FDB0018A7B5,
+				C4BBFAB0067E7FDB0018A7B5,
+				C4BBFAB1067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = objc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA5067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA6067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA7067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = _convenience.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA8067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = _convenience.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAA9067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = _dyld.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAAA067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = _dyld.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAAB067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = _FoundationSignatures.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAAC067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = _FoundationSignatures.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAAD067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = _framework.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAAE067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = _framework.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAAF067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = _gnustep.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB0067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = _gnustep.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB1067E7FDB0018A7B5 = {
+			children = (
+				C4BBFAB2067E7FDB0018A7B5,
+				C4BBFAB3067E7FDB0018A7B5,
+				C4BBFAB4067E7FDB0018A7B5,
+				C4BBFAB5067E7FDB0018A7B5,
+				C4BBFAB6067E7FDB0018A7B5,
+				C4BBFAB7067E7FDB0018A7B5,
+				C4BBFAB8067E7FDB0018A7B5,
+				C4BBFAB9067E7FDB0018A7B5,
+				C4BBFABA067E7FDB0018A7B5,
+				C4BBFABB067E7FDB0018A7B5,
+				C4BBFABC067E7FDB0018A7B5,
+				C4BBFABD067E7FDB0018A7B5,
+				C4BBFABE067E7FDB0018A7B5,
+				C4BBFABF067E7FDB0018A7B5,
+				C4BBFAC0067E7FDB0018A7B5,
+				C4BBFAC1067E7FDB0018A7B5,
+				C4BBFAC2067E7FDB0018A7B5,
+				C4BBFAC3067E7FDB0018A7B5,
+				C4BBFAC4067E7FDB0018A7B5,
+				C4BBFAC5067E7FDB0018A7B5,
+				C4BBFAC6067E7FDB0018A7B5,
+				C4BBFAC7067E7FDB0018A7B5,
+				C4BBFAC8067E7FDB0018A7B5,
+				C4BBFAC9067E7FDB0018A7B5,
+				C4BBFACA067E7FDB0018A7B5,
+				C4BBFACB067E7FDB0018A7B5,
+				C4BBFACC067E7FDB0018A7B5,
+				C4BBFACD067E7FDB0018A7B5,
+				C4BBFACE067E7FDB0018A7B5,
+				C4BBFACF067E7FDB0018A7B5,
+				C4BBFAD0067E7FDB0018A7B5,
+				C4BBFAD1067E7FDB0018A7B5,
+				C4BBFAD2067E7FDB0018A7B5,
+				C4BBFAD3067E7FDB0018A7B5,
+				C4BBFAD4067E7FDB0018A7B5,
+				C4BBFAD5067E7FDB0018A7B5,
+				C4BBFAD6067E7FDB0018A7B5,
+				C4BBFAD7067E7FDB0018A7B5,
+				C4BBFAD8067E7FDB0018A7B5,
+				C4BBFAD9067E7FDB0018A7B5,
+				C4BBFADA067E7FDB0018A7B5,
+				C4BBFADB067E7FDB0018A7B5,
+				C4BBFADC067E7FDB0018A7B5,
+				C4BBFADD067E7FDB0018A7B5,
+				C4BBFADE067E7FDB0018A7B5,
+				C4BBFADF067E7FDB0018A7B5,
+				C4BBFAE0067E7FDB0018A7B5,
+				C4BBFAE1067E7FDB0018A7B5,
+				C4BBFAE2067E7FDB0018A7B5,
+				C4BBFAE3067E7FDB0018A7B5,
+				C4BBFAE4067E7FDB0018A7B5,
+				C4BBFAE5067E7FDB0018A7B5,
+				C4BBFAE6067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB2067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB3067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB4067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = ctests.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB5067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = keyvaluehelper.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB6067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = keyvaluehelper.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB7067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_allocatebuffer.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB8067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_allocatebuffer.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAB9067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_classandinst.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFABA067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_classandinst.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFABB067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_conversion.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFABC067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_conversion.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFABD067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_ctests.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFABE067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_ctests.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFABF067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_imp.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC0067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_imp.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC1067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_ivar.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC2067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_ivar.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC3067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_keyvalue.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC4067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_keyvalue.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC5067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_leaks.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC6067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_leaks.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC7067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_methodaccess.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC8067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_methodaccess.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAC9067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_methodedits.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFACA067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_methodedits.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFACB067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_methods.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFACC067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_methods.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFACD067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_methods2.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFACE067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_methods2.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFACF067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_objc.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD0067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_objc.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD1067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_outputinitializer.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD2067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_outputinitializer.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD3067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_posing.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD4067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_posing.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD5067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_protocol.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD6067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_protocol.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD7067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_protocolNamed.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD8067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_protocolNamed.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAD9067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_regr.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFADA067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_regr.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFADB067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_signatures.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFADC067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_signatures.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFADD067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_splitsig.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFADE067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_splitsig.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFADF067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_subclass.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE0067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_subclass.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE1067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_weirdness.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE2067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_weirdness.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE3067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = testbndl.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE4067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = testbndl2.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE5067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = testclassandinst.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE6067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "compiled.mach-o.bundle";
+			path = testoutputinitializer.so;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE7067E7FDB0018A7B5 = {
+			children = (
+				C4BBFAE8067E7FDB0018A7B5,
+				C4BBFAE9067E7FDB0018A7B5,
+				C4BBFAEA067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = PreferencePanes;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE8067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAE9067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAEA067E7FDB0018A7B5 = {
+			children = (
+				C4BBFAEB067E7FDB0018A7B5,
+				C4BBFAEC067E7FDB0018A7B5,
+				C4BBFAED067E7FDB0018A7B5,
+				C4BBFAEE067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAEB067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAEC067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAED067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_loaded.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAEE067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_loaded.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAEF067E7FDB0018A7B5 = {
+			children = (
+				C4BBFAF0067E7FDB0018A7B5,
+				C4BBFAF1067E7FDB0018A7B5,
+				C4BBFAF2067E7FDB0018A7B5,
+				C4BBFAF3067E7FDB0018A7B5,
+				C4BBFAF4067E7FDB0018A7B5,
+				C4BBFAF5067E7FDB0018A7B5,
+				C4BBFAF6067E7FDB0018A7B5,
+				C4BBFAF7067E7FDB0018A7B5,
+				C4BBFAF8067E7FDB0018A7B5,
+				C4BBFAF9067E7FDB0018A7B5,
+				C4BBFAFA067E7FDB0018A7B5,
+				C4BBFAFB067E7FDB0018A7B5,
+				C4BBFAFC067E7FDB0018A7B5,
+				C4BBFAFD067E7FDB0018A7B5,
+				C4BBFAFE067E7FDB0018A7B5,
+				C4BBFAFF067E7FDB0018A7B5,
+				C4BBFB00067E7FDB0018A7B5,
+				C4BBFB01067E7FDB0018A7B5,
+				C4BBFB02067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = PyObjCTools;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF0067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF1067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF2067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = AppHelper.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF3067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = AppHelper.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF4067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = Conversion.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF5067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = Conversion.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF6067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = Debugging.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF7067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = Debugging.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF8067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = KeyValueCoding.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAF9067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = KeyValueCoding.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAFA067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = MachSignals.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAFB067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = MachSignals.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAFC067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = NibClassBuilder.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAFD067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = NibClassBuilder.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAFE067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = pluginbuilder.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFAFF067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = pluginbuilder.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB00067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = Signals.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB01067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = Signals.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB02067E7FDB0018A7B5 = {
+			children = (
+				C4BBFB03067E7FDB0018A7B5,
+				C4BBFB04067E7FDB0018A7B5,
+				C4BBFB05067E7FDB0018A7B5,
+				C4BBFB06067E7FDB0018A7B5,
+				C4BBFB07067E7FDB0018A7B5,
+				C4BBFB08067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB03067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB04067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB05067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_collections.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB06067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_collections.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB07067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_keyvalue.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB08067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_keyvalue.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB09067E7FDB0018A7B5 = {
+			children = (
+				C4BBFB0A067E7FDB0018A7B5,
+				C4BBFB0B067E7FDB0018A7B5,
+				C4BBFB0C067E7FDB0018A7B5,
+			);
+			isa = PBXGroup;
+			path = ScreenSaver;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB0A067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB0B067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB0C067E7FDB0018A7B5 = {
+			children = (
+				C4BBFB0D067E7FDB0018A7B5,
+				C4BBFB0E067E7FDB0018A7B5,
+				C4BBFB0F067E7FDB0018A7B5,
+				C4BBFB10067E7FDC0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB0D067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB0E067E7FDB0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB0F067E7FDB0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_loaded.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB10067E7FDC0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_loaded.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB11067E7FDC0018A7B5 = {
+			children = (
+				C4BBFB12067E7FDC0018A7B5,
+				C4BBFB13067E7FDC0018A7B5,
+				C4BBFB14067E7FDC0018A7B5,
+				C4BBFB15067E7FDC0018A7B5,
+				C4BBFB16067E7FDC0018A7B5,
+			);
+			isa = PBXGroup;
+			path = SecurityInterface;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB12067E7FDC0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB13067E7FDC0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB14067E7FDC0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = protocols.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB15067E7FDC0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = protocols.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB16067E7FDC0018A7B5 = {
+			children = (
+				C4BBFB17067E7FDC0018A7B5,
+				C4BBFB18067E7FDC0018A7B5,
+				C4BBFB19067E7FDC0018A7B5,
+				C4BBFB1A067E7FDC0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB17067E7FDC0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB18067E7FDC0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB19067E7FDC0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_loaded.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB1A067E7FDC0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_loaded.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB1B067E7FDC0018A7B5 = {
+			children = (
+				C4BBFB1C067E7FDC0018A7B5,
+				C4BBFB1D067E7FDC0018A7B5,
+				C4BBFB1E067E7FDC0018A7B5,
+				C4BBFB1F067E7FDC0018A7B5,
+				C4BBFB20067E7FDC0018A7B5,
+			);
+			isa = PBXGroup;
+			path = WebKit;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB1C067E7FDC0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB1D067E7FDC0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB1E067E7FDC0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = protocols.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB1F067E7FDC0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = protocols.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB20067E7FDC0018A7B5 = {
+			children = (
+				C4BBFB21067E7FDC0018A7B5,
+				C4BBFB22067E7FDC0018A7B5,
+				C4BBFB23067E7FDC0018A7B5,
+				C4BBFB24067E7FDC0018A7B5,
+			);
+			isa = PBXGroup;
+			path = test;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB21067E7FDC0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = __init__.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB22067E7FDC0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = __init__.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB23067E7FDC0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = test_loaded.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB24067E7FDC0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			path = test_loaded.pyc;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFB25067E7FDC0018A7B5 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text;
+			name = PyObjC.pth;
+			path = /Library/Python/2.3/PyObjC.pth;
+			refType = 0;
+			sourceTree = "<absolute>";
+		};
+		C4BBFB26067E7FDC0018A7B5 = {
+			fileRef = C4BBFA1C067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB27067E7FDC0018A7B5 = {
+			fileRef = C4BBFA1D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB28067E7FDC0018A7B5 = {
+			fileRef = C4BBFA1E067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB29067E7FDC0018A7B5 = {
+			fileRef = C4BBFA1F067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB2A067E7FDC0018A7B5 = {
+			fileRef = C4BBFA20067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB2B067E7FDC0018A7B5 = {
+			fileRef = C4BBFA21067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB2C067E7FDC0018A7B5 = {
+			fileRef = C4BBFA22067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB2D067E7FDC0018A7B5 = {
+			fileRef = C4BBFA23067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB2E067E7FDC0018A7B5 = {
+			fileRef = C4BBFA24067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB2F067E7FDC0018A7B5 = {
+			fileRef = C4BBFA25067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB30067E7FDC0018A7B5 = {
+			fileRef = C4BBFA27067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB31067E7FDC0018A7B5 = {
+			fileRef = C4BBFA28067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB32067E7FDC0018A7B5 = {
+			fileRef = C4BBFA29067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB33067E7FDC0018A7B5 = {
+			fileRef = C4BBFA2A067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB34067E7FDC0018A7B5 = {
+			fileRef = C4BBFA2C067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB35067E7FDC0018A7B5 = {
+			fileRef = C4BBFA2D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB36067E7FDC0018A7B5 = {
+			fileRef = C4BBFA2E067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB37067E7FDC0018A7B5 = {
+			fileRef = C4BBFA2F067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB38067E7FDC0018A7B5 = {
+			fileRef = C4BBFA31067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB39067E7FDC0018A7B5 = {
+			fileRef = C4BBFA32067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB3A067E7FDC0018A7B5 = {
+			fileRef = C4BBFA33067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB3B067E7FDC0018A7B5 = {
+			fileRef = C4BBFA34067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB3C067E7FDC0018A7B5 = {
+			fileRef = C4BBFA35067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB3D067E7FDC0018A7B5 = {
+			fileRef = C4BBFA36067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB3E067E7FDC0018A7B5 = {
+			fileRef = C4BBFA37067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB3F067E7FDC0018A7B5 = {
+			fileRef = C4BBFA38067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB40067E7FDC0018A7B5 = {
+			fileRef = C4BBFA3A067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB41067E7FDC0018A7B5 = {
+			fileRef = C4BBFA3B067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB42067E7FDC0018A7B5 = {
+			fileRef = C4BBFA3C067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB43067E7FDC0018A7B5 = {
+			fileRef = C4BBFA3D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB44067E7FDC0018A7B5 = {
+			fileRef = C4BBFA3E067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB45067E7FDC0018A7B5 = {
+			fileRef = C4BBFA3F067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB46067E7FDC0018A7B5 = {
+			fileRef = C4BBFA40067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB47067E7FDC0018A7B5 = {
+			fileRef = C4BBFA41067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB48067E7FDC0018A7B5 = {
+			fileRef = C4BBFA42067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB49067E7FDC0018A7B5 = {
+			fileRef = C4BBFA43067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB4A067E7FDC0018A7B5 = {
+			fileRef = C4BBFA44067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB4B067E7FDC0018A7B5 = {
+			fileRef = C4BBFA45067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB4C067E7FDC0018A7B5 = {
+			fileRef = C4BBFA46067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB4D067E7FDC0018A7B5 = {
+			fileRef = C4BBFA47067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB4E067E7FDC0018A7B5 = {
+			fileRef = C4BBFA48067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB4F067E7FDC0018A7B5 = {
+			fileRef = C4BBFA49067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB50067E7FDC0018A7B5 = {
+			fileRef = C4BBFA4A067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB51067E7FDC0018A7B5 = {
+			fileRef = C4BBFA4B067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB52067E7FDC0018A7B5 = {
+			fileRef = C4BBFA4C067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB53067E7FDC0018A7B5 = {
+			fileRef = C4BBFA4D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB54067E7FDC0018A7B5 = {
+			fileRef = C4BBFA4E067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB55067E7FDC0018A7B5 = {
+			fileRef = C4BBFA4F067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB56067E7FDC0018A7B5 = {
+			fileRef = C4BBFA50067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB57067E7FDC0018A7B5 = {
+			fileRef = C4BBFA51067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB58067E7FDC0018A7B5 = {
+			fileRef = C4BBFA52067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB59067E7FDC0018A7B5 = {
+			fileRef = C4BBFA53067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB5A067E7FDC0018A7B5 = {
+			fileRef = C4BBFA55067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB5B067E7FDC0018A7B5 = {
+			fileRef = C4BBFA56067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB5C067E7FDC0018A7B5 = {
+			fileRef = C4BBFA57067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB5D067E7FDC0018A7B5 = {
+			fileRef = C4BBFA58067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB5E067E7FDC0018A7B5 = {
+			fileRef = C4BBFA5A067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB5F067E7FDC0018A7B5 = {
+			fileRef = C4BBFA5B067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB60067E7FDC0018A7B5 = {
+			fileRef = C4BBFA5C067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB61067E7FDC0018A7B5 = {
+			fileRef = C4BBFA5D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB62067E7FDC0018A7B5 = {
+			fileRef = C4BBFA5F067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB63067E7FDC0018A7B5 = {
+			fileRef = C4BBFA60067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB64067E7FDC0018A7B5 = {
+			fileRef = C4BBFA61067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB65067E7FDC0018A7B5 = {
+			fileRef = C4BBFA62067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB66067E7FDC0018A7B5 = {
+			fileRef = C4BBFA63067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB67067E7FDC0018A7B5 = {
+			fileRef = C4BBFA64067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB68067E7FDC0018A7B5 = {
+			fileRef = C4BBFA66067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB69067E7FDC0018A7B5 = {
+			fileRef = C4BBFA67067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB6A067E7FDC0018A7B5 = {
+			fileRef = C4BBFA68067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB6B067E7FDC0018A7B5 = {
+			fileRef = C4BBFA69067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB6C067E7FDC0018A7B5 = {
+			fileRef = C4BBFA6A067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB6D067E7FDC0018A7B5 = {
+			fileRef = C4BBFA6B067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB6E067E7FDC0018A7B5 = {
+			fileRef = C4BBFA6C067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB6F067E7FDC0018A7B5 = {
+			fileRef = C4BBFA6D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB70067E7FDC0018A7B5 = {
+			fileRef = C4BBFA6E067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB71067E7FDC0018A7B5 = {
+			fileRef = C4BBFA6F067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB72067E7FDC0018A7B5 = {
+			fileRef = C4BBFA70067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB73067E7FDC0018A7B5 = {
+			fileRef = C4BBFA71067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB74067E7FDC0018A7B5 = {
+			fileRef = C4BBFA72067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB75067E7FDC0018A7B5 = {
+			fileRef = C4BBFA73067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB76067E7FDC0018A7B5 = {
+			fileRef = C4BBFA74067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB77067E7FDC0018A7B5 = {
+			fileRef = C4BBFA75067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB78067E7FDC0018A7B5 = {
+			fileRef = C4BBFA76067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB79067E7FDC0018A7B5 = {
+			fileRef = C4BBFA77067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB7A067E7FDC0018A7B5 = {
+			fileRef = C4BBFA78067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB7B067E7FDC0018A7B5 = {
+			fileRef = C4BBFA79067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB7C067E7FDC0018A7B5 = {
+			fileRef = C4BBFA7A067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB7D067E7FDC0018A7B5 = {
+			fileRef = C4BBFA7B067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB7E067E7FDC0018A7B5 = {
+			fileRef = C4BBFA7C067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB7F067E7FDC0018A7B5 = {
+			fileRef = C4BBFA7D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB80067E7FDC0018A7B5 = {
+			fileRef = C4BBFA7E067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB81067E7FDC0018A7B5 = {
+			fileRef = C4BBFA7F067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB82067E7FDC0018A7B5 = {
+			fileRef = C4BBFA80067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB83067E7FDC0018A7B5 = {
+			fileRef = C4BBFA81067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB84067E7FDC0018A7B5 = {
+			fileRef = C4BBFA82067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB85067E7FDC0018A7B5 = {
+			fileRef = C4BBFA83067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB86067E7FDC0018A7B5 = {
+			fileRef = C4BBFA84067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB87067E7FDC0018A7B5 = {
+			fileRef = C4BBFA85067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB88067E7FDC0018A7B5 = {
+			fileRef = C4BBFA86067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB89067E7FDC0018A7B5 = {
+			fileRef = C4BBFA87067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB8A067E7FDC0018A7B5 = {
+			fileRef = C4BBFA88067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB8B067E7FDC0018A7B5 = {
+			fileRef = C4BBFA89067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB8C067E7FDC0018A7B5 = {
+			fileRef = C4BBFA8A067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB8D067E7FDC0018A7B5 = {
+			fileRef = C4BBFA8B067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB8E067E7FDC0018A7B5 = {
+			fileRef = C4BBFA8C067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB8F067E7FDC0018A7B5 = {
+			fileRef = C4BBFA8D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB90067E7FDC0018A7B5 = {
+			fileRef = C4BBFA8E067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB91067E7FDC0018A7B5 = {
+			fileRef = C4BBFA8F067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB92067E7FDC0018A7B5 = {
+			fileRef = C4BBFA90067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB93067E7FDC0018A7B5 = {
+			fileRef = C4BBFA91067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB94067E7FDC0018A7B5 = {
+			fileRef = C4BBFA92067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB95067E7FDC0018A7B5 = {
+			fileRef = C4BBFA93067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB96067E7FDC0018A7B5 = {
+			fileRef = C4BBFA94067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB97067E7FDC0018A7B5 = {
+			fileRef = C4BBFA95067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB98067E7FDC0018A7B5 = {
+			fileRef = C4BBFA96067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB99067E7FDC0018A7B5 = {
+			fileRef = C4BBFA97067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB9A067E7FDC0018A7B5 = {
+			fileRef = C4BBFA98067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB9B067E7FDC0018A7B5 = {
+			fileRef = C4BBFA99067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB9C067E7FDC0018A7B5 = {
+			fileRef = C4BBFA9B067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB9D067E7FDC0018A7B5 = {
+			fileRef = C4BBFA9C067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB9E067E7FDC0018A7B5 = {
+			fileRef = C4BBFA9D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFB9F067E7FDC0018A7B5 = {
+			fileRef = C4BBFA9E067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA0067E7FDC0018A7B5 = {
+			fileRef = C4BBFAA0067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA1067E7FDC0018A7B5 = {
+			fileRef = C4BBFAA1067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA2067E7FDC0018A7B5 = {
+			fileRef = C4BBFAA2067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA3067E7FDC0018A7B5 = {
+			fileRef = C4BBFAA3067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA4067E7FDC0018A7B5 = {
+			fileRef = C4BBFAA5067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA5067E7FDC0018A7B5 = {
+			fileRef = C4BBFAA6067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA6067E7FDC0018A7B5 = {
+			fileRef = C4BBFAA7067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA7067E7FDC0018A7B5 = {
+			fileRef = C4BBFAA8067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA8067E7FDC0018A7B5 = {
+			fileRef = C4BBFAA9067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBA9067E7FDC0018A7B5 = {
+			fileRef = C4BBFAAA067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBAA067E7FDC0018A7B5 = {
+			fileRef = C4BBFAAB067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBAB067E7FDC0018A7B5 = {
+			fileRef = C4BBFAAC067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBAC067E7FDC0018A7B5 = {
+			fileRef = C4BBFAAD067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBAD067E7FDC0018A7B5 = {
+			fileRef = C4BBFAAE067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBAE067E7FDC0018A7B5 = {
+			fileRef = C4BBFAAF067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBAF067E7FDC0018A7B5 = {
+			fileRef = C4BBFAB0067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB0067E7FDC0018A7B5 = {
+			fileRef = C4BBFAB2067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB1067E7FDC0018A7B5 = {
+			fileRef = C4BBFAB3067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB2067E7FDC0018A7B5 = {
+			fileRef = C4BBFAB4067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB3067E7FDC0018A7B5 = {
+			fileRef = C4BBFAB5067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB4067E7FDC0018A7B5 = {
+			fileRef = C4BBFAB6067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB5067E7FDC0018A7B5 = {
+			fileRef = C4BBFAB7067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB6067E7FDC0018A7B5 = {
+			fileRef = C4BBFAB8067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB7067E7FDC0018A7B5 = {
+			fileRef = C4BBFAB9067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB8067E7FDC0018A7B5 = {
+			fileRef = C4BBFABA067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBB9067E7FDC0018A7B5 = {
+			fileRef = C4BBFABB067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBBA067E7FDC0018A7B5 = {
+			fileRef = C4BBFABC067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBBB067E7FDC0018A7B5 = {
+			fileRef = C4BBFABD067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBBC067E7FDC0018A7B5 = {
+			fileRef = C4BBFABE067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBBD067E7FDC0018A7B5 = {
+			fileRef = C4BBFABF067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBBE067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC0067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBBF067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC1067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC0067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC2067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC1067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC3067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC2067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC4067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC3067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC5067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC4067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC6067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC5067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC7067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC6067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC8067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC7067E7FDC0018A7B5 = {
+			fileRef = C4BBFAC9067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC8067E7FDC0018A7B5 = {
+			fileRef = C4BBFACA067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBC9067E7FDC0018A7B5 = {
+			fileRef = C4BBFACB067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBCA067E7FDC0018A7B5 = {
+			fileRef = C4BBFACC067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBCB067E7FDC0018A7B5 = {
+			fileRef = C4BBFACD067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBCC067E7FDC0018A7B5 = {
+			fileRef = C4BBFACE067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBCD067E7FDC0018A7B5 = {
+			fileRef = C4BBFACF067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBCE067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD0067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBCF067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD1067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD0067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD2067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD1067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD3067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD2067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD4067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD3067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD5067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD4067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD6067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD5067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD7067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD6067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD8067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD7067E7FDC0018A7B5 = {
+			fileRef = C4BBFAD9067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD8067E7FDC0018A7B5 = {
+			fileRef = C4BBFADA067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBD9067E7FDC0018A7B5 = {
+			fileRef = C4BBFADB067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBDA067E7FDC0018A7B5 = {
+			fileRef = C4BBFADC067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBDB067E7FDC0018A7B5 = {
+			fileRef = C4BBFADD067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBDC067E7FDC0018A7B5 = {
+			fileRef = C4BBFADE067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBDD067E7FDC0018A7B5 = {
+			fileRef = C4BBFADF067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBDE067E7FDC0018A7B5 = {
+			fileRef = C4BBFAE0067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBDF067E7FDC0018A7B5 = {
+			fileRef = C4BBFAE1067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE0067E7FDC0018A7B5 = {
+			fileRef = C4BBFAE2067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE1067E7FDC0018A7B5 = {
+			fileRef = C4BBFAE3067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE2067E7FDC0018A7B5 = {
+			fileRef = C4BBFAE4067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE3067E7FDC0018A7B5 = {
+			fileRef = C4BBFAE5067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE4067E7FDC0018A7B5 = {
+			fileRef = C4BBFAE6067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE5067E7FDC0018A7B5 = {
+			fileRef = C4BBFAE8067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE6067E7FDC0018A7B5 = {
+			fileRef = C4BBFAE9067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE7067E7FDC0018A7B5 = {
+			fileRef = C4BBFAEB067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE8067E7FDC0018A7B5 = {
+			fileRef = C4BBFAEC067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBE9067E7FDC0018A7B5 = {
+			fileRef = C4BBFAED067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBEA067E7FDC0018A7B5 = {
+			fileRef = C4BBFAEE067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBEB067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF0067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBEC067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF1067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBED067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF2067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBEE067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF3067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBEF067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF4067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF0067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF5067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF1067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF6067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF2067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF7067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF3067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF8067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF4067E7FDC0018A7B5 = {
+			fileRef = C4BBFAF9067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF5067E7FDC0018A7B5 = {
+			fileRef = C4BBFAFA067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF6067E7FDC0018A7B5 = {
+			fileRef = C4BBFAFB067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF7067E7FDC0018A7B5 = {
+			fileRef = C4BBFAFC067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF8067E7FDC0018A7B5 = {
+			fileRef = C4BBFAFD067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBF9067E7FDC0018A7B5 = {
+			fileRef = C4BBFAFE067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBFA067E7FDC0018A7B5 = {
+			fileRef = C4BBFAFF067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBFB067E7FDC0018A7B5 = {
+			fileRef = C4BBFB00067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBFC067E7FDC0018A7B5 = {
+			fileRef = C4BBFB01067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBFD067E7FDC0018A7B5 = {
+			fileRef = C4BBFB03067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBFE067E7FDC0018A7B5 = {
+			fileRef = C4BBFB04067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFBFF067E7FDC0018A7B5 = {
+			fileRef = C4BBFB05067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC00067E7FDC0018A7B5 = {
+			fileRef = C4BBFB06067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC01067E7FDC0018A7B5 = {
+			fileRef = C4BBFB07067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC02067E7FDC0018A7B5 = {
+			fileRef = C4BBFB08067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC03067E7FDC0018A7B5 = {
+			fileRef = C4BBFB0A067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC04067E7FDC0018A7B5 = {
+			fileRef = C4BBFB0B067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC05067E7FDC0018A7B5 = {
+			fileRef = C4BBFB0D067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC06067E7FDC0018A7B5 = {
+			fileRef = C4BBFB0E067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC07067E7FDC0018A7B5 = {
+			fileRef = C4BBFB0F067E7FDB0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC08067E7FDC0018A7B5 = {
+			fileRef = C4BBFB10067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC09067E7FDC0018A7B5 = {
+			fileRef = C4BBFB12067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC0A067E7FDC0018A7B5 = {
+			fileRef = C4BBFB13067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC0B067E7FDC0018A7B5 = {
+			fileRef = C4BBFB14067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC0C067E7FDC0018A7B5 = {
+			fileRef = C4BBFB15067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC0D067E7FDC0018A7B5 = {
+			fileRef = C4BBFB17067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC0E067E7FDC0018A7B5 = {
+			fileRef = C4BBFB18067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC0F067E7FDC0018A7B5 = {
+			fileRef = C4BBFB19067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC10067E7FDC0018A7B5 = {
+			fileRef = C4BBFB1A067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC11067E7FDC0018A7B5 = {
+			fileRef = C4BBFB1C067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC12067E7FDC0018A7B5 = {
+			fileRef = C4BBFB1D067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC13067E7FDC0018A7B5 = {
+			fileRef = C4BBFB1E067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC14067E7FDC0018A7B5 = {
+			fileRef = C4BBFB1F067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC15067E7FDC0018A7B5 = {
+			fileRef = C4BBFB21067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC16067E7FDC0018A7B5 = {
+			fileRef = C4BBFB22067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC17067E7FDC0018A7B5 = {
+			fileRef = C4BBFB23067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC18067E7FDC0018A7B5 = {
+			fileRef = C4BBFB24067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC19067E7FDC0018A7B5 = {
+			fileRef = C4BBFB25067E7FDC0018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC3E067E84400018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
+			name = actualSize.tiff;
+			path = Icons/actualSize.tiff;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFC3F067E84400018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
+			name = zoomIn.tiff;
+			path = Icons/zoomIn.tiff;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFC40067E84400018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
+			name = zoomOut.tiff;
+			path = Icons/zoomOut.tiff;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFC41067E84400018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.tiff;
+			name = zoomToFit.tiff;
+			path = Icons/zoomToFit.tiff;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFC42067E84400018A7B5 = {
+			fileRef = C4BBFC3E067E84400018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC43067E84400018A7B5 = {
+			fileRef = C4BBFC3F067E84400018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC44067E84400018A7B5 = {
+			fileRef = C4BBFC40067E84400018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC45067E84400018A7B5 = {
+			fileRef = C4BBFC41067E84400018A7B5;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4BBFC62067E864F0018A7B5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.icns;
+			name = PyImtool.icns;
+			path = Icons/PyImtool.icns;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4BBFC63067E864F0018A7B5 = {
+			fileRef = C4BBFC62067E864F0018A7B5;
 			isa = PBXBuildFile;
 			settings = {
 			};

@@ -7,8 +7,8 @@
 	<key>CFBundleExecutable</key>
 	<string>Pyimtool</string>
 	<key>CFBundleIconFile</key>
-	<string></string>
-        <key>CFBundleIdentifier</key>
+	<string>PyImtool.icns</string>
+	<key>CFBundleIdentifier</key>
 	<string>org.fpierfed.PyImtool</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>

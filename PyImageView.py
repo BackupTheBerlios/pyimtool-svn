@@ -195,7 +195,24 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         return
     
     
+    def zoomIn (self):
+        print ('Zoom In')
+        return
     
+    
+    def zoomOut (self):
+        print ('Zoom Out')
+        return
+    
+    
+    def zoomToFit (self):
+        print ('Zoom To Fit')
+        return
+    
+    
+    def actualSize (self):
+        print ('Actual Size')
+        return
 
 
 

@@ -75,6 +75,7 @@ MIN_PROGR         = 0
 
 
 PATH = os.path.dirname (sys.argv[0])
+RESOURCES_PATH = os.path.abspath (os.path.join (PATH, '../Resources'))
 
 # cursor position
 cursor_x = 1.0
@@ -140,6 +141,9 @@ fbconfigs = {1: [2, 512, 512],
 PREFS = {'ScaleToFit': True, 
          'EnableIRAFIntegration': True,
          'CheckForNewVersion': True}
+
+# Toolbar icon labels
+TOOLBAR_LABELS = ('zoomIn', 'zoomOut', 'zoomToFit', 'actualSize')
 
 
 # utility routines

@@ -32,9 +32,7 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
     not have a Python constructor method: it would never get called.
     
     This class has some instance variables already defined in the NIB
-    file. These are:
-    imageView
-    
+    file.
     """
     def init (self):
         """
@@ -47,6 +45,8 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         self.inetDataThread = None
         self.unixDataThread = None
         self.infoPanel = None
+        self.toolbarItems = {}
+        self.toolbar = None
         
         # read the application preferences
         prefs = NSUserDefaults.standardUserDefaults ()
@@ -70,6 +70,58 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         
         super (AppDelegate, self).init ()   
         return (self)
+    
+    
+    def awakeFromNib (self):
+        """
+        The Application just finished loading from the NIB file. We
+        setup the main window (and create a toolbar).
+        """
+        pool = NSAutoreleasePool.alloc ().init ()
+        
+        # For each label in TOOLBAR_LABELS, create a toolbar item. We
+        # keep track of those items by using the self.toolbarItems
+        # dictionary.
+        for label in TOOLBAR_LABELS:
+            tbi = NSToolbarItem.alloc ().initWithItemIdentifier_ (label)
+            
+            # Hook the toolbar item to a routine in self.imageView. 
+            # The routine has to have the same name as label.
+            tbi.setAction_ (label)
+            tbi.setTarget_ (self.imageView)
+            
+            # This is the label that will appear in the toolbar
+            tbi.setLabel_ (label)
+            
+            # This is the label that will appear in the config panel
+            tbi.setPaletteLabel_ (label)
+            
+            # Set the tooltip text
+            tbi.setToolTip_ (label)
+            
+            # Setup the item's icon
+            path = os.path.abspath (RESOURCES_PATH + '/' + label + '.tiff')
+            image = NSImage.alloc ().initWithContentsOfFile_ (path)
+            
+            tbi.setImage_ (image)
+            
+            self.toolbarItems[label] = tbi
+        
+        # Now that we have created the necessary toolbar items, we 
+        # can create the toolbar itself.
+        self.toolbar = NSToolbar.alloc ().initWithIdentifier_ ('mainToolbar')
+        
+        self.toolbar.setDelegate_ (self)
+        
+        # make the toolbar configurable
+        self.toolbar.setAllowsUserCustomization_ (True)
+        self.toolbar.setAutosavesConfiguration_ (True)
+        
+        # attach the toolbar to the window
+        self.mainWindow.setToolbar_ (self.toolbar)
+        
+        pool.release ()
+        return
     
     
     def applicationDidFinishLaunching_ (self, aNotification):
@@ -98,6 +150,47 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
             # downloaded automatically.
             v = VersionChecker ()
         return
+    
+    
+    def validateToolbarItem_ (self, item):
+        return (True)
+    
+    
+    def toolbarDefaultItemIdentifiers_ (self, toolbar):
+        """
+        Create the default toolbar.
+        """
+        items = self.toolbarItems.keys ()
+        items.sort ()
+        items.append (NSToolbarFlexibleSpaceItemIdentifier)
+        items.append (NSToolbarCustomizeToolbarItemIdentifier)
+        return (items)
+    
+    
+    def toolbarAllowedItemIdentifiers_ (self, toolbar):
+        """
+        List all the allowed toolbar items.
+        """
+        items = self.toolbarItems.keys ()
+        items.sort ()
+        items.append (NSToolbarSeparatorItemIdentifier)
+        items.append (NSToolbarSpaceItemIdentifier)
+        items.append (NSToolbarFlexibleSpaceItemIdentifier)
+        items.append (NSToolbarPrintItemIdentifier)
+        items.append (NSToolbarShowColorsItemIdentifier)
+        items.append (NSToolbarShowFontsItemIdentifier)
+        items.append (NSToolbarCustomizeToolbarItemIdentifier)
+        return (items)
+    
+    
+    def toolbar_itemForItemIdentifier_willBeInsertedIntoToolbar_ (self, 
+                                                                  toolbar, 
+                                                                  identifier, 
+                                                                  flag):
+        """
+        Given an identifier, return the corresponding toolbar item.
+        """
+        return (self.toolbarItems[identifier])
     
     
     def displayImage (self):
@@ -226,9 +319,12 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         
         pool.release ()
         return
-
-
-
+    
+    
+    
+    
+    
+    
 
 
 

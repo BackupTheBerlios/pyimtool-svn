@@ -363,30 +363,78 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             not self.frameBuffers[frame].raw):
             return
         
+        now = time.time ()
+        
         zoom = self.frameBuffers[frame].zoom
         
         # set the view port
-        x = int (rect.origin.x / zoom)
-        y = int (rect.origin.y / zoom)
-        w = int (rect.size.width / zoom)
-        h = int (rect.size.height / zoom)
-        glViewport (x, y, w, h)
+        x = int (rect.origin.x)
+        y = int (rect.origin.y)
+        w = int (rect.size.width)
+        h = int (rect.size.height)
         
-        # Extract the image region corresponding to rect
-        endX = int (x + w)
-        endY = int (y + h)
-        raw = self.frameBuffers[frame].buffer[y:endY,x:endX].tostring ()
+        # Handle the zoom information
+        zx = int (rect.origin.x / zoom)
+        zy = int (rect.origin.y / zoom)
+        zw = int (rect.size.width / zoom)
+        zh = int (rect.size.height / zoom)
         
-        # set the zoom factor and draw the pixels
-        glPixelZoom (zoom, zoom)
-        glDrawPixels (w, 
-                      h, 
-                      GL_COLOR_INDEX, 
-                      GL_UNSIGNED_BYTE, 
-                      raw)
+        # print (zoom)
+        # print (x, y, w, h)
+        # print (zx, zy, zw, zh)
         
-        # self.openGLContext ().flushBuffer ()
+        endX = int (zx + zw)
+        endY = int (zy + zh)
+        
+        (maxX, maxY) = self.frameBuffers[frame].buffer.shape
+        if (endX > maxX):
+            endX = maxX - 1
+            zw = endX - zx
+            print ('zx out of range')
+        if (endY > maxY):
+            endY = maxY - 1
+            zh = endY - zy
+            print ('zy out of range')
+        
+        # extract the affected pixels from the image buffer. we 
+        # implement zoom by extracting as few pixels as possible.
+        # this means that if zoom < 1, we extract one pixel every
+        # 1/zoom pixels (stride=1/zoom). If zoom >= 1, we extract
+        # all the pixels in the affected area (stride=1).
+        t0 = time.time ()
+        if (zoom >= 1):
+            raw = self.frameBuffers[frame].buffer[zy:endY,zx:endX].tostring ()
+            # print (self.frameBuffers[frame].buffer[zy:endY,zx:endX].shape)
+        else:
+            stride = int (1. / zoom)
+            raw = self.frameBuffers[frame].buffer[zy:endY:stride,zx:endX:stride].tostring ()
+            # print (self.frameBuffers[frame].buffer[zy:endY:stride,zx:endX:stride].shape)
+        dt = time.time () - t0
+        print ('tostring() took %.02fs' % (dt))
+        
+        # draw the pixels
+        t0 = time.time ()
+        if (zoom >= 1):
+            glViewport (zx, zy, zw, zh)
+            glPixelZoom (zoom, zoom)
+            glDrawPixels (zw, 
+                          zh, 
+                          GL_COLOR_INDEX, 
+                          GL_UNSIGNED_BYTE, 
+                          raw)
+        else:
+            glViewport (x, y, w, h)
+            glDrawPixels (w, 
+                          h, 
+                          GL_COLOR_INDEX, 
+                          GL_UNSIGNED_BYTE, 
+                          raw)
         glFlush ()
+        dt = time.time () - t0
+        print ('glDrawPixels() took %.02fs' % (dt))
+        
+        dt = time.time () - now
+        print ('drawRect() took %.02fs' % (dt))
         return
     
     
@@ -570,13 +618,11 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         
         (w0, h0) = (frameBuffer.width, frameBuffer.height)
         
-        # setup the appropriate transformation
-        self.transformation.scaleBy_ (2.0)
-        
         # update the zoom factor
         frameBuffer.zoom *= 2.0
         
         # resize the frame
+        self.transformation.scaleBy_ (2.0)
         newSize = self.transformation.transformSize_ ((w0, h0))
         self.setFrameSize_ (newSize)
         self.setNeedsDisplay_ (True)
@@ -594,13 +640,11 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         
         (w0, h0) = (frameBuffer.width, frameBuffer.height)
         
-        # setup the appropriate transformation
-        self.transformation.scaleBy_ (0.5)
-        
         # update the zoom factor
         frameBuffer.zoom /= 2.0
         
         # resize the frame
+        self.transformation.scaleBy_ (0.5)
         newSize = self.transformation.transformSize_ ((w0, h0))
         self.setFrameSize_ (newSize)
         self.setNeedsDisplay_ (True)
@@ -638,11 +682,9 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
             # make sure the image height fits into the clip view
             frameBuffer.zoom = float (h) / float (h0)
         
-        # setup the appropriate transformation
+        # resize the frame
         self.transformation = NSAffineTransform.transform ()
         self.transformation.scaleBy_ (frameBuffer.zoom)
-        
-        # resize the frame
         newSize = self.transformation.transformSize_ ((w0, h0))
         self.setFrameSize_ (newSize)
         self.setNeedsDisplay_ (True)
@@ -660,13 +702,11 @@ class PyOpenGLView (NibClassBuilder.AutoBaseClass):
         
         (w0, h0) = (frameBuffer.width, frameBuffer.height)
         
-        # setup the appropriate transformation
-        self.transformation = NSAffineTransform.transform ()
-        
         # update the zoom factor
         frameBuffer.zoom = 1.0
         
         # resize the frame
+        self.transformation = NSAffineTransform.transform ()
         self.setFrameSize_ ((w0, h0))
         self.setNeedsDisplay_ (True)
         return

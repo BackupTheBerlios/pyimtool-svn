@@ -1,4 +1,4 @@
-from my_defs import *
+from utilities import *
 
 
 NibClassBuilder.extractClasses("MainMenu")

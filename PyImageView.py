@@ -44,6 +44,12 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         self.frameNo = 1
         self.hotSpareID = 0
         
+        # Since we only have one IRAF framebuffer, we should disable 
+        # the "prev" and "next" buttons.
+        self.window = self.window ()
+        self.enablePrevButton = False
+        self.enableNextButton = False
+        
         # Sometimes, we need a direct connection with the active 
         # RequestHandler instance
         self.reqHandler = None
@@ -71,6 +77,17 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         return
     
     
+    def validateToolbarItem_ (self, item):
+        # This NEEDS to be implemented better!!!!!
+        if (item.label () == "prev" and 
+            not self.enablePrevButton):
+            return (False)
+        if (item.label () == "next" and 
+            not self.enableNextButton):
+            return (False)
+        return (True)
+    
+    
     def isFlipped (self):
         """
         Nasty trick: needed to make sure that our
@@ -82,17 +99,17 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
     
     
     def acceptsFirstResponder (self):
-        self.window ().makeFirstResponder_ (self)
+        self.window.makeFirstResponder_ (self)
         return (True)
     
     
     def becomeFirstResponder (self):
-        self.window ().setAcceptsMouseMovedEvents_ (True)
+        self.window.setAcceptsMouseMovedEvents_ (True)
         return (True)
     
     
     def resignFirstResponder (self):
-        self.window ().setAcceptsMouseMovedEvents_ (False)
+        self.window.setAcceptsMouseMovedEvents_ (False)
         return (True)
     
     

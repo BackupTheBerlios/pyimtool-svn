@@ -11,6 +11,7 @@ from utilities import *
 
 # my own classes
 from PrefsController import *
+from WindowDelegate import *
 from InfoController import *
 from DataListener import *
 from FrameBuffer import *
@@ -157,10 +158,6 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
             # downloaded automatically.
             v = VersionChecker ()
         return
-    
-    
-    def validateToolbarItem_ (self, item):
-        return (True)
     
     
     def toolbarDefaultItemIdentifiers_ (self, toolbar):

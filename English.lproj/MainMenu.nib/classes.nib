@@ -14,7 +14,8 @@
             SUPERCLASS = NSObject; 
         }, 
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
-        {CLASS = PyImageView; LANGUAGE = ObjC; SUPERCLASS = NSImageView; }
+        {CLASS = PyImageView; LANGUAGE = ObjC; SUPERCLASS = NSImageView; }, 
+        {CLASS = WindowDelegate; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
     ); 
     IBVersion = 1; 
 }

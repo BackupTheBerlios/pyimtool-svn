@@ -20,6 +20,7 @@
 				C4553611067A820B0074DD61,
 				C4ABBCA6066FE23800D0BF0A,
 				C4ABBCA8066FE24600D0BF0A,
+				C4073347068A5C3700F71A84,
 			);
 			isa = PBXGroup;
 			name = Classes;
@@ -586,6 +587,7 @@
 				C4CC90C5068114A00024D517,
 				C414DEBF06876C1B004885F3,
 				C47E8AF606894E9D006CCA86,
+				C4073348068A5C3700F71A84,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,6 +660,20 @@
 //C42
 //C43
 //C44
+		C4073347068A5C3700F71A84 = {
+			fileEncoding = 30;
+			isa = PBXFileReference;
+			lastKnownFileType = text.script.python;
+			path = WindowDelegate.py;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4073348068A5C3700F71A84 = {
+			fileRef = C4073347068A5C3700F71A84;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
 		C414DEBD06876C1A004885F3 = {
 			children = (
 				C414DEBE06876C1A004885F3,

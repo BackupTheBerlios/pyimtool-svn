@@ -7,7 +7,6 @@
 	objects = {
 		080E96DDFE201D6D7F000001 = {
 			children = (
-				C4D86E37069EF77100A541C7,
 				E24A799D060CFE2300E71E78,
 				C4ABBC8E066FE13A00D0BF0A,
 				C4ABBC92066FE14D00D0BF0A,
@@ -343,7 +342,6 @@
 				C47E8AF606894E9D006CCA86,
 				C4073348068A5C3700F71A84,
 				C416C5AA068B651D00F537B0,
-				C4D86E38069EF77100A541C7,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,20 +776,6 @@
 		};
 		C4CC90C5068114A00024D517 = {
 			fileRef = C4CC90C3068114A00024D517;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		C4D86E37069EF77100A541C7 = {
-			fileEncoding = 30;
-			isa = PBXFileReference;
-			lastKnownFileType = text.script.python;
-			path = PyOpenGLView.py;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		C4D86E38069EF77100A541C7 = {
-			fileRef = C4D86E37069EF77100A541C7;
 			isa = PBXBuildFile;
 			settings = {
 			};

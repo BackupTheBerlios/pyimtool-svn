@@ -106,7 +106,7 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 111193152;
+			PBXPerProjectTemplateStateSaveDate = 111393113;
 			PBXPrepackagedSmartGroups_v2 = (
 				{
 					PBXTransientLocationAtTop = bottom;
@@ -632,12 +632,30 @@
 				PBXModuleWindowStatusBarHidden = YES;
 				RubberWindowFrame = "41 492 582 340 0 0 1280 832 ";
 			};
-			PBXWorkspaceStateSaveDate = 111193152;
+			PBXWorkspaceStateSaveDate = 111393113;
 		};
 		perUserProjectItems = {
 			C4164993069FBC26005F6EA9 = C4164993069FBC26005F6EA9;
 			C4164997069FBEFB005F6EA9 = C4164997069FBEFB005F6EA9;
 			C4164DB4069FC11E005F6EA9 = C4164DB4069FC11E005F6EA9;
+			C42CF0F106A3B95C00105273 = C42CF0F106A3B95C00105273;
+			C42CF0F206A3B95C00105273 = C42CF0F206A3B95C00105273;
+			C42CF0F306A3B95D00105273 = C42CF0F306A3B95D00105273;
+			C42CF23006A3B99C00105273 = C42CF23006A3B99C00105273;
+			C42CF23106A3BEB000105273 = C42CF23106A3BEB000105273;
+			C42CF23206A3BEB100105273 = C42CF23206A3BEB100105273;
+			C42CF23306A3BEB100105273 = C42CF23306A3BEB100105273;
+			C42CF23406A3BEB100105273 = C42CF23406A3BEB100105273;
+			C42CF23506A3C04F00105273 = C42CF23506A3C04F00105273;
+			C42CF23606A3C04F00105273 = C42CF23606A3C04F00105273;
+			C42CF23706A3C04F00105273 = C42CF23706A3C04F00105273;
+			C42CF23806A3C04F00105273 = C42CF23806A3C04F00105273;
+			C42CF23906A3C04F00105273 = C42CF23906A3C04F00105273;
+			C42CF23A06A3C05000105273 = C42CF23A06A3C05000105273;
+			C42CF23B06A3C05000105273 = C42CF23B06A3C05000105273;
+			C42CF23C06A3C05000105273 = C42CF23C06A3C05000105273;
+			C42CF23D06A3C05500105273 = C42CF23D06A3C05500105273;
+			C42CF23E06A3C05500105273 = C42CF23E06A3C05500105273;
 			C4309CE80676955D006BF4FC = C4309CE80676955D006BF4FC;
 			C438379C06A0AC2E00D2B32D = C438379C06A0AC2E00D2B32D;
 			C447BB6C069B897E005A885C = C447BB6C069B897E005A885C;
@@ -728,6 +746,186 @@
 		name = "utilities.py: 270";
 		rLen = 0;
 		rLoc = 7403;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF0F106A3B95C00105273 = {
+		fRef = C4D86E37069EF77100A541C7;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 715";
+		rLen = 0;
+		rLoc = 24308;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF0F206A3B95C00105273 = {
+		fRef = C4D86E37069EF77100A541C7;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 715";
+		rLen = 0;
+		rLoc = 24308;
+		rType = 0;
+		vrLen = 21;
+		vrLoc = 0;
+	};
+	C42CF0F306A3B95D00105273 = {
+		fRef = C4D86E37069EF77100A541C7;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 715";
+		rLen = 0;
+		rLoc = 24308;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23006A3B99C00105273 = {
+		fRef = C4D86E37069EF77100A541C7;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 715";
+		rLen = 0;
+		rLoc = 24308;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23106A3BEB000105273 = {
+		fRef = C4D86E37069EF77100A541C7;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 731";
+		rLen = 0;
+		rLoc = 24762;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23206A3BEB100105273 = {
+		fRef = C4D86E37069EF77100A541C7;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 731";
+		rLen = 0;
+		rLoc = 24762;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23306A3BEB100105273 = {
+		fRef = C4D86E37069EF77100A541C7;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 731";
+		rLen = 0;
+		rLoc = 24762;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23406A3BEB100105273 = {
+		fRef = C4ABBCA0066FE1CD00D0BF0A;
+		isa = PBXTextBookmark;
+		name = "PyImageView.py: 598";
+		rLen = 0;
+		rLoc = 20922;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23506A3C04F00105273 = {
+		fRef = C4ABBCA0066FE1CD00D0BF0A;
+		isa = PBXTextBookmark;
+		name = "PyImageView.py: 598";
+		rLen = 0;
+		rLoc = 20922;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23606A3C04F00105273 = {
+		fRef = C4ABBCA0066FE1CD00D0BF0A;
+		isa = PBXTextBookmark;
+		name = "PyImageView.py: 598";
+		rLen = 0;
+		rLoc = 20922;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23706A3C04F00105273 = {
+		fRef = C4ABBCA0066FE1CD00D0BF0A;
+		isa = PBXTextBookmark;
+		name = "PyImageView.py: 598";
+		rLen = 0;
+		rLoc = 20922;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23806A3C04F00105273 = {
+		fRef = E24A799D060CFE2300E71E78;
+		isa = PBXTextBookmark;
+		name = "AppDelegate.py: 349";
+		rLen = 0;
+		rLoc = 12730;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23906A3C04F00105273 = {
+		fRef = E24A799D060CFE2300E71E78;
+		isa = PBXTextBookmark;
+		name = "AppDelegate.py: 349";
+		rLen = 0;
+		rLoc = 12730;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23A06A3C05000105273 = {
+		fRef = E24A799D060CFE2300E71E78;
+		isa = PBXTextBookmark;
+		name = "AppDelegate.py: 349";
+		rLen = 0;
+		rLoc = 12730;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23B06A3C05000105273 = {
+		fRef = E24A799D060CFE2300E71E78;
+		isa = PBXTextBookmark;
+		name = "AppDelegate.py: 349";
+		rLen = 0;
+		rLoc = 12730;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23C06A3C05000105273 = {
+		fRef = C4D86E37069EF77100A541C7;
+		isa = PBXTextBookmark;
+		name = "PyOpenGLView.py: 725";
+		rLen = 0;
+		rLoc = 24581;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23D06A3C05500105273 = {
+		fRef = E24A799D060CFE2300E71E78;
+		isa = PBXTextBookmark;
+		name = "AppDelegate.py: 349";
+		rLen = 0;
+		rLoc = 12730;
+		rType = 0;
+		vrLen = 2;
+		vrLoc = 0;
+	};
+	C42CF23E06A3C05500105273 = {
+		fRef = E24A799D060CFE2300E71E78;
+		isa = PBXTextBookmark;
+		name = "AppDelegate.py: 349";
+		rLen = 0;
+		rLoc = 12730;
 		rType = 0;
 		vrLen = 2;
 		vrLoc = 0;
@@ -1006,7 +1204,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {488, 8637}}";
 			sepNavSelRange = "{20922, 0}";
-			sepNavVisRect = "{{0, 0}, {0, 0}}";
+			sepNavVisRect = "{{0, 0}, {488, 4}}";
 		};
 	};
 	C4ABBCA4066FE22800D0BF0A = {
@@ -1156,10 +1354,16 @@
 		vrLoc = 0;
 	};
 	C4D86E37069EF77100A541C7 = {
+		fileEncoding = 30;
+		isa = PBXFileReference;
+		name = PyOpenGLView.py;
+		path = /Users/fpierfed/sviluppo/newStyle/pyimtool/PyOpenGLView.py;
+		refType = 0;
+		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {488, 9438}}";
-			sepNavSelRange = "{22672, 0}";
-			sepNavVisRect = "{{0, 0}, {488, 3}}";
+			sepNavIntBoundsRect = "{{0, 0}, {488, 10247}}";
+			sepNavSelRange = "{24581, 0}";
+			sepNavVisRect = "{{0, 10}, {488, 4}}";
 		};
 	};
 	C4D86E3C069EF7AB00A541C7 = {
@@ -1191,9 +1395,9 @@
 	};
 	E24A799D060CFE2300E71E78 = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {488, 5054}}";
+			sepNavIntBoundsRect = "{{0, 0}, {488, 5081}}";
 			sepNavSelRange = "{12730, 0}";
-			sepNavVisRect = "{{0, 0}, {0, 0}}";
+			sepNavVisRect = "{{0, 10}, {488, 4}}";
 			sepNavWindowFrame = "{{54, 269}, {750, 558}}";
 		};
 	};

@@ -1,120 +1,53 @@
-================================
-Cocoa-Python Application Project
-================================
 
-:Author: Bill Bumgarner
-:Contact: bbum@codefab.com
-
-.. contents::
-
-This project is analagous in construction to a regular 'Cocoa Application'
-Project.  The *only* difference is that the primary language of implementation
-is Python.   Once control is passed to the AppKit, a Cocoa-Python application
-should behave just like a pure-ObjC Cocoa or Cocoa-Java application.
-
-Application startup
--------------------
-
-The startup sequence is a bit different from a *regular* Cocoa or Coco-Java
-application in that control must be passed to the Python interpreter, the
-PyObjC bridge must be initialized, and the developer must load any classes
-defined in Python that are required to start the application.
-
-The startup sequence::
-
-1. Application is launched from Project Builder, the command line or by
-   double clicking.
-
-2. The `pyobjc_main` function in `bin-python-main.m` is invoked.
-
-   This function bootstraps into the command line python interpreter.   For a
-   Cocoa application to work correctly, the main executable must reside in
-   the app wrapper.   Furthermore, the executable sets up various bits of
-   environment prior to passing control to python to fine-tune the execution
-   of the application.
-
-   By adding the path to the app wrapper's Resources directory to the
-   **PYTHONPATH** environment variable, the pyobjc module can easily be included
-   in the app wrapper in an isolated fashion.  This makes it easy to
-   distribute a standalone application that uses PyObjC (and other third
-   party Python modules) without further cluttering the `Resources` directory.
-
-   By setting the **DYLD_FRAMEWORK_PATH** and **DYLD_LIBRARY_PATH**
-   environment variables, embedded frameworks within the app wrapper will
-   still link correctly even when dynamcially loaded into the python
-   interpreter.
-
-   a) check to see if **PYTHONPATH** environment variable is already set.
-
-      1) if not, define **PYTHONPATH** to contain the path to the `pyobjc`
-         directory within the app wrapper's Resources directory.
-      2) if so, prepend the path to the `pyobjc` directory
-   b) If the **DYLD_FRAMEWORK_PATH** environment variable is not defined, define
-         it and **DYLD_LIBRARY_PATH** to include both the shared and private
-         frameworks directories within the app wrapper.  If
-         **DYLD_FRAMEWORK_PATH**, nothing is defined or redefined[#]_.
-   c) Set the environment variable **PYOBJCFRAMEWORKS** to be a colon separated
-      list of all of the frameworks linked into the application.
-   d) Check the **PythonBinPath** user default to see if something other than
-         `/usr/bin/python` should be used as the command line entry point to
-         the python interpreter.
-   e) Identify the main python script file to execute.   It can be one of
-      `__main__.py`, `__realmain__.py` or `Main.py`.  Also searched are the
-         same names with `.pyc` or `.pyo` extensions.  Regardless of name, the
-         script file should be in the app wrapper's `Resources` directory.
-   f) Set up the command line for the python interpreter.   Preserve original
-      arguments.
-   g) If the SHOWPID environment variable is set, print a command line that
-      can be used to attach gdb to the application after it has been launched[#]_.
-   h) Pass control to the command line python intepreter using `execve()`.
-
-3. Execute the Main python file
-
-   At this point, control has been passed to the python interpreter (either
-   `/usr/bin/python` or some other interpreter executable as specified by the
-   **PythonBinPath** user default.
-
-   Care should be taken to ensure that your application behaves appropriately
-   if invoked with the "wrong" Python interpreter.
-
-   What follows is a description of the `__main__.py` file as it appears in
-   the *Cocoa-Python Application* project template.   Feel free to modify it
-   as needed.
-
-   a) Import the the three packages associated with PyObjC;  `objc`,
-      `Foundation`, and `AppKit`.
-
-   b) Import any classes that need to be defined before control is passed to
-      Cocoa.
-
-      In Python, there is no concept of 'linking' an application.  Any
-      classes defined in Python must be imported before they can be used.  As
-      such, any classes-- such as `MyAppDelegate` in the project template--
-      that are required by the application as it is launched must be
-      explicitly imported before control is passed to Cocoa::
-
-      import MyAppDelegate
-
-  c) Pass control to Cocoa by using the `NSApplicationMain()` function.
-
-     Note that this last step is the single step found in `main.m` in a
-     regular Cocoa application project.
-
-Classes & NIB files
--------------------
+PyImtool (http://pyimtool.berlios.de/)
+Version 1.0a0
 
 
-     
-.. [#] Project Builder uses these variables to enable linking against
-   frameworks in the development environment without requiring that the
-   developer install frameworks first.
-
-.. [#] Because control is passed to the python interpreter using `execve()`,
-   gdb won't work directly with the application for anything other than
-   debugging the code up until the point `execve()` is called.   `Execve()`
-   replaces the existing process with the process-- the python interpreter--
-   that resides on the path passed as the first argument.  That includes
-   replacing all symbol tables which greatly confuses gdb.
+Introduction
+    PyImtool is a native Mac OS X IRAF image server. Other examples of IRAF image servers include well known applications like SAO DS9 and NOAO Ximtool.
+    There are two main differences between PyImtool and its competitors: on one hand PyImtool is nowhere near as mature as, say, DS9. On the other hand, though, PyImtool does not require an X11 server. To put it in another way, PyImtool is a full fledged Cocoa application (and, to the best of my knowledge, the only Mac OS X native app in its category).
+    For those not familiar with DS9 and other IRAF image servers, what PyImtool does is very simple and very specific. It allows users to display astronomical data (e.g. images and spectra) from data reduction and analysis packages like IRAF and PyRAF. It supports the IIS protocol (also known as Ximtool protocol) for inter-application communications both via sockets and via UNIX pipes.
 
 
+Installation
+    Installing PyImtool is just as easy as installing any other Mac OS X app: just drag it anywhere you want on your Mac! Standard locations include the main /Applications directory or your home directory. Any other place is fine too.
+    To uninstall PyImtool, just drag it in the Trash. It is as simple as that.
 
+
+Requirements
+    Mac OS X 10.3 (aka Panther) or later. PyImtool might be made to work under Mac OS X 10.2. Similarly, it might be possible to port PyImtool to GNUStep. There are no plans to support anything other than 10.3 or later at the moment.
+
+
+Usage
+    Simply double click on PyImtool. If everything goes well, it will start up and display its main window. At this you can start an IRAF/PyRAF session (if you haven't already) and try the standard
+
+cl> display dev$pix 1
+
+    command from the IRAF/PyRAF prompt. If you see an image being displayed in PyImtool, you are home free. If not... well, there might be (gasp!) a bug in the code! In that case, please drop me a line on the pyimtool-dev mailing list (http://developer.berlios.de/mail/?group_id=1832).
+
+
+Source Code
+    PyImtool comes with the full source code included in the application itself (just look under PyImtool.app/Contents/Resources). The latest and greatest version of the source code is available via BerliOS.de (http://developer.berlios.de/svn/?group_id=1832). In order to check out a copy of the code, you need SVN installed on your system (http://subversion.tigris.org/). 
+    To build PyImtool from source you need both PyObjC and the Apple developer tools. The SVN code includes the XCode project files.
+
+
+Support
+     Support is currently limited to our mailing lists on BerliOS.de (http://developer.berlios.de/mail/?group_id=1832).
+
+
+Credits
+     PyImtool is developed by Francesco Pierfederici but it builds on tools and technologies developed by others:
+- Python (http://www.python.org/)
+- PyObjC (http://pyobjc.sourceforge.net/)
+- Objective-C (http://www.apple.com/)
+- Cocoa (http://www.apple.com/)
+- MagnifiedView (http://www.docdave.com/)
+- BlueRobot CSS sheets (http://www.bluerobot.com/)
+- Crystal Icons (http://www.everaldo.com/)
+    All these products/technologies are copyright of their respective owners.
+
+
+Legalese
+    PyImtool is copyright (c) 2004 Francesco Pierfederici. All rights reserved. This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+    This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.

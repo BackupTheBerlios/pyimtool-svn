@@ -13,6 +13,14 @@ from PyObjCTools import NibClassBuilder
 NibClassBuilder.extractClasses("InfoPanel")
 
 
+# load the MagnifiedView class
+path = os.path.abspath (os.path.join (PATH, '../Resources/MagnifiedView.bundle'))
+print (path)
+import objc
+objc.loadBundle ('MagnifiedView', globals (), bundle_path=path)
+MagnifiedView = objc.lookUpClass ('MagnifiedView')
+del objc
+
 
 # class defined in InfoPanel.nib
 class InfoController (NibClassBuilder.AutoBaseClass):
@@ -49,6 +57,10 @@ class InfoController (NibClassBuilder.AutoBaseClass):
     
     def awakeFromNib (self):
         self.retain()
+        
+        # start the MagnifiedView
+        self.magnifiedView.startWithMagnification_crosshairSize_updateInterval_ (4, 10, 0.05)
+        
         # tell the main window to start tracking the mouse.
         self.imageView.startTrackingMouse (self)
         return
@@ -61,6 +73,8 @@ class InfoController (NibClassBuilder.AutoBaseClass):
     
     
     def windowWillClose_ (self, notification):
+        # tell the main window to stop tracking the mouse.
+        self.imageView.stopTrackingMouse ()
         self.autorelease ()
         return
     

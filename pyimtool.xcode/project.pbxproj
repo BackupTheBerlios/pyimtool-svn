@@ -55,6 +55,7 @@
 //104
 		1058C7A0FEA54F0111CA2CBB = {
 			children = (
+				C4FEB8CE06753F2B0047E1D9,
 				1058C7A1FEA54F0111CA2CBB,
 			);
 			isa = PBXGroup;
@@ -318,6 +319,7 @@
 				C4ABBCAB066FE62400D0BF0A,
 				C4ABBCAD066FE64300D0BF0A,
 				C475436D066FEC5000D102B0,
+				C4FEB8CF06753F2B0047E1D9,
 			);
 			isa = PBXResourcesBuildPhase;
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +590,19 @@
 		};
 		C4ABBCAD066FE64300D0BF0A = {
 			fileRef = C4ABBCAC066FE64300D0BF0A;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		C4FEB8CE06753F2B0047E1D9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = "wrapper.plug-in";
+			path = MagnifiedView.bundle;
+			refType = 4;
+			sourceTree = "<group>";
+		};
+		C4FEB8CF06753F2B0047E1D9 = {
+			fileRef = C4FEB8CE06753F2B0047E1D9;
 			isa = PBXBuildFile;
 			settings = {
 			};

@@ -30,7 +30,6 @@ from InfoController import *
 from DataListener import *
 from FrameBuffer import *
 from PyImageView import *
-from PyImage import *
 
 
 

@@ -12,9 +12,7 @@
 				C4ABBC92066FE14D00D0BF0A,
 				C4ABBCAA066FE62400D0BF0A,
 				C4ABBCAC066FE64300D0BF0A,
-				C4ABBC98066FE18A00D0BF0A,
 				C475436C066FEC5000D102B0,
-				C4ABBC9C066FE1B700D0BF0A,
 				C4ABBCA0066FE1CD00D0BF0A,
 				C4ABBCA4066FE22800D0BF0A,
 				C4553611067A820B0074DD61,
@@ -289,7 +287,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = Pyimtool;
+				PRODUCT_NAME = PyImtool;
 				SECTORDER_FLAGS = "";
 				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
 				WRAPPER_EXTENSION = app;
@@ -297,7 +295,7 @@
 			dependencies = (
 			);
 			isa = PBXNativeTarget;
-			name = Pyimtool;
+			name = PyImtool;
 			productInstallPath = "$(HOME)/Applications";
 			productName = pyimtool3;
 			productReference = 8D1107320486CEB800E47090;
@@ -323,8 +321,6 @@
 				C4ABBC88066FDF7600D0BF0A,
 				C4ABBC8F066FE13A00D0BF0A,
 				C4ABBC93066FE14D00D0BF0A,
-				C4ABBC99066FE18A00D0BF0A,
-				C4ABBC9D066FE1B700D0BF0A,
 				C4ABBCA1066FE1CD00D0BF0A,
 				C4ABBCA5066FE22800D0BF0A,
 				C4ABBCA7066FE23800D0BF0A,
@@ -404,7 +400,7 @@
 			explicitFileType = wrapper.application;
 			includeInIndex = 0;
 			isa = PBXFileReference;
-			path = Pyimtool.app;
+			path = PyImtool.app;
 			refType = 3;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -583,34 +579,6 @@
 		};
 		C4ABBC93066FE14D00D0BF0A = {
 			fileRef = C4ABBC92066FE14D00D0BF0A;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		C4ABBC98066FE18A00D0BF0A = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = text.script.python;
-			path = Display.py;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		C4ABBC99066FE18A00D0BF0A = {
-			fileRef = C4ABBC98066FE18A00D0BF0A;
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		C4ABBC9C066FE1B700D0BF0A = {
-			fileEncoding = 4;
-			isa = PBXFileReference;
-			lastKnownFileType = text.script.python;
-			path = PyImage.py;
-			refType = 4;
-			sourceTree = "<group>";
-		};
-		C4ABBC9D066FE1B700D0BF0A = {
-			fileRef = C4ABBC9C066FE1B700D0BF0A;
 			isa = PBXBuildFile;
 			settings = {
 			};

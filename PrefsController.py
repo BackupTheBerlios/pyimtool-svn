@@ -67,22 +67,28 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
         
         # check the preferences and set the check-boxes
         # accordingly.
-        if (PREFS['irafRoot']):
-            self.irafRootField.setStringValue_ (PREFS['irafRoot'])
-        else:
-            self.irafRootField.setStringValue_ ('')
-        
         self.imageScale.deselectAllCells ()
-        if (PREFS['ScaleToFit']):
+        if (PREFS['scaleToFit']):
             self.imageScale.selectCellAtRow_column_ (1, 0)
         else:
             self.imageScale.selectCellAtRow_column_ (0, 0)
         
-        if (PREFS['CheckForNewVersion']):
+        if (PREFS['checkForNewVersion']):
             self.versionCheck.setState_ (NSOnState)
         else:
             self.versionCheck.setState_ (NSOffState)
         
+        if (PREFS['irafIntegration']):
+            self.irafIntegration.setState_ (NSOnState)
+            self.browseButton.setEnabled_ (True)
+        else:
+            self.irafIntegration.setState_ (NSOffState)
+            self.browseButton.setEnabled_ (False)
+        
+        if (PREFS['irafRoot']):
+            self.irafRootField.setStringValue_ (PREFS['irafRoot'])
+        else:
+            self.irafRootField.setStringValue_ ('')
         return
     
     
@@ -93,7 +99,6 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
             state = sender.state ()
         except:
             pass
-        nthreads = 0
         value = None
         
         if (sender == self.imageScale):
@@ -101,9 +106,15 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
             # is for "actual_size" behaviour, the second
             # is for "zoom_to_fit"
             value = sender.selectedRow ()
-            key = 'ScaleToFit'
+            key = 'scaleToFit'
         elif (sender == self.versionCheck):
-            key = 'CheckForNewVersion'
+            key = 'checkForNewVersion'
+        elif (sender == self.irafIntegration):
+            key = 'irafIntegration'
+            if (state == NSOffState):
+                self.browseButton.setEnabled_ (False)
+            else:
+                self.browseButton.setEnabled_ (True)
         else:
             return
         
@@ -145,7 +156,7 @@ class PrefsController (NibClassBuilder.AutoBaseClass):
             self.irafRootField.setStringValue_ (dirName)
             
             # update our internal preferences dictionary
-            PREFS['irafRoot'] = field.stringValue ()
+            PREFS['irafRoot'] = dirName
         return
     
     

@@ -30,7 +30,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         # interaction
         self.width = None
         self.height = None
-        self.frame = 0
+        self.frameNo = 0
         self.key = None
         self.x = 0
         self.y = 0
@@ -41,6 +41,11 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     
     
     def decodeFrameNo (self, z):
+        """
+        Given a IIS packet header key z, it decodes the frame number
+        the client is interested in.
+        """
+        
         try:
             z = int (z)
         except:
@@ -56,10 +61,9 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     
     def wcsUpdate (self, wcsText, fb=None):
         """
-        parses the wcsText and populates the fields 
-        of a CoordTransf instance.
-        we start from the CoordTransf of the input
-        frame buffer, if any
+        Parses the wcsText and populates the fields of a CoordTransf
+        instance. We start from the CoordTransf of the input 
+        framebuffer, if any.
         """
         if (fb):
             ct = fb.ct
@@ -96,7 +100,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 ct.zt = W_UNITARY
             ct.valid += 1
             
-            # determine the best formato for WCS output
+            # Determine the best format for WCS output.
             if (ct.valid and ct.zt == W_LINEAR):
                 z1 = ct.z1
                 z2 = ct.z2
@@ -131,7 +135,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 ct.ref = string.strip (data[3])
                 # if this works, we also have the real size of the image
                 fb.imgWidth = ct.dnx + 1   # for some reason, the width is always
-                                            # 1 pixel smaller...
+                                           # 1 pixel smaller...
                 fb.imgHeight = ct.dny
             except:
                 ct.region = 'none'
@@ -175,11 +179,11 @@ class RequestHandler (SocketServer.StreamRequestHandler):
     
     
     def handleFeedback (self, pkt):
-        self.frame = self.decodeFrameNo (pkt.z & 07777) - 1
+        self.frameNo = self.decodeFrameNo (pkt.z & 07777) - 1
         
         # erase the frame buffer
-        fb = self.server.controller.initFrame (self.frame)
-        self.server.controller.currentFrame = self.frame
+        fb = self.server.controller.initFrame (self.frameNo)
+        self.server.controller.setCurrentFrame (self.frameNo)
         return
     
     
@@ -211,20 +215,17 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             if (len (x) == 14):
                 z = int (x[0])
                 # frames start from 1, we start from 0
-                self.frame = self.decodeFrameNo (z) - 1
+                self.frameNo = self.decodeFrameNo (z) - 1
                 
-                if (self.frame > MAX_FRAMES):
-                    sys.stderr.write ("PYIMTOOL: attempt to select non existing frame.\n")
+                if (self.frameNo > MAX_FRAMES):
+                    raise (IndexError, 'frame index grated than maximum allowed (%d)' % (MAX_FRAMES))
                     return
                 
                 # init the framebuffer
-                self.server.controller.initFrame (self.frame)
-                
+                self.server.controller.initFrame (self.frameNo)
                 return
-            
-            sys.stderr.write ("PYIMTOOL: unable to select a frame.\n")
+            raise (SyntaxError, 'malformed packet header')
             return
-        
         sys.stderr.write ("PYIMTOOL: what shall I do?\n")
         return
         
@@ -239,12 +240,12 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             else:
                 frame  = self.decodeFrameNo (pkt.z & 0177777) - 1
                 try:
-                    fb = self.server.controller.fb[frame]
+                    fb = self.server.controller.getFrame (frame)
                 except:
                     fb = None
                 
                 if ((pkt.x & 017777) and (pkt.t & 017777)):
-                    self.frame = frame
+                    self.frameNo = frame
                     if (fb and fb.ct.a != None):
                         wcs = "%s\n%f %f %f %f %f %f %f %f %d\n" \
                             % (fb.ct.imTitle, fb.ct.a, fb.ct.b, fb.ct.c, fb.ct.d,
@@ -274,13 +275,13 @@ class RequestHandler (SocketServer.StreamRequestHandler):
         else:
             # Read the WCS infor from the client
             # frames start from 1, we start from 0
-            self.frame = self.decodeFrameNo (pkt.z & 07777) - 1
+            self.frameNo = self.decodeFrameNo (pkt.z & 07777) - 1
             
             try:
-                fb = self.server.controller.fb[self.frame]
+                fb = self.server.controller.getFrame (self.frameNo)
             except:
                 # the selected frame does not exist, create it
-                fb = self.server.controller.initFrame (self.frame)
+                fb = self.server.controller.initFrame (self.frameNo)
             
             # set the width and height of the framebuffer
             fbConfig = (pkt.t & 0777) + 1
@@ -306,8 +307,6 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             fb.ct.imTitle = ''
             fb.ct.valid = 0
             fb.ct = self.wcsUpdate (line, fb)
-            
-            return
         return
     
     
@@ -316,12 +315,12 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             pass
         else:
             # get the frame number, we start from 0
-            self.frame = self.decodeFrameNo (pkt.z & 07777) - 1
+            self.frameNo = self.decodeFrameNo (pkt.z & 07777) - 1
             try:
-                fb = self.server.controller.fb[self.frame]
+                fb = self.server.controller.getFrame (self.frameNo)
             except:
                 # the selected frame does not exist, create it
-                fb = self.server.controller.initFrame (self.frame)
+                fb = self.server.controller.initFrame (self.frameNo)
             
             # decode x and y
             self.x = pkt.x & XYMASK
@@ -347,13 +346,10 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                     data = array.array ('B', pkt.datain.read (pkt.nbytes))
                     data.reverse ()
                     fb.buffer += data
-            
             width = fb.width
             
             if (not width and self.y1 < 0):
                 self.y1 = self.y
-                if (VERBOSE):
-                    sys.stderr.write ('PYIMTOOL: saved y coordinate.\n')
             elif (not width):
                 deltaY = self.y - self.y1
                 fb.width = int (abs (len (data) / deltaY))
@@ -361,8 +357,6 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 # the value for the framebuffer width!
                 if (fbconfigs.has_key (fb.config)):
                     fbconfigs[fb.config][1] = width
-                if (VERBOSE):
-                    sys.stderr.write ('PYIMTOOL: deltaX: ' + str (fb.width) + '\n')
         return
     
     
@@ -388,7 +382,7 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 # <--- end of the while loop
                 sx = self.x
                 sy = self.y
-                frame = self.frame
+                frame = self.frameNo
                 key = self.key
                 
                 self.returnCursor (pkt.dataout, sx, sy, frame, 1, key, '')
@@ -403,10 +397,10 @@ class RequestHandler (SocketServer.StreamRequestHandler):
             if (wcs):
                 # decode thw WCS info for the current frame
                 try:
-                    fb = self.server.controller.fb[self.frame]
+                    fb = self.server.controller.getFrame (self.frameNo)
                 except:
                     # the selected frame does not exist, create it
-                    fb = self.server.controller.initFrame (self.frame)
+                    fb = self.server.controller.initFrame (self.frameNo)
                 fb.ct = self.wcsUpdate (fb.wcs)
                 if (fb.ct.valid):
                     if (abs (fb.ct.a) > 0.001):
@@ -483,7 +477,6 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 self.handleMemory (packet)
                 if (self.needsUpdate):
                     self.server.controller.animateProgressWeel ()
-                    # self.updateScreen ()
                 # read the next packet
                 line = packet.datain.read (size)
                 n = len (line)
@@ -499,14 +492,13 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 n = len (line)
                 continue
             else:
-                # sys.stderr.write ('no-op\n')
+                # no-op
                 pass
             
             if (not (packet.tid & IIS_READ)):
                 # OK, discard the rest of the data
                 nbytes = packet.nbytes
                 while (nbytes > 0):
-                    # for (nbytes = ndatabytes;  nbytes > 0;  nbytes -= n):
                     if (nbytes < SZ_FIFOBUF):
                         n = nbytes
                     else:
@@ -523,34 +515,12 @@ class RequestHandler (SocketServer.StreamRequestHandler):
                 return
         # <--- end of the while (n) loop
         if (self.needsUpdate):
-            self.displayImage ()
+            self.server.controller.displayImage ()
         return
-    
-    
-    def updateScreen (self):
-        self.server.controller.updateProgressBar (10)
-        return
-    
-    
-    def displayImage (self, reset=1):
-        # get rid of the progress bar
-        # self.server.controller.updateProgressBar (100)
-        
-        try:
-            fb = self.server.controller.fb[self.frame]
-        except:
-            # the selected frame does not exist, create it
-            fb = self.server.controller.initFrame (self.frame)
-        
-        if (not fb.height):
-            width = fb.width       
-            height = int (len (fb.buffer) / width)
-            fb.height = height
-        
-            # display the image
-            if (len (fb.buffer) and height > 0):
-                self.server.controller.display (self.frame, width, height, True)
-        else:
-            self.server.controller.display (self.frame, fb.width, fb.height, False)
-        return
+
+
+
+
+
+
 

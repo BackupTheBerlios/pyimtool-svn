@@ -8,7 +8,7 @@
 from utilities import *
 from CoordTransf import *
 
-class FrameBiffer (object):
+class FrameBuffer (object):
     def __init__ (self):
         self.width = None           # wirdth of the framebuffer
         self.height = None          # height of the framebuffer
@@ -23,3 +23,6 @@ class FrameBiffer (object):
         self.zoom = 1.0             # zoom level
         self.ct = CoordTransf ()
         return
+    
+    
+

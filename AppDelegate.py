@@ -11,6 +11,7 @@ from utilities import *
 
 # my own classes
 from DataListener import *
+from FrameBuffer import *
 from PyImageView import *
 from PyImage import *
 
@@ -39,6 +40,17 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
             for key in PREFS.keys ():
                 value = prefs.boolForKey_ (key)
                 PREFS[key] = value
+        
+        # Create a dict of FrameBuffer instances. These will hold
+        # the image data that we are going to display. At first, we
+        # just need to create one FrameBuffer object.
+        # The format of the dict is quite simple: 
+        # {index: FrameBuffer}
+        # 
+        # We use a dictionary so that we can remove frames without
+        # worrying about keeping them in order.
+        self.frameBuffers = {0: FrameBuffer ()}
+        self.currentFrame = 0
         
         super (AppDelegate, self).init ()   
         return (self)
@@ -81,6 +93,53 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         
         self.imgView.display (self.image)
         return
-
+    
+    
+    def displayImage (self):
+        """
+        This method gets called by the active RequestHandler object
+        as soon as it is done reading image data. This means that we
+        can be confident that the current frame buffer (identified by
+        self.curentFrame) is properly setup.
+        """
+        return
+    
+    
+    def initFrame (self, fbIndex):
+        """
+        Erases the fbIndex-th FrameBuffer object in self.frameBuffers
+        and returns the (empty) FrameBuffer.
+        """
+        n = len (self.frameBuffers)
+        if (fbIndex >= n):
+            # we need to create a new FrameBuffer object (and 
+            # possibly intermediate FrameBuffers as well).
+            for i in range (n, bdIndex + 1):
+                self.frameBuffers[i] = FrameBuffer ()
+        else:
+            # The FrameBuffer object we are interested in already 
+            # exists: erase it. Foe efficiency sake, we just delete
+            # it and create a new (empty) one.
+            del (self.frameBuffers[fbIndex])
+            self.frameBuffers[fbIndex] = FrameBuffer ()
+        # return the fbIndex-th frame.
+        return (self.frameBuffers[fbIndex])
+    
+    
+    def setCurrentFrame (self, fbIndex):
+        if (fnIndex >= len (self.frameBuffers)):
+            raise (IndexError, 'framebuffer index out of range')
+        else:
+            self.currentFrame = fbIndex
+        return
+    
+    
+    def getFrame (self, fbIndex):
+        if (fnIndex >= len (self.frameBuffers)):
+            raise (IndexError, 'framebuffer index out of range')
+        else:
+            return (self.frameBuffers[fbIndex])
+        return (None)
+    
 
 

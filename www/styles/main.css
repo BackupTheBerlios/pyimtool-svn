@@ -17,6 +17,10 @@ h1 {
 	color:#ccc;
 	}
 
+i {
+	font-size: 11pt;
+	}
+
 p {
 	font-size: 11pt;
 	margin:0px 0px 16px 0px;
@@ -28,9 +32,9 @@ p {
 
 a {
 	color:#09c;
-	font-size:11px;
+	font-size:12px;
 	text-decoration:none;
-	font-weight:600;
+	font-weight:800;
 	}
 
 a:link {color:#09c;}

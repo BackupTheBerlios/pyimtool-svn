@@ -202,11 +202,8 @@ class PyImageView (NibClassBuilder.AutoBaseClass):
         
         if (self.frameBuffer and self.frameBuffer.buffer):
             # set the name, title and extension fields
-            self.infoPanel.setField ('name', self.frameBuffer.wcs)
+            self.infoPanel.setField ('name', self.frameBuffer.ct.ref)
             self.infoPanel.setField ('title', self.frameBuffer.ct.imTitle)
-            
-            print (self.frameBuffer.wcs)
-            print (self.frameBuffer.ct.imTitle)
         return
     
     

@@ -526,7 +526,7 @@
 			fileEncoding = 4;
 			isa = PBXFileReference;
 			lastKnownFileType = text.script.python;
-			path = PrefController.py;
+			path = PrefsController.py;
 			refType = 4;
 			sourceTree = "<group>";
 		};

@@ -10,6 +10,8 @@
 from utilities import *
 
 # my own classes
+from PrefsController import *
+from InfoController import *
 from DataListener import *
 from FrameBuffer import *
 from PyImageView import *
@@ -68,14 +70,6 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
         super (AppDelegate, self).init ()   
         return (self)
     
-    
-    def awakeFromNib (self):
-        """
-        Here we simply setup the User Interface.
-        """
-        # setup the GUIs
-        return
-        
     
     def applicationDidFinishLaunching_ (self, aNotification):
         """
@@ -148,5 +142,29 @@ class AppDelegate (NibClassBuilder.AutoBaseClass):
             return (self.frameBuffers[fbIndex])
         return (None)
     
-
+    
+    def showInfoWindow_ (self, sender):
+        """
+        Simply opens a new panel with general information about the
+        image being displayed (self.currentFrame).
+        """
+        InfoController.infoController ().showWindow_ (self)
+        return
+    
+    
+    def showHeaderWindow_ (self, sender):
+        """
+        Opens a separate window wwith the header information from the
+        currently displayed image (if possible).
+        """
+        print ('headerWindow')
+        return
+    
+    
+    def showPrefsWindow_ (self, sender):
+        """
+        Shows the Preferences window
+        """
+        PrefsController.prefsController ().showWindow_ (self)
+        return
 
